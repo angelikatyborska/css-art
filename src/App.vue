@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav>
+      <section>
+        <header>10x10 grids</header>
+        <router-link to="/triangles1">1</router-link>
+        <router-link to="/triangles2">2</router-link>
+        <router-link to="/circles1">3</router-link>
+        <router-link to="/squares1">4</router-link>
+        <router-link to="/circlessquares1">5</router-link>
+        <router-link to="/pattern1">6</router-link>
+        <router-link to="/pattern2">7</router-link>
+      </section>
+    </nav>
+    <main>
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld,
-  },
+  components: {},
 };
 </script>
 
 <style lang="scss">
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 10vw auto 10vw;
+}
+nav {
+  padding: 1rem;
+
+  section {
+    a {
+      margin-right: 1rem;
+    }
+  }
 }
 </style>
