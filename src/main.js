@@ -14,6 +14,7 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false;
 
 const routes = [
+  { path: '/', redirect: '/triangles1' },
   { path: '/circles1', component: Circles1 },
   { path: '/squares1', component: Squares1 },
   { path: '/circlessquares1', component: CirclesSquares1 },

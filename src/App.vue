@@ -2,19 +2,19 @@
   <div id="app">
     <nav>
       <section>
-        <header>10x10 grids</header>
-        <router-link to="/triangles1">1</router-link>
-        <router-link to="/triangles2">2</router-link>
-        <router-link to="/circles1">3</router-link>
-        <router-link to="/squares1">4</router-link>
-        <router-link to="/circlessquares1">5</router-link>
-        <router-link to="/pattern1">6</router-link>
-        <router-link to="/pattern2">7</router-link>
+        <header>grids: </header>
+        <router-link :key="link" v-for="link in links.grids" :to="link">
+          {{ link }}
+        </router-link>
+        <span>or use arrows to navigate</span>
       </section>
     </nav>
     <main>
       <router-view></router-view>
     </main>
+    <footer>
+      <strong>source: </strong><a href="https://github.com/angelikatyborska/css-art">github.com/angelikatyborska/css-art</a>
+    </footer>
   </div>
 </template>
 
@@ -23,6 +23,61 @@
 export default {
   name: 'app',
   components: {},
+  created() {
+    window.addEventListener('keyup', this.onKeyup);
+  },
+  beforeDestroy() {
+    window.removeEventListener('keyup', this.onKeyup);
+  },
+  data() {
+    return {
+      links: {
+        grids: [
+          'triangles1',
+          'triangles2',
+          'circles1',
+          'squares1',
+          'circlessquares1',
+          'pattern1',
+          'pattern2',
+        ],
+      },
+    };
+  },
+  computed: {
+    allLinks() {
+      return this.links.grids;
+    },
+  },
+  methods: {
+    onKeyup(event) {
+      switch (event.key) {
+        case 'ArrowLeft':
+          this.prev(event);
+          break;
+        case 'ArrowRight':
+          this.next(event);
+          break;
+        default:
+          break;
+      }
+    },
+    nextLinkIndex(shift) {
+      const i = this.allLinks.findIndex(x => this.$router.currentRoute.path === `/${x}`);
+      return this.mod((i + shift), this.allLinks.length);
+    },
+    prev() {
+      const i = this.nextLinkIndex(-1);
+      this.$router.push({ path: this.allLinks[i] });
+    },
+    next() {
+      const i = this.nextLinkIndex(1);
+      this.$router.push({ path: this.allLinks[i] });
+    },
+    mod(n, m) {
+      return ((n % m) + m) % m;
+    },
+  },
 };
 </script>
 
@@ -36,15 +91,40 @@ html, body {
 #app {
   background-color: white;
   display: grid;
-  grid-template-columns: 10vw auto 10vw;
+  grid-template-columns: 20vw auto 20vw;
+  width: 100vw;
+  height: 100vh;
 }
+
 nav {
   padding: 1rem;
 
   section {
+    display: flex;
+    flex-wrap: wrap;
+
+    header {
+     font-weight: bold;
+      margin-right: 1rem;
+    }
+
     a {
       margin-right: 1rem;
     }
+  }
+}
+
+footer {
+  align-self: end;
+  padding: 1rem;
+}
+
+a {
+  color: black;
+
+  &.router-link-exact-active {
+    text-decoration: none;
+    color: red;
   }
 }
 </style>
