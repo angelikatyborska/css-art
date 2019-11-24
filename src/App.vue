@@ -36,6 +36,8 @@ export default {
         grids: [
           'triangles1',
           'triangles2',
+          'lines1',
+          'lines2',
           'circles1',
           'squares1',
           'circlessquares1',
@@ -84,6 +86,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import './variables.scss';
+
 html, body {
   padding: 0;
   margin: 0;
@@ -97,8 +101,6 @@ html, body {
   width: 100vw;
   height: 100vh;
 }
-
-$accent: red;
 
 nav {
   padding: 1rem;

@@ -2,6 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
 import Circles1 from './components/Circles1.vue';
+import Lines1 from './components/Lines1.vue';
+import Lines2 from './components/Lines2.vue';
 import Squares1 from './components/Squares1.vue';
 import CirclesSquares1 from './components/CirclesSquares1.vue';
 import Pattern1 from './components/Pattern1.vue';
@@ -17,6 +19,8 @@ Vue.config.productionTip = false;
 const routes = [
   { path: '/', redirect: '/triangles1' },
   { path: '/circles1', component: Circles1 },
+  { path: '/lines1', component: Lines1 },
+  { path: '/lines2', component: Lines2 },
   { path: '/squares1', component: Squares1 },
   { path: '/circlessquares1', component: CirclesSquares1 },
   { path: '/pattern1', component: Pattern1 },
