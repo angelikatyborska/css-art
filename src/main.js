@@ -8,6 +8,7 @@ import Pattern1 from './components/Pattern1.vue';
 import Pattern2 from './components/Pattern2.vue';
 import Triangles1 from './components/Triangles1.vue';
 import Triangles2 from './components/Triangles2.vue';
+import Eyes1 from './components/Eyes1.vue';
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,7 @@ const routes = [
   { path: '/pattern2', component: Pattern2 },
   { path: '/triangles1', component: Triangles1 },
   { path: '/triangles2', component: Triangles2 },
+  { path: '/eyes1', component: Eyes1 },
 ];
 
 const router = new VueRouter({

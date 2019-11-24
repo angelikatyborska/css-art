@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <nav>
+      <header>css art</header>
       <section>
         <header>grids: </header>
         <router-link :key="link" v-for="link in links.grids" :to="link">
           {{ link }}
         </router-link>
-        <span>or use arrows to navigate</span>
       </section>
+      <footer>use left/right arrows to navigate</footer>
     </nav>
     <main>
       <router-view></router-view>
@@ -40,6 +41,7 @@ export default {
           'circlessquares1',
           'pattern1',
           'pattern2',
+          'eyes1',
         ],
       },
     };
@@ -96,21 +98,34 @@ html, body {
   height: 100vh;
 }
 
+$accent: red;
+
 nav {
   padding: 1rem;
 
-  section {
+  > header {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  > section {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
 
     header {
-     font-weight: bold;
       margin-right: 1rem;
+      font-weight: bold;
     }
 
     a {
       margin-right: 1rem;
     }
+  }
+
+  > footer {
+    align-self: unset;
+    padding: unset;
   }
 }
 
@@ -124,7 +139,7 @@ a {
 
   &.router-link-exact-active {
     text-decoration: none;
-    color: red;
+    color: $accent;
   }
 }
 </style>
