@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Pattern1',
+  name: 'Triangles',
   props: {
     msg: String,
   },
@@ -28,33 +28,22 @@ export default {
   position: relative;
   overflow: visible;
 
-  $radius: 10vh;
-
   &:before {
     content: '';
     display: block;
     position: absolute;
-    background: black;
-    width: 100%;
-    height: 100%;
-    border-radius: $radius 0 $radius 0;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border-top: calc(90vh / 20) solid white;
+    border-right: calc(90vh / 20) solid white;
+    border-bottom: calc(90vh / 20) solid black;
+    border-left: calc(90vh / 20) solid black;
   }
 
   &:nth-child(3n) {
     &:before {
-      border-radius: $radius 0 0 0;
-    }
-  }
-
-  &:nth-child(6n) {
-    &:before {
-      border-radius: $radius $radius $radius 0;
-    }
-  }
-
-  &:nth-child(9n) {
-    &:before {
-      border-radius: 0 $radius $radius $radius;
+      border: 0;
     }
   }
 }

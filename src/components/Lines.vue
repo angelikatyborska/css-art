@@ -1,12 +1,12 @@
 <template>
   <div class="grid">
-    <div :key="n" v-for="n in 100" class="cell"></div>
+    <div :key="n" v-for="n in 441" class="cell"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Circles1',
+  name: 'Lines',
   props: {
     msg: String,
   },
@@ -18,8 +18,8 @@ export default {
   display: grid;
   width: 90vh;
   height: 90vh;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(21, 1fr);
   margin: 0 auto;
   padding-top: 5vh;
 }
@@ -35,17 +35,16 @@ export default {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    border-radius: 50%;
     background: black;
+    width: 1vh;
+    height: 100%;
   }
 
-  @for $i from 0 through 9 {
-    @for $j from 0 through 9 {
-      &:nth-child(#{$i * 10 + $j + 1}) {
+  @for $i from 0 through 20 {
+    @for $j from 0 through 20 {
+      &:nth-child(#{$i * 21 + $j + 1}) {
         &:before {
-          $size: #{(150 - ($i + $j) * 8) * 1%};
-          width: $size;
-          height: $size;
+          transform: translateX(-50%) translateY(-50%) rotate(#{(10 - $j) * 9deg});
         }
       }
     }

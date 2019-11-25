@@ -1,33 +1,33 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
-import Circles1 from './components/Circles1.vue';
-import Lines1 from './components/Lines1.vue';
+import Circles from './components/Circles.vue';
+import Lines from './components/Lines.vue';
 import Lines2 from './components/Lines2.vue';
-import Squares1 from './components/Squares1.vue';
-import CirclesSquares1 from './components/CirclesSquares1.vue';
-import Pattern1 from './components/Pattern1.vue';
+import Squares from './components/Squares.vue';
+import CirclesSquares from './components/CirclesSquares.vue';
+import Pattern from './components/Pattern.vue';
 import Pattern2 from './components/Pattern2.vue';
-import Triangles1 from './components/Triangles1.vue';
+import Triangles from './components/Triangles.vue';
 import Triangles2 from './components/Triangles2.vue';
-import Eyes1 from './components/Eyes1.vue';
+import Eyes from './components/Eyes.vue';
 
 Vue.use(VueRouter);
 
 Vue.config.productionTip = false;
 
 const routes = [
-  { path: '/', redirect: '/triangles1' },
-  { path: '/circles1', component: Circles1 },
-  { path: '/lines1', component: Lines1 },
+  { path: '/', redirect: '/triangles' },
+  { path: '/circles', component: Circles },
+  { path: '/lines', component: Lines },
   { path: '/lines2', component: Lines2 },
-  { path: '/squares1', component: Squares1 },
-  { path: '/circlessquares1', component: CirclesSquares1 },
-  { path: '/pattern1', component: Pattern1 },
+  { path: '/squares', component: Squares },
+  { path: '/circlessquares', component: CirclesSquares },
+  { path: '/pattern', component: Pattern },
   { path: '/pattern2', component: Pattern2 },
-  { path: '/triangles1', component: Triangles1 },
+  { path: '/triangles', component: Triangles },
   { path: '/triangles2', component: Triangles2 },
-  { path: '/eyes1', component: Eyes1 },
+  { path: '/eyes', component: Eyes },
 ];
 
 const router = new VueRouter({

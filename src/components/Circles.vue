@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'CirclesSquares1',
+  name: 'Circles',
   props: {
     msg: String,
   },
@@ -32,18 +32,18 @@ export default {
     content: '';
     display: block;
     position: absolute;
-    background: black;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%;
+    background: black;
   }
 
   @for $i from 0 through 9 {
     @for $j from 0 through 9 {
       &:nth-child(#{$i * 10 + $j + 1}) {
         &:before {
-          border-radius: #{($i + $j) * 2.8%};
-          $size: #{(96 - ($i + $j) * 3) * 1%};
+          $size: #{(150 - ($i + $j) * 8) * 1%};
           width: $size;
           height: $size;
         }

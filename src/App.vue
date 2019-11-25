@@ -34,16 +34,16 @@ export default {
     return {
       links: {
         grids: [
-          'triangles1',
+          'triangles',
           'triangles2',
-          'lines1',
+          'lines',
           'lines2',
-          'circles1',
-          'squares1',
-          'circlessquares1',
-          'pattern1',
+          'circles',
+          'squares',
+          'circlessquares',
+          'pattern',
           'pattern2',
-          'eyes1',
+          'eyes',
         ],
       },
     };

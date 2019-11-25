@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Triangles1',
+  name: 'Squares',
   props: {
     msg: String,
   },
@@ -32,18 +32,21 @@ export default {
     content: '';
     display: block;
     position: absolute;
-    width: 0;
-    height: 0;
-    background: transparent;
-    border-top: calc(90vh / 20) solid white;
-    border-right: calc(90vh / 20) solid white;
-    border-bottom: calc(90vh / 20) solid black;
-    border-left: calc(90vh / 20) solid black;
+    top: 50%;
+    left: 50%;
+    background: black;
   }
 
-  &:nth-child(3n) {
-    &:before {
-      border: 0;
+  @for $i from 0 through 9 {
+    @for $j from 0 through 9 {
+      &:nth-child(#{$i * 10 + $j + 1}) {
+        &:before {
+          $size: #{(130 - ($i + $j) * 7) * 1%};
+          width: $size;
+          height: $size;
+          transform: translateX(-50%) translateY(-50%) rotate(#{45deg + 30deg * ($i + $j)});
+        }
+      }
     }
   }
 }
