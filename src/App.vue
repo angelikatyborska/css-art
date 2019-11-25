@@ -43,6 +43,7 @@ export default {
           'circlessquares',
           'pattern',
           'pattern2',
+          'pattern3',
           'eyes',
         ],
       },

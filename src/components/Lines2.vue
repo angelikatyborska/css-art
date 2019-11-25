@@ -17,13 +17,10 @@ export default {
 @import "../variables.scss";
 
 .grid {
+  @include square-canvas();
   display: grid;
-  width: 90vh;
-  height: 90vh;
   grid-template-columns: repeat(21, 1fr);
   grid-template-rows: repeat(21, 1fr);
-  margin: 0 auto;
-  padding-top: 5vh;
 }
 
 .cell {

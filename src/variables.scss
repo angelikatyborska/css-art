@@ -1,1 +1,9 @@
 $accent: #e20909;
+
+@mixin square-canvas() {
+  width: 90vh;
+  height: 90vh;
+  margin: 0 auto;
+  padding-top: 5vh;
+  background: white;
+}

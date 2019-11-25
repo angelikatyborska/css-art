@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Pattern',
+  name: 'Pattern3',
   props: {
     msg: String,
   },
@@ -33,27 +33,27 @@ export default {
     content: '';
     display: block;
     position: absolute;
-    background: black;
     width: 100%;
     height: 100%;
-    border-radius: $radius 0 $radius 0;
+    border-radius: 0 $radius 0 0;
+    background: black;
   }
 
-  &:nth-child(3n) {
+  &:nth-child(4n + 1) {
+    &:before {
+      border-radius: 0 0 $radius 0;
+    }
+  }
+
+  &:nth-child(4n + 2) {
+    &:before {
+      border-radius: 0 0 0 $radius;
+    }
+  }
+
+  &:nth-child(4n + 3) {
     &:before {
       border-radius: $radius 0 0 0;
-    }
-  }
-
-  &:nth-child(6n) {
-    &:before {
-      border-radius: $radius $radius $radius 0;
-    }
-  }
-
-  &:nth-child(9n) {
-    &:before {
-      border-radius: 0 $radius $radius $radius;
     }
   }
 }
