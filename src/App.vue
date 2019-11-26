@@ -14,7 +14,12 @@
           {{ link }}
         </router-link>
       </section>
-      <footer>use left/right arrows to navigate</footer>
+      <footer>
+        <p>use left/right arrows to navigate</p>
+        <label for="accent-color">accent:</label>
+        <input id="accent-color" type="color" name="accent" value="#e20909"
+               v-on:change="onColorChange" />
+      </footer>
     </nav>
     <main>
       <router-view></router-view>
@@ -91,12 +96,20 @@ export default {
     mod(n, m) {
       return ((n % m) + m) % m;
     },
+    onColorChange(event) {
+      const root = document.querySelector(':root');
+      root.style.setProperty('--accent-color', event.target.value);
+    },
   },
 };
 </script>
 
 <style lang="scss">
 @import './variables.scss';
+
+:root {
+  --accent-color: #e20909;
+}
 
 html, body {
   padding: 0;
@@ -135,6 +148,12 @@ nav {
     }
   }
 
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
   > footer {
     align-self: unset;
     padding: unset;
@@ -148,6 +167,7 @@ footer {
 
 a {
   color: black;
+  word-wrap: break-word;
 
   &.router-link-exact-active {
     text-decoration: none;

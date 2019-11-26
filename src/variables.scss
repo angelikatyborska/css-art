@@ -1,4 +1,4 @@
-$accent: #e20909;
+$accent: var(--accent-color);
 $light-gray: #ddd;
 
 @mixin square-canvas() {
