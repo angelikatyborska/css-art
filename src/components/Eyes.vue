@@ -26,7 +26,7 @@ export default {
 .cell {
   position: relative;
   overflow: hidden;
-  background: #ddd;
+  background: $light-gray;
 
   $shift: 50%;
 

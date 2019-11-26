@@ -12,6 +12,7 @@ import Pattern3 from './components/Pattern3.vue';
 import Triangles from './components/Triangles.vue';
 import Triangles2 from './components/Triangles2.vue';
 import Eyes from './components/Eyes.vue';
+import Flower from './components/Flower.vue';
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,7 @@ const routes = [
   { path: '/triangles', component: Triangles },
   { path: '/triangles2', component: Triangles2 },
   { path: '/eyes', component: Eyes },
+  { path: '/flower', component: Flower },
 ];
 
 const router = new VueRouter({

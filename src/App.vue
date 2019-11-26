@@ -8,6 +8,12 @@
           {{ link }}
         </router-link>
       </section>
+      <section>
+        <header>misc: </header>
+        <router-link :key="link" v-for="link in links.misc" :to="link">
+          {{ link }}
+        </router-link>
+      </section>
       <footer>use left/right arrows to navigate</footer>
     </nav>
     <main>
@@ -46,12 +52,15 @@ export default {
           'pattern3',
           'eyes',
         ],
+        misc: [
+          'flower',
+        ],
       },
     };
   },
   computed: {
     allLinks() {
-      return this.links.grids;
+      return [...this.links.grids, ...this.links.misc];
     },
   },
   methods: {
