@@ -51,7 +51,7 @@ export default {
           'lines2',
           'circles',
           'squares',
-          'circlessquares',
+          'circles-squares',
           'pattern',
           'pattern2',
           'pattern3',
@@ -59,6 +59,7 @@ export default {
         ],
         misc: [
           'flower',
+          'sierpinski-triangle',
         ],
       },
     };

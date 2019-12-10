@@ -13,6 +13,7 @@ import Triangles from './components/Triangles.vue';
 import Triangles2 from './components/Triangles2.vue';
 import Eyes from './components/Eyes.vue';
 import Flower from './components/Flower.vue';
+import SierpinskiTriangle from './components/SierpinskiTriangle.vue';
 
 Vue.use(VueRouter);
 
@@ -24,7 +25,7 @@ const routes = [
   { path: '/lines', component: Lines },
   { path: '/lines2', component: Lines2 },
   { path: '/squares', component: Squares },
-  { path: '/circlessquares', component: CirclesSquares },
+  { path: '/circles-squares', component: CirclesSquares },
   { path: '/pattern', component: Pattern },
   { path: '/pattern2', component: Pattern2 },
   { path: '/pattern3', component: Pattern3 },
@@ -32,6 +33,7 @@ const routes = [
   { path: '/triangles2', component: Triangles2 },
   { path: '/eyes', component: Eyes },
   { path: '/flower', component: Flower },
+  { path: '/sierpinski-triangle', component: SierpinskiTriangle },
 ];
 
 const router = new VueRouter({
