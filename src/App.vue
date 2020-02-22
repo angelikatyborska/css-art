@@ -59,6 +59,7 @@ export default {
         ],
         misc: [
           'flower',
+          'hex',
           'sierpinski-triangle',
         ],
       },

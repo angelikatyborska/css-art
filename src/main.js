@@ -14,6 +14,7 @@ import Triangles2 from './components/Triangles2.vue';
 import Eyes from './components/Eyes.vue';
 import Flower from './components/Flower.vue';
 import SierpinskiTriangle from './components/SierpinskiTriangle.vue';
+import Hex from './components/Hex.vue';
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,7 @@ const routes = [
   { path: '/eyes', component: Eyes },
   { path: '/flower', component: Flower },
   { path: '/sierpinski-triangle', component: SierpinskiTriangle },
+  { path: '/hex', component: Hex },
 ];
 
 const router = new VueRouter({
