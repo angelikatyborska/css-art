@@ -16,6 +16,7 @@ import Flower from './components/Flower.vue';
 import SierpinskiTriangle from './components/SierpinskiTriangle.vue';
 import Hex from './components/Hex.vue';
 import Hexes from './components/Hexes.vue';
+import Beads from './components/Beads.vue';
 
 Vue.use(VueRouter);
 
@@ -38,6 +39,7 @@ const routes = [
   { path: '/sierpinski-triangle', component: SierpinskiTriangle },
   { path: '/hex', component: Hex },
   { path: '/hexes', component: Hexes },
+  { path: '/beads', component: Beads },
 ];
 
 const router = new VueRouter({

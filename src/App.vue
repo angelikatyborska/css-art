@@ -56,6 +56,7 @@ export default {
           'pattern',
           'pattern2',
           'pattern3',
+          'beads',
           'eyes',
         ],
         misc: [
