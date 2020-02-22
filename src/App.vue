@@ -52,6 +52,7 @@ export default {
           'circles',
           'squares',
           'circles-squares',
+          'hexes',
           'pattern',
           'pattern2',
           'pattern3',
