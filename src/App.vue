@@ -2,6 +2,7 @@
   <div id="app">
     <nav>
       <header>css art</header>
+      <p>no svg, no canvas, just divs</p>
       <section>
         <header>grids: </header>
         <router-link :key="link" v-for="link in links.grids" :to="link">
