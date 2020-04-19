@@ -1,5 +1,5 @@
 <template>
-  <div class="canvas">
+  <div class="wrapper">
     <div class="triangle-wrapper">
       <div class="triangle">
         <div :key="n" v-for="n in 3" class="triangle">
@@ -35,7 +35,7 @@ export default {
 <style scoped lang="scss">
 @import "../variables.scss";
 
-.canvas {
+.wrapper {
   @include square-canvas-child();
   position: relative;
   box-sizing: border-box;

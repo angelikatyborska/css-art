@@ -1,5 +1,5 @@
 <template>
-  <div class="canvas">
+  <div class="wrapper">
     <div class="hex"></div>
     <div class="hex"></div>
     <div class="hex"></div>
@@ -21,7 +21,7 @@ export default {
 <style scoped lang="scss">
 @import "../variables.scss";
 
-.canvas {
+.wrapper {
   @include square-canvas-child();
   position: relative;
   box-sizing: border-box;

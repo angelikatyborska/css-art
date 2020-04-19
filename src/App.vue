@@ -23,7 +23,9 @@
       </footer>
     </nav>
     <main>
-      <square-canvas>
+      <square-canvas
+        :title=this.$router.currentRoute.meta.title
+        :date=this.$router.currentRoute.meta.createdAt>
         <router-view></router-view>
       </square-canvas>
     </main>

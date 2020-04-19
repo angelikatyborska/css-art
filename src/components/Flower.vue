@@ -1,5 +1,5 @@
 <template>
-  <div class="canvas">
+  <div class="wrapper">
     <div class="flower" :key="m" v-for="m in 7">
       <div :key="n" v-for="n in 12" class="petal"></div>
     </div>
@@ -18,7 +18,7 @@ export default {
 <style scoped lang="scss">
 @import "../variables.scss";
 
-.canvas {
+.wrapper {
   @include square-canvas-child();
   position: relative;
   overflow: hidden;
