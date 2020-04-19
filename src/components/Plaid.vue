@@ -1,0 +1,138 @@
+<template>
+  <div class="wrapper">
+    <div class="grid">
+      <div :key="n" v-for="n in 576" class="cell"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Plaid',
+  props: {
+    msg: String,
+  },
+};
+</script>
+
+<style scoped lang="scss">
+@import "../variables.scss";
+
+.wrapper {
+  @include square-canvas-child();
+}
+
+$base-unit: 0.01em;
+$stripe-size: $base-unit * 0.707106781186548;
+
+@mixin top-stripes($color: white) {
+  background: repeating-linear-gradient(
+      45deg,
+      $color,
+      $color $stripe-size,
+      transparent $stripe-size,
+      transparent 2 * $stripe-size
+  );
+}
+
+
+@mixin bottom-stripes($color: white) {
+  background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent $stripe-size,
+      $color $stripe-size,
+      $color 2 * $stripe-size
+  );
+}
+
+// must add up to <= 50 * $base-unit, each step must be even times $base-unit
+$pattern-map: (
+  "1": "#{2 * $base-unit}",
+  "2": "#{10 * $base-unit}",
+  "3": "#{2 * $base-unit}",
+  "4": "#{4 * $base-unit}",
+  "5": "#{2 * $base-unit}",
+  "6": "#{4 * $base-unit}",
+  "7": "#{2 * $base-unit}",
+  "8": "#{10 * $base-unit}",
+  "9": "#{2 * $base-unit}",
+  "10": "#{4 * $base-unit}",
+  "11": "#{6 * $base-unit}",
+  "12": "#{2 * $base-unit}"
+);
+
+$color-map: (
+  "1": $light-gray,
+  "2": white,
+  "3": $light-gray,
+  "4": black,
+  "5": $accent,
+  "6": black,
+  "7": $light-gray,
+  "8": white,
+  "9": $accent,
+  "10": white,
+  "11": $light-gray,
+  "12": black,
+);
+
+.grid {
+  $grid-pattern: '';
+
+  @for $i from 1 through 12 {
+    $grid-pattern: "#{$grid-pattern} #{map-get($pattern-map, "#{$i}")}"
+  }
+
+  @for $i from 12 through 1 {
+    $grid-pattern: "#{$grid-pattern} #{map-get($pattern-map, "#{$i}")}"
+  }
+
+  $grid-pattern: unquote($grid-pattern);
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: $grid-pattern;
+  grid-template-rows: $grid-pattern;
+}
+
+.cell {
+  position: relative;
+  overflow: visible;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:before {
+    @include top-stripes($color: white);
+  }
+
+  &:after {
+    @include bottom-stripes($color: white);
+  }
+
+  @for $i from 1 through 12 {
+    &:nth-child(24n + #{$i}), &:nth-child(24n + #{25 - $i}) {
+      &:before {
+        @include top-stripes($color: #{map-get($color-map, "#{$i}")});
+      }
+    }
+
+    @for $j from 0 through 23 {
+      &:nth-child(#{24 * ($i - 1) + $j + 1}), &:nth-child(#{576 - 24 * $i + $j + 1}) {
+        &:after {
+          @include bottom-stripes($color: #{map-get($color-map, "#{$i}")});
+        }
+      }
+    }
+  }
+}
+</style>

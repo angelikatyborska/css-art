@@ -60,6 +60,7 @@ export default {
           'squares',
           'circles-squares',
           'hexes',
+          'plaid',
           'pattern',
           'pattern2',
           'pattern3',

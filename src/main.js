@@ -17,6 +17,7 @@ import SierpinskiTriangle from './components/SierpinskiTriangle.vue';
 import Hex from './components/Hex.vue';
 import Hexes from './components/Hexes.vue';
 import Beads from './components/Beads.vue';
+import Plaid from './components/Plaid.vue';
 
 Vue.use(VueRouter);
 
@@ -40,6 +41,7 @@ const routes = [
   { meta: { title: 'hex', createdAt: '2020-02-22' }, path: '/hex', component: Hex },
   { meta: { title: 'hexes', createdAt: '2020-02-22' }, path: '/hexes', component: Hexes },
   { meta: { title: 'beads', createdAt: '2020-02-22' }, path: '/beads', component: Beads },
+  { meta: { title: 'plaid', createdAt: '2020-04-19' }, path: '/plaid', component: Plaid },
 ];
 
 const router = new VueRouter({
