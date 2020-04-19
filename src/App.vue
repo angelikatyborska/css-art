@@ -23,7 +23,9 @@
       </footer>
     </nav>
     <main>
-      <router-view></router-view>
+      <square-canvas>
+        <router-view></router-view>
+      </square-canvas>
     </main>
     <footer>
       <strong>source: </strong><a href="https://github.com/angelikatyborska/css-art">github.com/angelikatyborska/css-art</a>
@@ -33,9 +35,11 @@
 
 <script>
 
+import SquareCanvas from './SquareCanvas.vue';
+
 export default {
   name: 'app',
-  components: {},
+  components: { SquareCanvas },
   created() {
     window.addEventListener('keyup', this.onKeyup);
   },
@@ -128,6 +132,10 @@ html, body {
   grid-template-columns: 20vw auto 20vw;
   width: 100vw;
   height: 100vh;
+
+  @media screen and (max-width: $mobile-max-width) {
+    display: block;
+  }
 }
 
 nav {

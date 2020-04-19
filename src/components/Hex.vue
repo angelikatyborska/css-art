@@ -22,7 +22,7 @@ export default {
 @import "../variables.scss";
 
 .canvas {
-  @include square-canvas();
+  @include square-canvas-child();
   position: relative;
   box-sizing: border-box;
 }

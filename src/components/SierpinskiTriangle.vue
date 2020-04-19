@@ -36,7 +36,7 @@ export default {
 @import "../variables.scss";
 
 .canvas {
-  @include square-canvas();
+  @include square-canvas-child();
   position: relative;
   box-sizing: border-box;
 }
@@ -73,7 +73,7 @@ export default {
   }
 }
 
-$max-size: 90vh;
+$max-size: 0.9em;
 $levels: 9;
 
 @for $i from 1 through $levels {

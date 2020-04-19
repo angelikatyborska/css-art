@@ -17,7 +17,7 @@ export default {
 @import "../variables.scss";
 
 .grid {
-  @include square-canvas();
+  @include square-canvas-child();
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
@@ -27,7 +27,7 @@ export default {
   position: relative;
   overflow: visible;
 
-  $radius: 10vh;
+  $radius: 0.1em;
 
   &:before {
     content: '';

@@ -19,11 +19,11 @@ export default {
 @import "../variables.scss";
 
 $root-three: 1.732050808;
-$width: 4.5vh;
-$gap: 1.25vh;
+$width: 0.045em;
+$gap: 0.0125em;
 
 .grid {
-  @include square-canvas();
+  @include square-canvas-child();
   display: grid;
   grid-template-columns: repeat(16, $width);
   grid-template-rows: repeat(16, $width / $root-three);

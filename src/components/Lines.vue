@@ -17,7 +17,7 @@ export default {
 @import "../variables.scss";
 
 .grid {
-  @include square-canvas();
+  @include square-canvas-child();
   display: grid;
   grid-template-columns: repeat(21, 1fr);
   grid-template-rows: repeat(21, 1fr);
@@ -35,7 +35,7 @@ export default {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     background: black;
-    width: 1vh;
+    width: 0.01em;
     height: 100%;
   }
 
