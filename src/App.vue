@@ -71,6 +71,7 @@ export default {
           'flower',
           'hex',
           'sierpinski-triangle',
+          'cassette',
         ],
       },
     };
@@ -82,15 +83,17 @@ export default {
   },
   methods: {
     onKeyup(event) {
-      switch (event.key) {
-        case 'ArrowLeft':
-          this.prev(event);
-          break;
-        case 'ArrowRight':
-          this.next(event);
-          break;
-        default:
-          break;
+      if (!event.target.tagName || (event.target.tagName.toLowerCase()) !== 'input') {
+        switch (event.key) {
+          case 'ArrowLeft':
+            this.prev(event);
+            break;
+          case 'ArrowRight':
+            this.next(event);
+            break;
+          default:
+            break;
+        }
       }
     },
     nextLinkIndex(shift) {
@@ -121,6 +124,10 @@ export default {
 
 :root {
   --accent-color: #e20909;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html, body {
