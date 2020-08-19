@@ -5,14 +5,14 @@
       <p>no svg, no canvas, just divs</p>
       <section>
         <header>grids: </header>
-        <router-link :key="link" v-for="link in links.grids" :to="link">
-          {{ link }}
+        <router-link :key="link.to" v-for="link in links.grids" :to="link.to">
+          {{ link.text }}
         </router-link>
       </section>
       <section>
         <header>misc: </header>
-        <router-link :key="link" v-for="link in links.misc" :to="link">
-          {{ link }}
+        <router-link :key="link.to" v-for="link in links.misc" :to="link.to">
+          {{ link.text }}
         </router-link>
       </section>
       <footer>
@@ -38,6 +38,7 @@
 <script>
 
 import SquareCanvas from './SquareCanvas.vue';
+import links from './links';
 
 export default {
   name: 'app',
@@ -50,30 +51,11 @@ export default {
   },
   data() {
     return {
-      links: {
-        grids: [
-          'triangles',
-          'triangles2',
-          'lines',
-          'lines2',
-          'circles',
-          'squares',
-          'circles-squares',
-          'hexes',
-          'plaid',
-          'pattern',
-          'pattern2',
-          'pattern3',
-          'beads',
-          'eyes',
-        ],
-        misc: [
-          'flower',
-          'hex',
-          'sierpinski-triangle',
-          'cassette',
-        ],
-      },
+      links:
+        {
+          grids: links.grids.map(x => ({ to: `/${x}`, text: x })),
+          misc: links.misc.map(x => ({ to: `/${x}`, text: x })),
+        },
     };
   },
   computed: {
@@ -97,16 +79,16 @@ export default {
       }
     },
     nextLinkIndex(shift) {
-      const i = this.allLinks.findIndex(x => this.$router.currentRoute.path === `/${x}`);
+      const i = this.allLinks.findIndex(x => this.$router.currentRoute.path === x.to);
       return this.mod((i + shift), this.allLinks.length);
     },
     prev() {
       const i = this.nextLinkIndex(-1);
-      this.$router.push({ path: this.allLinks[i] });
+      this.$router.push({ path: this.allLinks[i].to });
     },
     next() {
       const i = this.nextLinkIndex(1);
-      this.$router.push({ path: this.allLinks[i] });
+      this.$router.push({ path: this.allLinks[i].to });
     },
     mod(n, m) {
       return ((n % m) + m) % m;
