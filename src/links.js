@@ -1,3 +1,9 @@
+// HEY!
+//
+// When adding new links, do not forget to take a screenshot of the canvas-wrapper node
+// and put it in public/covers!
+//
+
 module.exports = {
   grids: [
     'triangles',
