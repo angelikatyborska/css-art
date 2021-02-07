@@ -18,6 +18,8 @@ module.exports = {
     'pattern',
     'pattern2',
     'pattern3',
+    'pattern4_1',
+    'pattern4_2',
     'beads',
     'eyes',
   ],

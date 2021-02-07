@@ -53,8 +53,8 @@ export default {
     return {
       links:
         {
-          grids: links.grids.map(x => ({ to: `/${x}`, text: x })),
-          misc: links.misc.map(x => ({ to: `/${x}`, text: x })),
+          grids: links.grids.map(x => ({ to: `/${x}`, text: x.replace('_', '.') })),
+          misc: links.misc.map(x => ({ to: `/${x}`, text: x.replace('_', '.') })),
         },
     };
   },
