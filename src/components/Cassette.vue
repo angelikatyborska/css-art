@@ -66,6 +66,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:math";
 @import "../variables.scss";
 
 $background-color: white;
@@ -289,8 +290,8 @@ $tape-color: #59493a;
       overflow: hidden;
       box-shadow: -1px 1px 1px rgba(white, 0.3), 1px -1px 1px rgba(black, 0.3);
 
-      &.left { left: #{($sticker-hole-for-tape-height - $size) / 2}; }
-      &.right { right: #{($sticker-hole-for-tape-height - $size) / 2}; }
+      &.left { left: #{($sticker-hole-for-tape-height - $size) * 0.5}; }
+      &.right { right: #{($sticker-hole-for-tape-height - $size) * 0.5}; }
 
       &:before {
         content: '';
@@ -542,14 +543,14 @@ $tape-color: #59493a;
    &:before, &:after {
      content: '';
      display: block;
-     width: $size / 6;
+     width: math.div($size, 6);
      height: 50%;
      background: darken($body-color, 10);
      position: absolute;
      top: 50%;
      left: 50%;
      transform-origin: center;
-     border-radius: $size / 6;
+     border-radius: math.div($size, 6);
    }
 
    &:before {

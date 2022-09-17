@@ -33,6 +33,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:math";
 @import "../variables.scss";
 
 .wrapper {
@@ -42,12 +43,12 @@ export default {
 }
 
 @mixin triangle($a, $color) {
-  $b: $a * 1.73205080757 / 2;
+  $b: $a * 1.73205080757 * 0.5;
   width: 0;
   border-top: 0 solid transparent;
-  border-right: $a / 2 solid transparent;
+  border-right: $a * 0.5 solid transparent;
   border-bottom: $b solid $color;
-  border-left: $a / 2 solid transparent;
+  border-left: $a * 0.5 solid transparent;
 }
 
 .triangle {
@@ -92,7 +93,7 @@ $levels: 9;
   }
 
   #{$selector} {
-    @include triangle($max-size * 2 / $x, $color);
+    @include triangle(math.div($max-size * 2, $x), $color);
   }
 }
 </style>

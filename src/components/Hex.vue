@@ -19,6 +19,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:math";
 @import "../variables.scss";
 
 .wrapper {
@@ -30,7 +31,7 @@ export default {
 @mixin hex($width, $color) {
   $root-three: 1.732050808;
   width: $width;
-  height: $width / $root-three;
+  height: math.div($width, $root-three);
   background-color: $color;
 
   &:before,
@@ -38,19 +39,19 @@ export default {
     content: "";
     position: absolute;
     width: 0;
-    border-left: $width / 2 solid transparent;
-    border-right: $width / 2 solid transparent;
+    border-left: 0.5 * $width solid transparent;
+    border-right: 0.5 * $width solid transparent;
   }
 
   &:before {
     bottom: 100%;
-    border-bottom: $width / (2 * $root-three) solid $color;
+    border-bottom: math.div($width, (2 * $root-three)) solid $color;
   }
 
   &:after {
     top: 100%;
     width: 0;
-    border-top: $width / (2 * $root-three) solid $color;
+    border-top: math.div($width, (2 * $root-three)) solid $color;
   }
 }
 

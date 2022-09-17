@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:math";
 @import "../variables.scss";
 
 .wrapper {
@@ -78,7 +79,7 @@ export default {
 
   @for $i from 0 through $petals-number - 1 {
     &:nth-child(#{$i}) {
-      transform: translateX(-50%) rotate(#{($i/$petals-number) * 360deg});
+      transform: translateX(-50%) rotate(#{(math.div($i, $petals-number)) * 360deg});
     }
   }
 

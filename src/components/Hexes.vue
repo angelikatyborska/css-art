@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:math";
 @import "../variables.scss";
 
 $root-three: 1.732050808;
@@ -26,8 +27,8 @@ $gap: 0.0125em;
   @include square-canvas-child();
   display: grid;
   grid-template-columns: repeat(16, $width);
-  grid-template-rows: repeat(16, $width / $root-three);
-  grid-row-gap: $gap / $root-three + ($width / (2 * $root-three));
+  grid-template-rows: repeat(16, math.div($width, $root-three));
+  grid-row-gap: math.div($gap, $root-three) + math.div($width, (2 * $root-three));
   grid-column-gap: $gap;
   justify-content: center;
   align-content: center;
@@ -35,7 +36,7 @@ $gap: 0.0125em;
 
 @mixin hex($width, $color) {
   width: $width;
-  height: $width / $root-three;
+  height: math.div($width, $root-three);
   background-color: $color;
 
   &:before,
@@ -43,19 +44,19 @@ $gap: 0.0125em;
     content: "";
     position: absolute;
     width: 0;
-    border-left: $width / 2 solid transparent;
-    border-right: $width / 2 solid transparent;
+    border-left: $width * 0.5 solid transparent;
+    border-right: $width * 0.5 solid transparent;
   }
 
   &:before {
     bottom: 100%;
-    border-bottom: $width / (2 * $root-three) solid $color;
+    border-bottom: math.div($width, (2 * $root-three)) solid $color;
   }
 
   &:after {
     top: 100%;
     width: 0;
-    border-top: $width / (2 * $root-three) solid $color;
+    border-top: math.div($width, (2 * $root-three)) solid $color;
   }
 }
 
