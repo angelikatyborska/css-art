@@ -122,7 +122,7 @@ html, body {
   background-color: white;
   display: grid;
   grid-template-columns: 20vw auto 20vw;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 
   @media screen and (max-width: $mobile-max-width) {
