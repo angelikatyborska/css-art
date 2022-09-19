@@ -28,6 +28,6 @@ module.exports = {
     'hex',
     'sierpinski-triangle',
     'cassette',
-    'piano',
+    // 'piano',
   ],
 };
