@@ -5,14 +5,14 @@
       <p>no svg, no canvas, just divs</p>
       <section>
         <header>grids: </header>
-        <router-link :key="link.to" v-for="link in links.grids" :to="link.to">
-          {{ link.text }}
+        <router-link :key="link.to" v-for="link in links.grids" :to="link.to" :title="link.to === newestRoute.path ? 'Newest Item' : null">
+          {{ link.text }}<span class="new-route-marker" v-if="link.to === newestRoute.path">*</span>
         </router-link>
       </section>
       <section>
         <header>misc: </header>
-        <router-link :key="link.to" v-for="link in links.misc" :to="link.to">
-          {{ link.text }}
+        <router-link :key="link.to" v-for="link in links.misc" :to="link.to" :title="link.to === newestRoute.path ? 'Newest Item' : null">
+          {{ link.text }}<span class="new-route-marker" v-if="link.to === newestRoute.path">*</span>
         </router-link>
       </section>
       <footer>
@@ -39,6 +39,10 @@
 
 import SquareCanvas from './SquareCanvas.vue';
 import links from './links';
+import routes from './routes';
+
+const sortedRoutes = routes.filter(a => a.meta).sort((a, b) => b.meta.createdAt.localeCompare(a.meta.createdAt));
+const newestRoute = sortedRoutes[0];
 
 export default {
   name: 'app',
@@ -56,6 +60,7 @@ export default {
           grids: links.grids.map(x => ({ to: `/${x}`, text: x.replace('_', '.') })),
           misc: links.misc.map(x => ({ to: `/${x}`, text: x.replace('_', '.') })),
         },
+      newestRoute,
     };
   },
   computed: {
@@ -178,5 +183,10 @@ a {
     text-decoration: none;
     color: $accent;
   }
+}
+
+.new-route-marker {
+  font-weight: bold;
+  color: $accent;
 }
 </style>
