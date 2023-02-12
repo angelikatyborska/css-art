@@ -22,12 +22,12 @@ module.exports = {
     'pattern4_2',
     'beads',
     'eyes',
+    'dot-queue',
   ],
   misc: [
     'flower',
     'hex',
     'sierpinski-triangle',
     'cassette',
-    // 'piano',
   ],
 };

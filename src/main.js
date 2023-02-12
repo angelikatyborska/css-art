@@ -21,6 +21,7 @@ import Hexes from './components/Hexes.vue';
 import Beads from './components/Beads.vue';
 import Plaid from './components/Plaid.vue';
 import Cassette from './components/Cassette.vue';
+import DotQueue from './components/DotQueue.vue';
 
 Vue.use(VueRouter);
 
@@ -48,6 +49,7 @@ const routes = [
   { meta: { title: 'beads', createdAt: '2020-02-22' }, path: '/beads', component: Beads },
   { meta: { title: 'plaid', createdAt: '2020-04-19' }, path: '/plaid', component: Plaid },
   { meta: { title: 'cassette', createdAt: '2020-05-01' }, path: '/cassette', component: Cassette },
+  { meta: { title: 'dot-queue', createdAt: '2023-02-12' }, path: '/dot-queue', component: DotQueue },
 ];
 
 const router = new VueRouter({
