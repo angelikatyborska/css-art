@@ -17,6 +17,8 @@ export default {
 <style scoped lang="scss">
 @import "../variables.scss";
 
+$sqrt2: 1.41421356;
+
 .grid {
   @include square-canvas-child();
   display: grid;
@@ -29,19 +31,19 @@ export default {
   overflow: visible;
   background-color: white;
   background-position: center;
-  border: 2px solid black;
+  border: 2px solid $light-gray;
   border-collapse: collapse;
 }
 
 $size: 16px;
 
 @mixin stripes_horizontal() {
-  background-image: linear-gradient(to bottom, black 25%, white 25%);
+  background-image: linear-gradient(to bottom, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%);
   background-size: $size $size;
 }
 
 @mixin stripes_vertical() {
-  background-image: linear-gradient(to right, black 25%, white 25%);
+  background-image: linear-gradient(to right, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%);
   background-size: $size $size;
 }
 
@@ -68,7 +70,13 @@ $size: 16px;
 
 // accidental creation when attempting to do stripes_diagonal_north_east
 @mixin bowties_diagonal() {
-  background-image: linear-gradient(45deg, white 25%, black 25%, black 75%, white 75%);
+  background-image: linear-gradient(135deg, white 25%, black 25%, black 75%, white 75%);
+  background-size: $size $size;
+}
+
+// accidental creation when attempting to change bowties_diagonal
+@mixin zig_zag_diagonal() {
+  background-image: linear-gradient(30deg, white 25%, black 25%, black 75%, white 75%);
   background-size: $size $size;
 }
 
@@ -80,16 +88,87 @@ $size: 16px;
 
 // accidental creation when attempting to do stripes_diagonal_north_east
 @mixin trapezoids_chain_diagonal() {
-  background-image: linear-gradient(135deg, transparent 30%, black 30%, black 70%, transparent 70%), linear-gradient(135deg, black 12.5%, transparent 12.5%), linear-gradient(135deg, transparent 87.5%, black 87.5%);
+  background-image: linear-gradient(45deg, transparent 30%, black 30%, black 70%, transparent 70%), linear-gradient(45deg, black 12.5%, transparent 12.5%), linear-gradient(45deg, transparent 87.5%, black 87.5%);
   background-size: $size $size, $size $size, $size $size;
+}
+
+@mixin double_stripes_horizontal() {
+  $offset: 25%;
+  $width: 12.5%;
+  background-image:
+    linear-gradient(to bottom, transparent #{50% - $offset - $width}, black #{50% - $offset - $width}, black #{50% - $offset}, transparent #{50% - $offset}),
+    linear-gradient(to bottom, transparent #{50% + $offset}, black #{50% + $offset}, black #{50% + $offset + $width}, transparent #{50% + $offset + $width});
+  background-size: $size $size, $size $size;
+}
+
+@mixin double_stripes_vertical() {
+  $offset: 25%;
+  $width: 12.5%;
+  background-image:
+    linear-gradient(to right, transparent #{50% - $offset - $width}, black #{50% - $offset - $width}, black #{50% - $offset}, transparent #{50% - $offset}),
+    linear-gradient(to right, transparent #{50% + $offset}, black #{50% + $offset}, black #{50% + $offset + $width}, transparent #{50% + $offset + $width});
+  background-size: $size $size, $size $size;
+}
+
+// accidental creation when attempting to do chessboard
+@mixin lattice() {
+  background-image:
+    linear-gradient(to right, black 25%, transparent 25%, transparent 75%, black 75%),
+    linear-gradient(to bottom, black 25%, transparent 25%, transparent 75%, black 75%);
+  background-size: $size $size, $size $size;
+}
+
+@mixin pluses() {
+  $width: 12.5%;
+  $offset: 12.5%;
+  background-image:
+    linear-gradient(to right, white  #{$offset}, transparent #{$offset}, transparent #{100% - $offset}, white #{100% - $offset}),
+    linear-gradient(to bottom, white  #{$offset}, transparent #{$offset}, transparent #{100% - $offset}, white #{100% - $offset}),
+    linear-gradient(to right, transparent #{50% - $width}, black #{50% - $width}, black #{50% + $width}, transparent #{50% + $width}),
+    linear-gradient(to bottom, transparent  #{50% - $width}, black  #{50% - $width}, black #{50% + $width}, transparent #{50% + $width});
+  background-size: $size $size, $size $size, $size $size, $size $size;
+}
+
+@mixin dots() {
+  background-image:
+    radial-gradient(at 50% 50%, transparent 50% / $sqrt2, black 50% / $sqrt2);
+  background-size: $size $size;
+}
+
+// accidental creation when attempting to do dots
+@mixin sparkles() {
+  background-image:
+    radial-gradient(at 50% 50%, transparent 50% * $sqrt2, $accent 50% * $sqrt2);
+  background-size: $size $size;
+}
+
+@mixin hypno() {
+  background-image:
+    repeating-radial-gradient(circle at 50% 50%, black, black $size * 0.25, transparent $size * 0.25, transparent $size * 0.5);
+}
+
+.cell:nth-child(2) {
+  @include dots()
 }
 
 .cell:nth-child(3) {
   @include stripes_diagonal_north_west()
 }
 
+.cell:nth-child(9) {
+  @include double_stripes_vertical()
+}
+
+.cell:nth-child(16) {
+  @include pluses()
+}
+
 .cell:nth-child(17) {
   @include trapezoids_diagonal()
+}
+
+.cell:nth-child(23) {
+  @include sparkles()
 }
 
 .cell:nth-child(38) {
@@ -104,12 +183,28 @@ $size: 16px;
   @include triangle_right_angle_north_west()
 }
 
+.cell:nth-child(54) {
+  @include hypno()
+}
+
+.cell:nth-child(59) {
+  @include lattice()
+}
+
 .cell:nth-child(74) {
   @include stripes_diagonal_north_east()
 }
 
+.cell:nth-child(78) {
+  @include zig_zag_diagonal()
+}
+
 .cell:nth-child(81) {
   @include trapezoids_chain_diagonal()
+}
+
+.cell:nth-child(89) {
+  @include double_stripes_horizontal()
 }
 
 .cell:nth-child(94) {
