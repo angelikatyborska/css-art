@@ -1,0 +1,120 @@
+<template>
+  <div class="grid">
+    <div :key="n" v-for="n in 100" class="cell">
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HundredGradients',
+  props: {
+    msg: String,
+  },
+};
+</script>
+
+<style scoped lang="scss">
+@import "../variables.scss";
+
+.grid {
+  @include square-canvas-child();
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.cell {
+  position: relative;
+  overflow: visible;
+  background-color: white;
+  background-position: center;
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+$size: 16px;
+
+@mixin stripes_horizontal() {
+  background-image: linear-gradient(to bottom, black 25%, white 25%);
+  background-size: $size $size;
+}
+
+@mixin stripes_vertical() {
+  background-image: linear-gradient(to right, black 25%, white 25%);
+  background-size: $size $size;
+}
+
+@mixin stripes_diagonal_north_west() {
+  background-image: linear-gradient(45deg, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%), linear-gradient(45deg, black 12.5%, transparent 12.5%), linear-gradient(45deg, transparent 87.5%, black 87.5%);
+  background-size: $size $size, $size $size, $size $size;
+}
+
+//@mixin stripes_diagonal_north_east() {
+//  background-image: linear-gradient(45deg, transparent 33.33%, black 33.33%, black 66.66%, transparent 66.66%), linear-gradient(45deg, black 16.66%, transparent 16.66%), linear-gradient(45deg, transparent 83.26%, black 83.26%);
+//  background-size: $size $size, $size $size, $size $size;
+//}
+
+@mixin stripes_diagonal_north_east() {
+  background-image: linear-gradient(135deg, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%), linear-gradient(135deg, black 12.5%, transparent 12.5%), linear-gradient(135deg, transparent 87.5%, black 87.5%);
+  background-size: $size $size, $size $size, $size $size;
+}
+
+// accidental creation when attempting to do stripes_diagonal_south_west
+@mixin triangle_right_angle_north_west() {
+  background-image: linear-gradient(135deg, black 25%, white 25%);
+  background-size: $size $size;
+}
+
+// accidental creation when attempting to do stripes_diagonal_north_east
+@mixin bowties_diagonal() {
+  background-image: linear-gradient(45deg, white 25%, black 25%, black 75%, white 75%);
+  background-size: $size $size;
+}
+
+// accidental creation when attempting to do stripes_diagonal_north_east
+@mixin trapezoids_diagonal() {
+  background-image: linear-gradient(45deg, transparent 25%, black 25%, black 75%, transparent 75%), linear-gradient(45deg, black 12.5%, transparent 12.5%), linear-gradient(45deg, transparent 87.5%, black 87.5%);
+  background-size: $size $size, $size $size, $size $size;
+}
+
+// accidental creation when attempting to do stripes_diagonal_north_east
+@mixin trapezoids_chain_diagonal() {
+  background-image: linear-gradient(135deg, transparent 30%, black 30%, black 70%, transparent 70%), linear-gradient(135deg, black 12.5%, transparent 12.5%), linear-gradient(135deg, transparent 87.5%, black 87.5%);
+  background-size: $size $size, $size $size, $size $size;
+}
+
+.cell:nth-child(3) {
+  @include stripes_diagonal_north_west()
+}
+
+.cell:nth-child(17) {
+  @include trapezoids_diagonal()
+}
+
+.cell:nth-child(38) {
+  @include stripes_horizontal()
+}
+
+.cell:nth-child(51) {
+  @include stripes_vertical()
+}
+
+.cell:nth-child(52) {
+  @include triangle_right_angle_north_west()
+}
+
+.cell:nth-child(74) {
+  @include stripes_diagonal_north_east()
+}
+
+.cell:nth-child(81) {
+  @include trapezoids_chain_diagonal()
+}
+
+.cell:nth-child(94) {
+  @include bowties_diagonal()
+}
+
+
+</style>

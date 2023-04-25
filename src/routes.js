@@ -19,6 +19,7 @@ import Beads from './components/Beads.vue';
 import Plaid from './components/Plaid.vue';
 import Cassette from './components/Cassette.vue';
 import DotQueue from './components/DotQueue.vue';
+import HundredGradients from './components/HundredGradients.vue';
 
 export default [
   { path: '/', redirect: '/triangles' },
@@ -43,4 +44,5 @@ export default [
   { meta: { title: 'plaid', createdAt: '2020-04-19' }, path: '/plaid', component: Plaid },
   { meta: { title: 'cassette', createdAt: '2020-05-01' }, path: '/cassette', component: Cassette },
   { meta: { title: 'dot-queue', createdAt: '2023-02-12' }, path: '/dot-queue', component: DotQueue },
+  { meta: { title: '100-gradients', createdAt: '2023-04-25' }, path: '/100-gradients', component: HundredGradients },
 ];

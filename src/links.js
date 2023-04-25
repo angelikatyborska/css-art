@@ -29,5 +29,6 @@ module.exports = {
     'hex',
     'sierpinski-triangle',
     'cassette',
+    '100-gradients',
   ],
 };
