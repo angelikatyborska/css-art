@@ -79,6 +79,18 @@ $size: 16px;
   background-size: $size $size, $size $size, $size $size, $size $size, $size $size, $size $size;
 }
 
+@mixin stripes-diagonal-both-sides-diff() {
+  background-image:
+    linear-gradient(135deg, transparent 43.75%, white 43.75%, white 56.25%, transparent 56.25%),
+    linear-gradient(135deg, white 6.25%, transparent 6.25%),
+    linear-gradient(135deg, transparent 93.75%, white 93.75%),
+    linear-gradient(45deg, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%),
+    linear-gradient(45deg, black 12.5%, transparent 12.5%),
+    linear-gradient(45deg, transparent 87.5%, black 87.5%);
+  background-size: $size $size, $size $size, $size $size, $size $size, $size $size, $size $size;
+  background-blend-mode: difference, difference, difference, normal, normal, normal;
+}
+
 @mixin metal-striped-floor() {
   $width: 6.25%;
   $offset: 6.25%;
@@ -94,16 +106,39 @@ $size: 16px;
   background-size: $size $size, $size $size, $size $size;
 }
 
-@mixin equilateral_triangle() {
+@mixin equilateral-triangles() {
   background-color: black;
   background-image: linear-gradient(60deg, transparent 50%, white 50%), linear-gradient(-60deg, transparent 50%, white 50%);
   background-size: $size $size, $size $size;
   background-position: center calc(50% - #{0.25 * $size});
 }
 
+@mixin triangle-wave() {
+  background-color: black;
+  background-image: linear-gradient(30deg, transparent 50%, white 50%), linear-gradient(-30deg, transparent 50%, white 50%);
+  background-size: $size $size, $size $size;
+}
+
 // accidental creation when attempting to do stripes_diagonal_north_east
 @mixin bowties-diagonal() {
   background-image: linear-gradient(135deg, white 25%, black 25%, black 75%, white 75%);
+  background-size: $size $size;
+}
+
+@mixin diamond-lattice() {
+  background-image:
+    linear-gradient(to right, black 12.5%, transparent 12.5%, transparent 87.75%, black 87.75%),
+    linear-gradient(to bottom, black 12.5%, transparent 12.5%, transparent 87.75%, black 87.75%),
+    linear-gradient(45deg, black 18.75%, transparent 18.75%, transparent 81.25%, black 81.25%),
+    linear-gradient(135deg, black 18.75%, transparent 18.75%, transparent 81.25%, black 81.25%);
+  background-size: $size $size;
+}
+
+@mixin diamond-chain-big-horizontal() {
+  background-image:
+    linear-gradient(to bottom, black 12.5%, transparent 12.5%, transparent 87.75%, black 87.75%),
+    linear-gradient(45deg, black 18.75%, transparent 18.75%, transparent 81.25%, black 81.25%),
+    linear-gradient(135deg, black 18.75%, transparent 18.75%, transparent 81.25%, black 81.25%);
   background-size: $size $size;
 }
 
@@ -174,7 +209,17 @@ $size: 16px;
   background-size: $size $size;
 }
 
-@mixin color-stripes-horizontal {
+@mixin double-stripes-different-widths-horizontal() {
+  background-image: linear-gradient(to bottom, black 6.125%, transparent 6.125%, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%, transparent 93.875%, black 93.875%);
+  background-size: $size $size;
+}
+
+@mixin double-stripes-different-widths-vertical() {
+  background-image: linear-gradient(to right, black 6.125%, transparent 6.125%, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%, transparent 93.875%, black 93.875%);
+  background-size: $size $size;
+}
+
+@mixin color-stripes-horizontal() {
   $width: 12.5%;
   background-color: $light-gray;
   background-image:
@@ -264,7 +309,7 @@ $size: 16px;
   background-size: $size $size, $size $size, $size $size, $size $size;
 }
 
-@mixin exes() {
+@mixin letters-x() {
   $width: 6.25%;
   $offset: 25%;
   background-image:
@@ -273,6 +318,29 @@ $size: 16px;
     linear-gradient(45deg, transparent #{50% - $width}, black #{50% - $width}, black #{50% + $width}, transparent #{50% + $width}),
     linear-gradient(135deg, transparent  #{50% - $width}, black  #{50% - $width}, black #{50% + $width}, transparent #{50% + $width});
   background-size: $size $size, $size $size, $size $size, $size $size;
+}
+
+@mixin letters-e() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to right, white $padding-right, transparent $padding-right, transparent #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to bottom, white $padding-top, transparent $padding-top, transparent #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, transparent #{$padding-right}, black #{$padding-right}, black #{$padding-right + $letter-width}, transparent #{$padding-right + $letter-width}),
+    linear-gradient(to bottom, transparent #{$padding-top}, black #{$padding-top}, black #{$padding-top + $letter-width}, transparent #{$padding-top + $letter-width}),
+    linear-gradient(to bottom, transparent #{100% - $padding-top - $letter-width}, black #{100% - $padding-top - $letter-width}, black #{100% - $padding-top}, transparent #{100% - $padding-top}),
+    linear-gradient(to bottom, transparent #{50% - $letter-width * 0.5}, black #{50% - $letter-width * 0.5}, black #{50% + $letter-width * 0.5}, transparent #{50% + $letter-width * 0.5});
+  background-size: $size $size;
+}
+
+@mixin letters-c() {
+  background-image:
+    linear-gradient(-90deg, white 50%, transparent 50%),
+    radial-gradient(at 50% 50%, white 12.5% * $sqrt2, transparent 12.5% * $sqrt2),
+    radial-gradient(at 50% 50%, black 25% * $sqrt2, transparent 25% * $sqrt2);
+  background-size: $size $size, $size $size, $size $size;
+  background-position: calc(50% - #{0.33 * $size}) center;
 }
 
 @mixin dots() {
@@ -288,6 +356,14 @@ $size: 16px;
   background-size: $size $size, $size $size;
 }
 
+@mixin strike-through-chains() {
+  background-image:
+    linear-gradient(45deg, transparent 43.75%, black 43.75%, black 56.25%, transparent 56.25%),
+    radial-gradient(at 50% 50%, white 33.33% * $sqrt2, transparent 33.33% * $sqrt2),
+    radial-gradient(at 50% 50%, black 50% * $sqrt2, transparent 50% * $sqrt2);
+  background-size: $size $size, $size $size;
+}
+
 @mixin bowties-in-leaves() {
   background-color: black;
   background-image:
@@ -295,14 +371,6 @@ $size: 16px;
     radial-gradient(at 50% 50%, black 25% * $sqrt2, transparent 25% * $sqrt2),
     radial-gradient(at 50% 50%, white 50% * $sqrt2, transparent 50% * $sqrt2);
   background-size: $size $size, $size $size;
-}
-
-@mixin stars() {
-  $width: 10deg;
-  background-image:
-    conic-gradient(from -1 * $width, black 0deg, black $width, transparent $width, transparent 72deg, black 72deg, black #{72deg + $width}, transparent #{72deg + $width}, transparent 144deg, black 144deg, black #{144deg + $width}, transparent #{144deg + $width}, transparent 216deg, black 216deg, black #{216deg + $width}, transparent #{216deg + $width}, transparent 288deg, black 288deg, black #{288deg + $width}, transparent #{288deg + $width}, transparent 360deg),
-    radial-gradient(at 50% 50%, white 33.33% * $sqrt2, transparent 33.33% * $sqrt2);
-  background-size: $size $size;
 }
 
 @mixin stars() {
@@ -314,22 +382,21 @@ $size: 16px;
   background-size: $size $size;
 }
 
+@mixin flowers() {
+  $width: 45deg;
+  background-image:
+    radial-gradient(at 50% 50%, black 12.5% * $sqrt2, transparent 12.5% * $sqrt2),
+    radial-gradient(at 50% 50%, transparent 43.75% * $sqrt2, white 43.75% * $sqrt2),
+    conic-gradient(from -0.5 * $width, black 0deg, black $width, transparent $width, transparent 60deg, black 60deg, black #{60deg + $width}, transparent #{60deg + $width}, transparent 120deg, black 120deg, black #{120deg + $width}, transparent #{120deg + $width}, transparent 180deg, black 180deg, black #{180deg + $width}, transparent #{180deg + $width}, transparent 240deg, black 240deg, black #{240deg + $width}, transparent #{240deg + $width}, transparent 300deg, black 300deg, black #{300deg + $width}, transparent #{300deg + $width}, transparent 360deg);
+  background-size: $size $size;
+}
+
 // accidental creation when attempting to do stars
 @mixin asymmetric-stars() {
   $width: 10deg;
   background-image:
     conic-gradient(from 0deg, black 0deg, black $width, transparent $width, transparent 72deg, black 72deg, black #{72deg + $width}, transparent #{72deg + $width}, transparent 144deg, black 144deg, black #{144deg + $width}, transparent #{144deg + $width}, transparent 216deg, black 216deg, black #{216deg + $width}, transparent #{216deg + $width}, transparent 360deg);
   background-size: $size $size;
-}
-
-@mixin cs() {
-  background-image:
-    linear-gradient(-90deg, white 50%, transparent 50%),
-    radial-gradient(at 50% 50%, white 12.5% * $sqrt2, transparent 12.5% * $sqrt2),
-    radial-gradient(at 50% 50%, black 25% * $sqrt2, transparent 25% * $sqrt2);
-  background-size: $size $size, $size $size, $size $size;
-  //background-position: calc(50% + #{0.5 * $size}) center;
-  background-position: calc(50% - #{0.33 * $size}) center;
 }
 
 // accidental creation when attempting to do dots
@@ -367,7 +434,7 @@ $size: 16px;
   background-size: $size $size;
 }
 
-@mixin diamond-chain() {
+@mixin diamond-chain-small-vertical() {
   $width: 30deg;
   background-color: black;
   background-image:
@@ -391,39 +458,54 @@ $size: 16px;
 
 @mixin rays() {
   background-image:
-  repeating-conic-gradient(from -3deg, black 0deg, black 6deg, transparent 6deg, transparent 12deg);
+    repeating-conic-gradient(from -3deg, black 0deg, black 6deg, transparent 6deg, transparent 12deg);
 }
 
 @mixin checkers-hypno() {
   background-image:
     repeating-radial-gradient(circle at 50% 50%, white, white $size * 0.25, transparent $size * 0.25, transparent $size * 0.5),
-repeating-conic-gradient(from -3deg, black 0deg, black 6deg, transparent 6deg, transparent 12deg);
+    repeating-conic-gradient(from -3deg, black 0deg, black 6deg, transparent 6deg, transparent 12deg);
   background-blend-mode: difference, normal;
 }
 
 @mixin dashed-circles() {
   background-image:
     repeating-radial-gradient(circle at 50% 50%, white, white $size * 0.25, transparent $size * 0.25, transparent $size * 0.5),
-repeating-conic-gradient(from -3deg, black 0deg, black 6deg, transparent 6deg, transparent 12deg);
+    repeating-conic-gradient(from -3deg, black 0deg, black 6deg, transparent 6deg, transparent 12deg);
   background-blend-mode: lighten, normal;
 }
 
 @mixin hypno-propeller() {
   background-image:
     repeating-radial-gradient(circle at 50% 50%, black, black $size * 0.25, transparent $size * 0.25, transparent $size * 0.5),
-repeating-conic-gradient(from 11.25deg, black 0deg, black 22.5deg, transparent 22.5deg, transparent 45deg);
+    repeating-conic-gradient(from 11.25deg, black 0deg, black 22.5deg, transparent 22.5deg, transparent 45deg);
+}
+
+@mixin striped-rays() {
+  background-color: black;
+  background-image:
+    repeating-linear-gradient(to bottom, white, white $size * 0.125, transparent $size * 0.125, transparent $size * 0.25),
+    repeating-conic-gradient(from 155deg, white 0deg, white 30deg, transparent 30deg, transparent 60deg);
 }
 
 @mixin hypno-diff() {
   background-image:
     repeating-radial-gradient(circle at 50% 50%, white, white $size * 0.5, transparent $size * 0.5, transparent $size),
-repeating-conic-gradient(from 22.5deg, black 0deg, black 45deg, transparent 45deg, transparent 90deg);
+    repeating-conic-gradient(from 22.5deg, black 0deg, black 45deg, transparent 45deg, transparent 90deg);
   background-blend-mode: difference, normal;
 }
 
-@mixin beads() {
+@mixin beads-horizontal() {
+  background-color: black;
   background-image:
-    radial-gradient(circle at 50% 50%, black, black $size * 0.25, transparent $size * 0.25, transparent $size);
+    radial-gradient(circle at 50% 50%, white, white $size * 0.25, transparent $size * 0.25, transparent $size);
+  background-size: $size * 0.5 $size;
+}
+
+@mixin beads-vertical() {
+  background-color: black;
+  background-image:
+    radial-gradient(circle at 50% 50%, white, white $size * 0.25, transparent $size * 0.25, transparent $size);
   background-size: $size $size * 0.5;
 }
 
@@ -435,7 +517,7 @@ repeating-conic-gradient(from 22.5deg, black 0deg, black 45deg, transparent 45de
     linear-gradient(to right, black 0%, black $border-width * 0.5, transparent $border-width * 0.5, transparent #{100% * math.div(1, 7) - $border-width * 0.5}, black #{100% * math.div(1, 7) - $border-width * 0.5}, black #{100% * math.div(1, 7) + $border-width * 0.5}, transparent #{100% * math.div(1, 7) + $border-width * 0.5}, transparent #{100% * math.div(2, 7) - $border-width * 0.5}, black #{100% * math.div(2, 7) - $border-width * 0.5}, black #{100% * math.div(2, 7) + $border-width * 0.5}, transparent #{100% * math.div(2, 7) + $border-width * 0.5}, transparent #{100% * math.div(3, 7) - $border-width * 0.5}, black #{100% * math.div(3, 7) - $border-width * 0.5}, black #{100% * math.div(3, 7) + $border-width * 0.5}, transparent #{100% * math.div(3, 7) + $border-width * 0.5}, transparent #{100% * math.div(4, 7) - $border-width * 0.5}, black #{100% * math.div(4, 7) - $border-width * 0.5}, black #{100% * math.div(4, 7) + $border-width * 0.5}, transparent #{100% * math.div(4, 7) + $border-width * 0.5}, transparent #{100% * math.div(5, 7) - $border-width * 0.5}, black #{100% * math.div(5, 7) - $border-width * 0.5}, black #{100% * math.div(5, 7) + $border-width * 0.5}, transparent #{100% * math.div(5, 7) + $border-width * 0.5}, transparent #{100% * math.div(6, 7) - $border-width * 0.5}, black #{100% * math.div(6, 7) - $border-width * 0.5}, black #{100% * math.div(6, 7) + $border-width * 0.5}, transparent #{100% * math.div(6, 7) + $border-width * 0.5}, transparent #{100% * math.div(7, 7) - $border-width * 0.5}, black #{100% * math.div(7, 7) - $border-width * 0.5}),
     linear-gradient(to bottom, transparent 66.67%, white 66.67%),
     linear-gradient(to right, transparent #{100% * math.div(1, 7) - $black-key-width * 0.5}, black #{100% * math.div(1, 7) - $black-key-width * 0.5}, black #{100% * math.div(1, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(1, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(2, 7) - $black-key-width * 0.5}, black #{100% * math.div(2, 7) - $black-key-width * 0.5}, black #{100% * math.div(2, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(2, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(4, 7) - $black-key-width * 0.5}, black #{100% * math.div(4, 7) - $black-key-width * 0.5}, black #{100% * math.div(4, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(4, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(5, 7) - $black-key-width * 0.5}, black #{100% * math.div(5, 7) - $black-key-width * 0.5}, black #{100% * math.div(5, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(5, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(6, 7) - $black-key-width * 0.5}, black #{100% * math.div(6, 7) - $black-key-width * 0.5}, black #{100% * math.div(6, 7) + $black-key-width * 0.5}, transparent #{100% * math.div(6, 7) + $black-key-width * 0.5});
-background-size: $size * 4 $size * 2;
+  background-size: $size * 4 $size * 2;
 }
 
 .cell:nth-child(1) {
@@ -446,12 +528,12 @@ background-size: $size * 4 $size * 2;
   @include stripes-and-dots-vertical();
 }
 
-.cell:nth-child(5) {
-  @include color-dots();
+.cell:nth-child(3) {
+  @include diamond-lattice();
 }
 
-.cell:nth-child(6) {
-  @include beads();
+.cell:nth-child(5) {
+  @include color-dots();
 }
 
 .cell:nth-child(8) {
@@ -460,6 +542,10 @@ background-size: $size * 4 $size * 2;
 
 .cell:nth-child(9) {
   @include double-stripes-vertical();
+}
+
+.cell:nth-child(10) {
+  @include rays();
 }
 
 .cell:nth-child(11) {
@@ -471,7 +557,7 @@ background-size: $size * 4 $size * 2;
 }
 
 .cell:nth-child(13) {
-  @include rays();
+  @include beads-horizontal();
 }
 
 .cell:nth-child(15) {
@@ -503,7 +589,7 @@ background-size: $size * 4 $size * 2;
 }
 
 .cell:nth-child(22) {
-  @include rounded-bowties-diagonal();
+  @include beads-vertical();
 }
 
 .cell:nth-child(23) {
@@ -519,7 +605,11 @@ background-size: $size * 4 $size * 2;
 }
 
 .cell:nth-child(26) {
-  @include diamond-chain();
+  @include diamond-chain-small-vertical();
+}
+
+.cell:nth-child(27) {
+  @include rounded-bowties-diagonal();
 }
 
 .cell:nth-child(29) {
@@ -528,6 +618,10 @@ background-size: $size * 4 $size * 2;
 
 .cell:nth-child(32) {
   @include dot-checkers();
+}
+
+.cell:nth-child(33) {
+  @include stripes-diagonal-both-sides-diff();
 }
 
 .cell:nth-child(34) {
@@ -543,7 +637,11 @@ background-size: $size * 4 $size * 2;
 }
 
 .cell:nth-child(41) {
-  @include exes();
+  @include letters-x();
+}
+
+.cell:nth-child(42) {
+  @include strike-through-chains();
 }
 
 .cell:nth-child(43) {
@@ -559,7 +657,7 @@ background-size: $size * 4 $size * 2;
 }
 
 .cell:nth-child(52) {
-  @include equilateral_triangle();
+  @include equilateral-triangles();
 }
 
 .cell:nth-child(54) {
@@ -570,12 +668,24 @@ background-size: $size * 4 $size * 2;
   @include dashed-stripes-horizontal();
 }
 
+.cell:nth-child(58) {
+  @include letters-e();
+}
+
 .cell:nth-child(59) {
   @include lattice();
 }
 
 .cell:nth-child(61) {
   @include stars();
+}
+
+.cell:nth-child(62) {
+  @include triangle-wave();
+}
+
+.cell:nth-child(67) {
+  @include flowers();
 }
 
 .cell:nth-child(68) {
@@ -592,6 +702,10 @@ background-size: $size * 4 $size * 2;
 
 .cell:nth-child(73) {
   @include half-dots();
+}
+
+.cell:nth-child(77) {
+  @include double-stripes-different-widths-horizontal();
 }
 
 .cell:nth-child(78) {
@@ -619,7 +733,11 @@ background-size: $size * 4 $size * 2;
 }
 
 .cell:nth-child(88) {
-  @include cs();
+  @include letters-c();
+}
+
+.cell:nth-child(91) {
+  @include striped-rays();
 }
 
 .cell:nth-child(92) {
@@ -632,6 +750,14 @@ background-size: $size * 4 $size * 2;
 
 .cell:nth-child(94) {
   @include bowties-diagonal();
+}
+
+.cell:nth-child(95) {
+  @include diamond-chain-big-horizontal();
+}
+
+.cell:nth-child(99) {
+  @include double-stripes-different-widths-vertical();
 }
 
 </style>
