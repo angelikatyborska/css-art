@@ -25,6 +25,7 @@ $sqrt2: 1.41421356;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
+  border: 1px solid $light-gray;
 }
 
 .cell {
@@ -32,7 +33,7 @@ $sqrt2: 1.41421356;
   overflow: visible;
   background-color: white;
   background-position: center;
-  border: 2px solid $light-gray;
+  border: 1px solid $light-gray;
   border-collapse: collapse;
 }
 
@@ -48,15 +49,19 @@ $size: 16px;
   background-size: $size $size;
 }
 
+@mixin dashed-stripes-horizontal() {
+  $width: 12.5%;
+  background-image:
+    linear-gradient(45deg, transparent 33.33%, white 33.33%, white 66.67%, transparent 66.67%),
+    linear-gradient(to right, transparent #{25% - $width * 0.5}, black #{25% - $width * 0.5}, black #{25% + $width * 0.5}, transparent #{25% + $width * 0.5}),
+    linear-gradient(to right, transparent #{75% - $width * 0.5}, black #{75% - $width * 0.5}, black #{75% + $width * 0.5}, transparent #{75% + $width * 0.5});
+  background-size: $size $size;
+}
+
 @mixin stripes-diagonal-north-west() {
   background-image: linear-gradient(45deg, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%), linear-gradient(45deg, black 12.5%, transparent 12.5%), linear-gradient(45deg, transparent 87.5%, black 87.5%);
   background-size: $size $size, $size $size, $size $size;
 }
-
-//@mixin stripes-diagonal-north-east() {
-//  background-image: linear-gradient(45deg, transparent 33.33%, black 33.33%, black 66.66%, transparent 66.66%), linear-gradient(45deg, black 16.66%, transparent 16.66%), linear-gradient(45deg, transparent 83.26%, black 83.26%);
-//  background-size: $size $size, $size $size, $size $size;
-//}
 
 @mixin stripes-diagonal-north-east() {
   background-image: linear-gradient(135deg, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%), linear-gradient(135deg, black 12.5%, transparent 12.5%), linear-gradient(135deg, transparent 87.5%, black 87.5%);
@@ -74,15 +79,19 @@ $size: 16px;
   background-size: $size $size, $size $size, $size $size, $size $size, $size $size, $size $size;
 }
 
-@mixin diamonds() {
+@mixin metal-striped-floor() {
+  $width: 6.25%;
+  $offset: 6.25%;
   background-image:
-    linear-gradient(135deg, transparent 37.5%, white 37.5%, white 62.5%, transparent 62.5%),
-    linear-gradient(135deg, white 12.5%, transparent 12.5%),
-    linear-gradient(135deg, transparent 87.5%, white 87.5%),
-    linear-gradient(45deg, transparent 37.5%, $accent 37.5%, $accent 62.5%, transparent 62.5%),
-    linear-gradient(45deg, $accent 12.5%, transparent 12.5%),
-    linear-gradient(45deg, transparent 87.5%, $accent 87.5%);
-  background-size: $size $size, $size $size, $size $size, $size $size, $size $size, $size $size;
+    linear-gradient(to bottom, white 12.5%, transparent 12.5%),
+    linear-gradient(to right, white 12.5%, transparent 12.5%),
+    linear-gradient(to bottom, transparent 87.5%, white 87.5%),
+    linear-gradient(to right, transparent 87.5%, white 87.5%),
+    linear-gradient(45deg, transparent #{50% - 0.5 * $width}, black #{50% - 0.5 * $width}, black #{50% + 0.5 * $width}, transparent #{50% + 0.5 * $width}),
+    linear-gradient(45deg, transparent #{50% - 1.5 * $width - $offset}, black #{50% - 1.5 * $width - $offset}, black #{50% - 0.5 * $width - $offset}, transparent #{50% - 0.5 * $width - $offset}),
+    linear-gradient(45deg, transparent #{50% + 0.5 * $width + $offset}, black #{50% + 0.5 * $width + $offset}, black #{50% + 1.5 * $width + $offset}, transparent #{50% + 1.5 * $width + $offset});
+
+  background-size: $size $size, $size $size, $size $size;
 }
 
 @mixin equilateral_triangle() {
@@ -141,13 +150,54 @@ $size: 16px;
   background-size: $size $size, $size $size;
 }
 
+@mixin dashed-double-stripes-horizontal() {
+  $offset: 25%;
+  $width: 12.5%;
+  $empty-offset: 25%;
+  background-image:
+    linear-gradient(to right, white 0.5 * $empty-offset, transparent 0.5 * $empty-offset, transparent #{100 - 0.5 * $empty-offset} , white #{100 - 0.5 * $empty-offset} ),
+    linear-gradient(to right, transparent #{50% - 0.5 * $empty-offset}, white #{50% - 0.5 * $empty-offset}, white #{50% + 0.5 * $empty-offset}, transparent #{50% + 0.5 * $empty-offset}),
+    linear-gradient(to bottom, transparent #{50% - $offset - $width}, black #{50% - $offset - $width}, black #{50% - $offset}, transparent #{50% - $offset}),
+    linear-gradient(to bottom, transparent #{50% + $offset}, black #{50% + $offset}, black #{50% + $offset + $width}, transparent #{50% + $offset + $width});
+  background-size: $size $size;
+}
+
+@mixin dashed-double-stripes-vertical() {
+  $offset: 25%;
+  $width: 12.5%;
+  $empty-offset: 25%;
+  background-image:
+    linear-gradient(to bottom, white 0.5 * $empty-offset, transparent 0.5 * $empty-offset, transparent #{100 - 0.5 * $empty-offset} , white #{100 - 0.5 * $empty-offset} ),
+    linear-gradient(to bottom, transparent #{50% - 0.5 * $empty-offset}, white #{50% - 0.5 * $empty-offset}, white #{50% + 0.5 * $empty-offset}, transparent #{50% + 0.5 * $empty-offset}),
+    linear-gradient(to right, transparent #{50% - $offset - $width}, black #{50% - $offset - $width}, black #{50% - $offset}, transparent #{50% - $offset}),
+    linear-gradient(to right, transparent #{50% + $offset}, black #{50% + $offset}, black #{50% + $offset + $width}, transparent #{50% + $offset + $width});
+  background-size: $size $size;
+}
+
 @mixin color-stripes-horizontal {
   $width: 12.5%;
-  background-color: $accent;
+  background-color: $light-gray;
   background-image:
     linear-gradient(to right, transparent #{25% - $width * 0.5}, black #{25% - $width * 0.5}, black #{25% + $width * 0.5}, transparent #{25% + $width * 0.5}),
     linear-gradient(to right, transparent #{75% - $width * 0.5}, white #{75% - $width * 0.5}, white #{75% + $width * 0.5}, transparent #{75% + $width * 0.5});
   background-size: $size $size, $size $size;
+}
+
+@mixin color-dots() {
+  background-color: $light-gray;
+  background-image:
+    radial-gradient(at 25% 25%, black math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(at 75% 75%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2));
+  background-size: $size $size;
+}
+
+// accidental creation when attempting to do color-dots
+@mixin dot-checkers() {
+  background-color: white;
+  background-image:
+    radial-gradient(at 25% 25%, black math.div(50%, $sqrt2), transparent math.div(50%, $sqrt2)),
+    radial-gradient(at 75% 75%, black math.div(50%, $sqrt2), transparent math.div(50%, $sqrt2));
+  background-size: $size $size;
 }
 
 // accidental creation when attempting to do chessboard
@@ -175,18 +225,6 @@ $size: 16px;
     radial-gradient(at 50% 50%, white 33.33% * $sqrt2, transparent 33.33% * $sqrt2),
     radial-gradient(at 50% 50%, black 50% * $sqrt2, transparent 50% * $sqrt2);
   background-size: $size $size;
-}
-
-@mixin double-dashes() {
-  background-image:
-    linear-gradient(to bottom, black 25%, transparent 25%, transparent 75%, black 75%),
-    linear-gradient(to right, white 25%, transparent 25%, transparent 75%, white 75%),
-    linear-gradient(to right, white 12.5%, transparent 12.5%, transparent 87.5%, white 87.5%),
-    linear-gradient(to bottom, white 12.5%, transparent 12.5%, transparent 87.5%, white 87.5%),
-    linear-gradient(to right, black 25%, transparent 25%, transparent 75%, black 75%),
-    linear-gradient(to bottom, black 25%, transparent 25%, transparent 75%, black 75%);
-  background-size: $size $size;
-  background-blend-mode: difference, normal, normal, normal, normal, normal;
 }
 
 @mixin empty-squares() {
@@ -311,6 +349,10 @@ conic-gradient(from -0.5 * $width, black 0deg, black $width, transparent $width,
   @include dots();
 }
 
+.cell:nth-child(5) {
+  @include color-dots();
+}
+
 .cell:nth-child(9) {
   @include double-stripes-vertical();
 }
@@ -325,6 +367,10 @@ conic-gradient(from -0.5 * $width, black 0deg, black $width, transparent $width,
 
 .cell:nth-child(17) {
   @include trapezoids-diagonal();
+}
+
+.cell:nth-child(18) {
+  @include dashed-double-stripes-horizontal();
 }
 
 .cell:nth-child(19) {
@@ -348,7 +394,15 @@ conic-gradient(from -0.5 * $width, black 0deg, black $width, transparent $width,
 }
 
 .cell:nth-child(25) {
-  @include diamonds();
+  @include metal-striped-floor();
+}
+
+.cell:nth-child(29) {
+  @include dashed-double-stripes-vertical();
+}
+
+.cell:nth-child(32) {
+  @include dot-checkers();
 }
 
 .cell:nth-child(38) {
@@ -379,12 +433,12 @@ conic-gradient(from -0.5 * $width, black 0deg, black $width, transparent $width,
   @include hypno();
 }
 
-.cell:nth-child(59) {
-  @include lattice();
+.cell:nth-child(55) {
+  @include dashed-stripes-horizontal();
 }
 
-.cell:nth-child(60) {
-  @include double-dashes();
+.cell:nth-child(59) {
+  @include lattice();
 }
 
 .cell:nth-child(61) {
