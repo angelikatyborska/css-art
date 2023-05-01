@@ -586,6 +586,21 @@ $size: 16px;
   background-size: $size * 2 $size * 2;
 }
 
+@mixin devils() {
+  background-image:
+    radial-gradient(circle at 50% 25%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    repeating-linear-gradient(45deg, transparent, transparent $size * 0.0625, white $size * 0.0625, white $size * 0.125),
+    radial-gradient(circle at 50% 50%, black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2));
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin moons() {
+  background-image:
+    radial-gradient(circle at 75% 25%, white math.div(66.67%, $sqrt2), transparent math.div(66.67%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2));
+  background-size: $size $size;
+}
+
 @mixin vinyl-record() {
   background-image:
     radial-gradient(circle at 50% 50%, white math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
@@ -631,6 +646,26 @@ $size: 16px;
     radial-gradient(circle at 56.25% 25%, black math.div(10%, $sqrt2), transparent math.div(10%, $sqrt2)),
     conic-gradient(from 60deg, black 0deg, black 60deg, transparent 60deg, transparent 360deg),
     radial-gradient(at 50% 50%, white math.div(87.5%, $sqrt2), transparent math.div(87.5%, $sqrt2));
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin meh() {
+  background-image:
+    radial-gradient(at 50% 50%, transparent math.div(75%, $sqrt2), black math.div(75%, $sqrt2), black math.div(87.5%, $sqrt2), transparent math.div(87.5%, $sqrt2)),
+    radial-gradient(circle at 62.5% 37.5%, black math.div(10%, $sqrt2), transparent math.div(10%, $sqrt2)),
+    radial-gradient(circle at 37.5% 37.5%, black math.div(10%, $sqrt2), transparent math.div(10%, $sqrt2)),
+    linear-gradient(to right, white 25%, transparent 25%, transparent 75%, white 75%),
+    linear-gradient(to bottom, transparent 56.25%, black 56.25%, black 62.5%, transparent 62.5%);
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin button() {
+  background-image:
+    radial-gradient(circle at 56.25% 56.25%, white math.div(6.25%, $sqrt2), transparent math.div(6.25%, $sqrt2)),
+    radial-gradient(circle at 43.75% 56.25%, white math.div(6.25%, $sqrt2), transparent math.div(6.25%, $sqrt2)),
+    radial-gradient(circle at 56.25% 43.75%, white math.div(6.25%, $sqrt2), transparent math.div(6.25%, $sqrt2)),
+    radial-gradient(circle at 43.75% 43.75%, white math.div(6.25%, $sqrt2), transparent math.div(6.25%, $sqrt2)),
+    radial-gradient(at 50% 50%, black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2), transparent math.div(87.5%, $sqrt2), transparent math.div(87.5%, $sqrt2));
   background-size: $size * 2 $size * 2;
 }
 
@@ -886,7 +921,7 @@ $size: 16px;
 }
 
 .cell:nth-child(15) {
-  @include black-leaves();
+  @include button();
 }
 
 .cell:nth-child(16) {
@@ -1013,6 +1048,10 @@ $size: 16px;
   @include letters-k();
 }
 
+.cell:nth-child(48) {
+  @include black-leaves();
+}
+
 .cell:nth-child(49) {
   @include letters-n();
 }
@@ -1049,6 +1088,10 @@ $size: 16px;
   @include letters-e();
 }
 
+.cell:nth-child(57) {
+  @include meh();
+}
+
 .cell:nth-child(59) {
   @include lattice();
 }
@@ -1067,6 +1110,10 @@ $size: 16px;
 
 .cell:nth-child(64) {
   @include ying-yang();
+}
+
+.cell:nth-child(66) {
+  @include moons();
 }
 
 .cell:nth-child(67) {
@@ -1111,6 +1158,10 @@ $size: 16px;
 
 .cell:nth-child(79) {
   @include double-stripes-horizontal();
+}
+
+.cell:nth-child(80) {
+  @include devils();
 }
 
 .cell:nth-child(81) {
