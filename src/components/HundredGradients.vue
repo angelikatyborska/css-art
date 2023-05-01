@@ -558,6 +558,65 @@ $size: 16px;
     repeating-radial-gradient(circle at 50% 50%, black, black $size * 0.25, transparent $size * 0.25, transparent $size * 0.5);
 }
 
+@mixin hypno-small-repeating() {
+  background-image:
+    repeating-radial-gradient(circle at 50% 50%, black, black $size * 0.125, transparent $size * 0.125, transparent $size * 0.25);
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin hypno-dots() {
+  background-image:
+    repeating-radial-gradient(circle at 50% 50%, transparent, transparent $size * 0.0625, white $size * 0.0625, white $size * 0.125),
+    radial-gradient(circle at 50% 50%, black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2));
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin xxx() {
+  background-image:
+    repeating-linear-gradient(to right, transparent, transparent $size * 0.0625, white $size * 0.0625, white $size * 0.125),
+    repeating-linear-gradient(to bottom, transparent, transparent $size * 0.0625, white $size * 0.0625, white $size * 0.125),
+    radial-gradient(circle at 50% 50%, black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2));
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin sunrise() {
+  background-image:
+    repeating-linear-gradient(to bottom, transparent, transparent $size * 0.0625, white $size * 0.0625, white $size * 0.125),
+    radial-gradient(circle at 50% 50%, black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2));
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin vinyl-record() {
+  background-image:
+    radial-gradient(circle at 50% 50%, white math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, $light-gray math.div(33.33%, $sqrt2), transparent math.div(33.33%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, $light-gray math.div(43.75%, $sqrt2), transparent math.div(43.75%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, transparent math.div(93.75%, $sqrt2), white math.div(93.75%, $sqrt2)),
+    conic-gradient(from 30deg, black 0deg, transparent 0deg, transparent 30deg, black 30deg, black 180deg, transparent 180deg, transparent 210deg, black 210deg, black 360deg),
+    repeating-radial-gradient(circle at 50% 50%, black, black $size * 0.0625, white $size * 0.0625, white $size * 0.125);
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin ying-yang() {
+  background-image:
+    radial-gradient(at 50% 50%, transparent math.div(75%, $sqrt2), black math.div(75%, $sqrt2), black math.div(87.5%, $sqrt2), transparent math.div(87.5%, $sqrt2)),
+    radial-gradient(circle at 50% 31.25%, white math.div(10%, $sqrt2), transparent math.div(10%, $sqrt2)),
+    radial-gradient(circle at 50% 68.75%, black math.div(10%, $sqrt2), transparent math.div(10%, $sqrt2)),
+    radial-gradient(circle at 50% 31.25%, black math.div(31.25%, $sqrt2), transparent math.div(31.25%, $sqrt2)),
+    radial-gradient(circle at 50% 68.75%, white math.div(31.25%, $sqrt2), transparent math.div(31.25%, $sqrt2)),
+    linear-gradient(to right, white 50%, transparent 50%),
+    radial-gradient(at 50% 50%, black math.div(87.5%, $sqrt2), transparent math.div(87.5%, $sqrt2));
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin half-moons() {
+  background-image:
+    radial-gradient(at 50% 50%, transparent math.div(75%, $sqrt2), black math.div(75%, $sqrt2), black math.div(87.5%, $sqrt2), transparent math.div(87.5%, $sqrt2)),
+    linear-gradient(to right, white 50%, transparent 50%),
+    radial-gradient(at 50% 50%, black math.div(87.5%, $sqrt2), transparent math.div(87.5%, $sqrt2));
+  background-size: $size $size;
+}
+
 @mixin half-dots() {
   background-image:
     linear-gradient(to bottom, transparent 50%, white 50%),
@@ -620,6 +679,56 @@ $size: 16px;
     repeating-radial-gradient(circle at 50% 50%, white, white $size * 0.25, transparent $size * 0.25, transparent $size * 0.5),
     repeating-conic-gradient(from -3deg, black 0deg, black 6deg, transparent 6deg, transparent 12deg);
   background-blend-mode: lighten, normal;
+}
+
+@mixin suns() {
+  background-image:
+    radial-gradient(circle at 50% 50%, black math.div(33.33%, $sqrt2), transparent math.div(33.33%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, white math.div(50%, $sqrt2), transparent math.div(50%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, transparent math.div(87.5%, $sqrt2), white math.div(87.5%, $sqrt2)),
+    repeating-conic-gradient(from -6deg, black 0deg, black 12deg, transparent 12deg, transparent 24deg);
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin crossed-out-dashed-circle() {
+  background-image:
+    linear-gradient(-30deg, transparent 43.75%, black 43.75%, black 56.25%, transparent 56.25%),
+    radial-gradient(circle at 50% 50%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, white math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, transparent math.div(87.5%, $sqrt2), white math.div(87.5%, $sqrt2)),
+    repeating-conic-gradient(from -7.5deg, black 0deg, black 15deg, transparent 15deg, transparent 30deg);
+  background-size: $size * 2 $size * 2;
+}
+
+@mixin dashed-circles() {
+  background-image:
+    radial-gradient(circle at 50% 50%, white math.div(66.67%, $sqrt2), transparent math.div(66.67%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, transparent math.div(87.5%, $sqrt2), white math.div(87.5%, $sqrt2)),
+    repeating-conic-gradient(from -7.5deg, black 0deg, black 15deg, transparent 15deg, transparent 30deg);
+  background-size: $size $size;
+}
+
+@mixin mitosis() {
+  background-color: black;
+  background-image:
+    radial-gradient(circle at 66.67% 66.67%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 33.33% 66.67%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 33.33% 33.33%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 66.67% 33.33%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 66.67% 66.67%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(circle at 33.33% 66.67%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(circle at 33.33% 33.33%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(circle at 66.67% 33.33%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2));
+  background-size: $size $size;
+}
+
+@mixin radiation() {
+  background-image:
+    radial-gradient(circle at 50% 50%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(circle at 50% 50%, transparent math.div(75%, $sqrt2), white math.div(75%, $sqrt2)),
+    repeating-conic-gradient(from -30deg, black 0deg, black 60deg, transparent 60deg, transparent 120deg);
+  background-size: $size * 2 $size * 2;
 }
 
 @mixin hypno-propeller() {
@@ -708,15 +817,23 @@ $size: 16px;
 }
 
 .cell:nth-child(2) {
-  @include stripes-and-dots-vertical();
+  @include radiation();
 }
 
 .cell:nth-child(3) {
   @include diamond-lattice();
 }
 
+.cell:nth-child(4) {
+  @include beads-horizontal();
+}
+
 .cell:nth-child(5) {
   @include color-dots();
+}
+
+.cell:nth-child(6) {
+  @include hypno-small-repeating();
 }
 
 .cell:nth-child(7) {
@@ -744,7 +861,7 @@ $size: 16px;
 }
 
 .cell:nth-child(13) {
-  @include beads-horizontal();
+  @include xxx();
 }
 
 .cell:nth-child(14) {
@@ -772,7 +889,7 @@ $size: 16px;
 }
 
 .cell:nth-child(20) {
-  @include double-stripes-horizontal();
+  @include trapezoids-chain-diagonal();
 }
 
 .cell:nth-child(21) {
@@ -803,12 +920,20 @@ $size: 16px;
   @include rounded-bowties-diagonal();
 }
 
+.cell:nth-child(28) {
+  @include suns();
+}
+
 .cell:nth-child(29) {
-  @include dashed-double-stripes-vertical();
+  @include flowers();
 }
 
 .cell:nth-child(30) {
   @include letters-h();
+}
+
+.cell:nth-child(31) {
+  @include vinyl-record();
 }
 
 .cell:nth-child(32) {
@@ -827,12 +952,20 @@ $size: 16px;
   @include letters-a();
 }
 
+.cell:nth-child(36) {
+  @include stripes-and-dots-vertical();
+}
+
 .cell:nth-child(38) {
   @include stripes-horizontal();
 }
 
 .cell:nth-child(39) {
   @include chains();
+}
+
+.cell:nth-child(40) {
+  @include crossed-out-dashed-circle();
 }
 
 .cell:nth-child(41) {
@@ -871,12 +1004,20 @@ $size: 16px;
   @include equilateral-triangles();
 }
 
+.cell:nth-child(53) {
+  @include dashed-circles();
+}
+
 .cell:nth-child(54) {
   @include hypno();
 }
 
 .cell:nth-child(55) {
   @include dashed-stripes-horizontal();
+}
+
+.cell:nth-child(56) {
+  @include mitosis();
 }
 
 .cell:nth-child(58) {
@@ -899,8 +1040,12 @@ $size: 16px;
   @include letters-t();
 }
 
+.cell:nth-child(64) {
+  @include ying-yang();
+}
+
 .cell:nth-child(67) {
-  @include flowers();
+  @include dashed-double-stripes-vertical();
 }
 
 .cell:nth-child(68) {
@@ -909,6 +1054,10 @@ $size: 16px;
 
 .cell:nth-child(69) {
   @include dashed-circles();
+}
+
+.cell:nth-child(70) {
+  @include half-moons();
 }
 
 .cell:nth-child(71) {
@@ -923,6 +1072,10 @@ $size: 16px;
   @include half-dots();
 }
 
+.cell:nth-child(74) {
+  @include sunrise();
+}
+
 .cell:nth-child(77) {
   @include double-stripes-different-widths-horizontal();
 }
@@ -932,7 +1085,7 @@ $size: 16px;
 }
 
 .cell:nth-child(79) {
-  @include trapezoids-chain-diagonal();
+  @include double-stripes-horizontal();
 }
 
 .cell:nth-child(81) {
@@ -1001,6 +1154,10 @@ $size: 16px;
 
 .cell:nth-child(97) {
   @include letters-z();
+}
+
+.cell:nth-child(98) {
+  @include hypno-dots();
 }
 
 .cell:nth-child(99) {
