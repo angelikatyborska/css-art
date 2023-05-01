@@ -145,7 +145,7 @@ $size: 16px;
 @mixin rounded-bowties-diagonal() {
   background-image:
     conic-gradient(from 0deg, white 0deg, white 90deg, transparent 90deg, transparent 180deg, white 180deg, white 270deg, transparent 270deg),
-    radial-gradient(at 50% 50%, black 50% * $sqrt2, transparent 50% * $sqrt2);
+    radial-gradient(at 50% 50%, black 75%, transparent 75%);
   background-size: $size $size;
 }
 
@@ -292,8 +292,8 @@ $size: 16px;
 @mixin round-corners() {
   background-image:
     conic-gradient(from 90deg, white 0deg, white 90deg, transparent 90deg, transparent 180deg, white 180deg, white 270deg, transparent 270deg),
-    radial-gradient(at 50% 50%, white 33.33% * $sqrt2, transparent 33.33% * $sqrt2),
-    radial-gradient(at 50% 50%, black 50% * $sqrt2, transparent 50% * $sqrt2);
+    radial-gradient(at 50% 50%, white 50%, transparent 50%),
+    radial-gradient(at 50% 50%, black 75%, transparent 75%);
   background-size: $size $size;
 }
 
@@ -358,8 +358,8 @@ $size: 16px;
 @mixin letters-c() {
   background-image:
     linear-gradient(-90deg, white 50%, transparent 50%),
-    radial-gradient(at 50% 50%, white 12.5% * $sqrt2, transparent 12.5% * $sqrt2),
-    radial-gradient(at 50% 50%, black 25% * $sqrt2, transparent 25% * $sqrt2);
+    radial-gradient(at 50% 50%, white 25%, transparent 25%),
+    radial-gradient(at 50% 50%, black 50%, transparent 50%);
   background-size: $size $size, $size $size, $size $size;
   background-position: calc(50% - #{0.33 * $size}) center;
 }
@@ -372,16 +372,24 @@ $size: 16px;
 
 @mixin chains() {
   background-image:
-    radial-gradient(at 50% 50%, white 25% * $sqrt2, transparent 25% * $sqrt2),
-    radial-gradient(at 50% 50%, black 50% * $sqrt2, transparent 50% * $sqrt2);
+    radial-gradient(at 50% 50%, white math.div(50%, $sqrt2), transparent math.div(50%, $sqrt2)),
+    radial-gradient(at 50% 50%, black math.div(100%, $sqrt2), transparent math.div(100%, $sqrt2));
+  background-size: $size $size, $size $size;
+}
+
+@mixin empty-dots() {
+  background-image:
+    radial-gradient(at 50% 50%, black math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(at 50% 50%, white math.div(50%, $sqrt2), transparent math.div(50%, $sqrt2)),
+    radial-gradient(at 50% 50%, black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2));
   background-size: $size $size, $size $size;
 }
 
 @mixin strike-through-chains() {
   background-image:
     linear-gradient(45deg, transparent 43.75%, black 43.75%, black 56.25%, transparent 56.25%),
-    radial-gradient(at 50% 50%, white 33.33% * $sqrt2, transparent 33.33% * $sqrt2),
-    radial-gradient(at 50% 50%, black 50% * $sqrt2, transparent 50% * $sqrt2);
+    radial-gradient(at 50% 50%, white math.div(66.67%, $sqrt2), transparent math.div(66.67%, $sqrt2)),
+    radial-gradient(at 50% 50%, black math.div(100%, $sqrt2), transparent math.div(100%, $sqrt2));
   background-size: $size $size, $size $size;
 }
 
@@ -389,16 +397,16 @@ $size: 16px;
   background-color: black;
   background-image:
     conic-gradient(from 0deg, transparent 0deg, transparent 90deg, white 90deg, white 180deg, transparent 180deg, transparent 270deg, white 270deg, white 360deg),
-    radial-gradient(at 50% 50%, black 25% * $sqrt2, transparent 25% * $sqrt2),
-    radial-gradient(at 50% 50%, white 50% * $sqrt2, transparent 50% * $sqrt2);
+    radial-gradient(at 50% 50%, black math.div(50%, $sqrt2), transparent math.div(50%, $sqrt2)),
+    radial-gradient(at 50% 50%, white math.div(100%, $sqrt2), transparent math.div(100%, $sqrt2));
   background-size: $size $size, $size $size;
 }
 
 @mixin stars() {
   $width: 30deg;
   background-image:
-    radial-gradient(at 50% 50%, black 12.5% * $sqrt2, transparent 12.5% * $sqrt2),
-    radial-gradient(at 50% 50%, transparent 33.33% * $sqrt2, white 33.33% * $sqrt2),
+    radial-gradient(at 50% 50%, black math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(at 50% 50%, transparent math.div(66.67%, $sqrt2), white math.div(66.67%, $sqrt2)),
     conic-gradient(from -0.5 * $width, black 0deg, black $width, transparent $width, transparent 72deg, black 72deg, black #{72deg + $width}, transparent #{72deg + $width}, transparent 144deg, black 144deg, black #{144deg + $width}, transparent #{144deg + $width}, transparent 216deg, black 216deg, black #{216deg + $width}, transparent #{216deg + $width}, transparent 288deg, black 288deg, black #{288deg + $width}, transparent #{288deg + $width}, transparent 360deg);
   background-size: $size $size;
 }
@@ -406,8 +414,8 @@ $size: 16px;
 @mixin flowers() {
   $width: 45deg;
   background-image:
-    radial-gradient(at 50% 50%, black 12.5% * $sqrt2, transparent 12.5% * $sqrt2),
-    radial-gradient(at 50% 50%, transparent 43.75% * $sqrt2, white 43.75% * $sqrt2),
+    radial-gradient(at 50% 50%, black math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(at 50% 50%, transparent math.div(87.5%, $sqrt2), white math.div(87.5%, $sqrt2)),
     conic-gradient(from -0.5 * $width, black 0deg, black $width, transparent $width, transparent 60deg, black 60deg, black #{60deg + $width}, transparent #{60deg + $width}, transparent 120deg, black 120deg, black #{120deg + $width}, transparent #{120deg + $width}, transparent 180deg, black 180deg, black #{180deg + $width}, transparent #{180deg + $width}, transparent 240deg, black 240deg, black #{240deg + $width}, transparent #{240deg + $width}, transparent 300deg, black 300deg, black #{300deg + $width}, transparent #{300deg + $width}, transparent 360deg);
   background-size: $size $size;
 }
@@ -423,7 +431,7 @@ $size: 16px;
 // accidental creation when attempting to do dots
 @mixin sparkles() {
   background-image:
-    radial-gradient(at 50% 50%, transparent 50% * $sqrt2, black 50% * $sqrt2);
+    radial-gradient(at 50% 50%, transparent math.div(100%, $sqrt2), black math.div(100%, $sqrt2));
   background-size: $size $size;
 }
 
@@ -451,7 +459,7 @@ $size: 16px;
 @mixin black-leaves() {
   background-image:
     conic-gradient(from 0deg, black 0deg, black 90deg, transparent 90deg, transparent 180deg, black 180deg, black 270deg, transparent 270deg),
-    radial-gradient(at 50% 50%, black 50% * $sqrt2, transparent 50% * $sqrt2);
+    radial-gradient(at 50% 50%, black math.div(100%, $sqrt2), transparent math.div(100%, $sqrt2));
   background-size: $size $size;
 }
 
@@ -543,7 +551,7 @@ $size: 16px;
 
 @mixin vases() {
   background-image:
-    radial-gradient(circle at 50% 50%, black 33.33% * $sqrt2, transparent 33.33% * $sqrt2),
+    radial-gradient(circle at 50% 50%, black math.div(66.67%, $sqrt2), transparent math.div(66.67%, $sqrt2)),
     linear-gradient(to top, white 25%, transparent 25%),
     linear-gradient(to right, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%);
   background-size: $size $size;
@@ -551,7 +559,7 @@ $size: 16px;
 
 @mixin onigiri() {
   background-image:
-    radial-gradient(circle at 50% 50%, transparent 50% * $sqrt2, black 50% * $sqrt2),
+    radial-gradient(circle at 50% 50%, transparent math.div(100%, $sqrt2), black math.div(100%, $sqrt2)),
     linear-gradient(to bottom, white 50%, transparent 50%),
     linear-gradient(to right, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%);
   background-size: $size $size;
@@ -771,6 +779,10 @@ $size: 16px;
 
 .cell:nth-child(83) {
   @include onigiri();
+}
+
+.cell:nth-child(84) {
+  @include empty-dots();
 }
 
 .cell:nth-child(85) {
