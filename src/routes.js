@@ -44,5 +44,5 @@ export default [
   { meta: { title: 'plaid', createdAt: '2020-04-19' }, path: '/plaid', component: Plaid },
   { meta: { title: 'cassette', createdAt: '2020-05-01' }, path: '/cassette', component: Cassette },
   { meta: { title: 'dot-queue', createdAt: '2023-02-12' }, path: '/dot-queue', component: DotQueue },
-  { meta: { title: '100-gradients', createdAt: '2023-04-25' }, path: '/100-gradients', component: HundredGradients },
+  { meta: { title: '100-gradients', createdAt: '2023-05-01' }, path: '/100-gradients', component: HundredGradients },
 ];
