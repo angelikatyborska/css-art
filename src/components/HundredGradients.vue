@@ -236,6 +236,14 @@ $size: 16px;
   background-size: $size $size;
 }
 
+@mixin mickey() {
+  background-image:
+    radial-gradient(at 50% 50%, black math.div(50%, $sqrt2), transparent math.div(50%, $sqrt2)),
+    radial-gradient(at 25% 25%, black math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
+    radial-gradient(at 75% 25%, black math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2));
+  background-size: $size $size;
+}
+
 // accidental creation when attempting to do color-dots
 @mixin dot-checkers() {
   background-color: white;
@@ -330,6 +338,19 @@ $size: 16px;
     linear-gradient(to right, transparent #{$padding-right}, black #{$padding-right}, black #{$padding-right + $letter-width}, transparent #{$padding-right + $letter-width}),
     linear-gradient(to bottom, transparent #{$padding-top}, black #{$padding-top}, black #{$padding-top + $letter-width}, transparent #{$padding-top + $letter-width}),
     linear-gradient(to bottom, transparent #{100% - $padding-top - $letter-width}, black #{100% - $padding-top - $letter-width}, black #{100% - $padding-top}, transparent #{100% - $padding-top}),
+    linear-gradient(to bottom, transparent #{50% - $letter-width * 0.5}, black #{50% - $letter-width * 0.5}, black #{50% + $letter-width * 0.5}, transparent #{50% + $letter-width * 0.5});
+  background-size: $size $size;
+}
+
+@mixin letters-f() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to right, white $padding-right, transparent $padding-right, transparent #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to bottom, white $padding-top, transparent $padding-top, transparent #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, transparent #{$padding-right}, black #{$padding-right}, black #{$padding-right + $letter-width}, transparent #{$padding-right + $letter-width}),
+    linear-gradient(to bottom, transparent #{$padding-top}, black #{$padding-top}, black #{$padding-top + $letter-width}, transparent #{$padding-top + $letter-width}),
     linear-gradient(to bottom, transparent #{50% - $letter-width * 0.5}, black #{50% - $letter-width * 0.5}, black #{50% + $letter-width * 0.5}, transparent #{50% + $letter-width * 0.5});
   background-size: $size $size;
 }
@@ -520,6 +541,22 @@ $size: 16px;
   background-size: $size * 4 $size * 2;
 }
 
+@mixin vases() {
+  background-image:
+    radial-gradient(circle at 50% 50%, black 33.33% * $sqrt2, transparent 33.33% * $sqrt2),
+    linear-gradient(to top, white 25%, transparent 25%),
+    linear-gradient(to right, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%);
+  background-size: $size $size;
+}
+
+@mixin onigiri() {
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 50% * $sqrt2, black 50% * $sqrt2),
+    linear-gradient(to bottom, white 50%, transparent 50%),
+    linear-gradient(to right, transparent 37.5%, black 37.5%, black 62.5%, transparent 62.5%);
+  background-size: $size $size;
+}
+
 .cell:nth-child(1) {
   @include checker();
 }
@@ -534,6 +571,10 @@ $size: 16px;
 
 .cell:nth-child(5) {
   @include color-dots();
+}
+
+.cell:nth-child(7) {
+  @include letters-f();
 }
 
 .cell:nth-child(8) {
@@ -652,6 +693,10 @@ $size: 16px;
   @include asymmetric-stars();
 }
 
+.cell:nth-child(45) {
+  @include mickey();
+}
+
 .cell:nth-child(51) {
   @include stripes-vertical();
 }
@@ -724,6 +769,10 @@ $size: 16px;
   @include stripes-diagonal-both-sides();
 }
 
+.cell:nth-child(83) {
+  @include onigiri();
+}
+
 .cell:nth-child(85) {
   @include round-corners();
 }
@@ -758,6 +807,10 @@ $size: 16px;
 
 .cell:nth-child(99) {
   @include double-stripes-different-widths-vertical();
+}
+
+.cell:nth-child(100) {
+  @include vases();
 }
 
 </style>
