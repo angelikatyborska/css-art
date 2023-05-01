@@ -19,6 +19,7 @@ export default {
 @import "../variables.scss";
 
 $sqrt2: 1.41421356;
+$sqrt3: 1.73205081;
 
 .grid {
   @include square-canvas-child();;
@@ -328,6 +329,17 @@ $size: 16px;
   background-size: $size $size, $size $size, $size $size, $size $size;
 }
 
+@mixin letters-a() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to bottom, white $padding-top, transparent $padding-top, transparent #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, white $padding-right, black $padding-right, black #{$padding-right + $letter-width}, transparent #{$padding-right + $letter-width}, transparent #{100% - $padding-right - $letter-width}, black #{100% - $padding-right - $letter-width}, black #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to bottom, transparent $padding-top, black $padding-top, black #{$padding-top + $letter-width}, transparent #{$padding-top + $letter-width}, transparent #{50% - $letter-width * 0.5}, black #{50% - $letter-width * 0.5}, black #{50% + $letter-width * 0.5},transparent #{50% + $letter-width * 0.5});
+  background-size: $size $size;
+}
+
 @mixin letters-e() {
   $padding-top: 12.5%;
   $padding-right: 25%;
@@ -355,6 +367,85 @@ $size: 16px;
   background-size: $size $size;
 }
 
+@mixin letters-g() {
+  background-image:
+    linear-gradient(to right, transparent #{50% + 75% * 0.5}, white #{50% + 75% * 0.5}),
+    conic-gradient(from 0deg, transparent 45deg, white 45deg, white 90deg, transparent 90deg, transparent 360deg),
+    radial-gradient(at 50% 50%, transparent math.div(50%, $sqrt2), black math.div(50%, $sqrt2), black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2)),
+    linear-gradient(to right, white 50%, transparent 50%),
+    linear-gradient(to bottom, transparent 50%, black 50%, black 62.5%, transparent 62.5%);
+  background-size: $size $size;
+}
+
+@mixin letters-h() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to bottom, white $padding-top, transparent $padding-top, transparent #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, white $padding-right, black $padding-right, black #{$padding-right + $letter-width}, transparent #{$padding-right + $letter-width}, transparent #{100% - $padding-right - $letter-width}, black #{100% - $padding-right - $letter-width}, black #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to bottom, transparent #{50% - $letter-width * 0.5}, black #{50% - $letter-width * 0.5}, black #{50% + $letter-width * 0.5},transparent #{50% + $letter-width * 0.5});
+  background-size: $size $size;
+}
+
+@mixin letters-i() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to right, white $padding-right, transparent $padding-right, transparent #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to bottom, white $padding-top, black $padding-top, black #{$padding-top + $letter-width}, transparent #{$padding-top + $letter-width}, transparent #{100% - $padding-top - $letter-width}, black #{100% - $padding-top - $letter-width}, black #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, transparent #{50% - $letter-width * 0.5}, black #{50% - $letter-width * 0.5}, black #{50% + $letter-width * 0.5},transparent #{50% + $letter-width * 0.5});
+  background-size: $size $size;
+}
+
+@mixin letters-n() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to bottom, white $padding-top, transparent $padding-top, transparent #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, white $padding-right, black $padding-right, black #{$padding-right + $letter-width}, transparent #{$padding-right + $letter-width}, transparent #{100% - $padding-right - $letter-width}, black #{100% - $padding-right - $letter-width}, black #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(60deg, transparent #{50% - math.div($letter-width, $sqrt3) * 0.5}, black #{50% - math.div($letter-width, $sqrt3) * 0.5}, black #{50% + math.div($letter-width, $sqrt3) * 0.5},transparent #{50% + math.div($letter-width, $sqrt3) * 0.5});
+  background-size: $size $size;
+}
+
+@mixin letters-k() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to bottom, white $padding-top, transparent $padding-top, transparent #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, white #{50% - $letter-width}, black #{50% - $letter-width}, black #{50%}, transparent #{50%}),
+    linear-gradient(45deg, transparent #{50% - math.div($letter-width, $sqrt2) * 0.5}, black #{50% - math.div($letter-width, $sqrt2) * 0.5}, black #{50% + math.div($letter-width, $sqrt2) * 0.5},transparent #{50% + math.div($letter-width, $sqrt2) * 0.5}),
+    linear-gradient(-45deg, transparent #{50% - math.div($letter-width, $sqrt2) * 0.5}, black #{50% - math.div($letter-width, $sqrt2) * 0.5}, black #{50% + math.div($letter-width, $sqrt2) * 0.5},transparent #{50% + math.div($letter-width, $sqrt2) * 0.5});
+  background-size: $size $size;
+  background-position: calc(50% - #{$size * 0.25} + #{$letter-width * 0.25}) 50%;
+}
+
+@mixin letters-t() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to right, white $padding-right, transparent $padding-right, transparent #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to bottom, white $padding-top, black $padding-top, black #{$padding-top + $letter-width}, transparent #{$padding-top + $letter-width}, transparent #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, transparent #{50% - $letter-width * 0.5}, black #{50% - $letter-width * 0.5}, black #{50% + $letter-width * 0.5},transparent #{50% + $letter-width * 0.5});
+  background-size: $size $size;
+}
+
+@mixin letters-z() {
+  $padding-top: 12.5%;
+  $padding-right: 25%;
+  $letter-width: 12.5%;
+  background-image:
+    linear-gradient(to bottom, white $padding-top, transparent $padding-top, transparent #{100% - $padding-top}, white #{100% - $padding-top}),
+    linear-gradient(to right, white $padding-right, transparent $padding-right, transparent #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to bottom, transparent $padding-top, black $padding-top, black #{$padding-top + $letter-width}, transparent #{$padding-top + $letter-width}, transparent #{100% - $padding-top - $letter-width}, black #{100% - $padding-top - $letter-width}, black #{100% - $padding-top}, transparent #{100% - $padding-right}),
+    linear-gradient(-60deg, transparent #{50% - math.div($letter-width, $sqrt3) * 0.5}, black #{50% - math.div($letter-width, $sqrt3) * 0.5}, black #{50% + math.div($letter-width, $sqrt3) * 0.5},transparent #{50% + math.div($letter-width, $sqrt3) * 0.5});
+  background-size: $size $size;
+}
+
 @mixin letters-c() {
   background-image:
     linear-gradient(-90deg, white 50%, transparent 50%),
@@ -362,6 +453,33 @@ $size: 16px;
     radial-gradient(at 50% 50%, black 50%, transparent 50%);
   background-size: $size $size, $size $size, $size $size;
   background-position: calc(50% - #{0.33 * $size}) center;
+}
+
+@mixin padded-bricks-vertical() {
+  $padding-right: 25%;
+  $width: 12.5%;
+  background-image:
+    linear-gradient(to right, white $padding-right, black $padding-right, black #{$padding-right + $width}, transparent #{$padding-right + $width}, transparent #{100% - $padding-right - $width}, black #{100% - $padding-right - $width}, black #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to bottom, transparent #{50% - $width * 0.5}, black #{50% - $width * 0.5}, black #{50% + $width * 0.5},transparent #{50% + $width * 0.5});
+  background-size: $size $size;
+}
+
+@mixin padded-bricks-horizontal() {
+  $padding-right: 25%;
+  $width: 12.5%;
+  background-image:
+    linear-gradient(to bottom, white $padding-right, black $padding-right, black #{$padding-right + $width}, transparent #{$padding-right + $width}, transparent #{100% - $padding-right - $width}, black #{100% - $padding-right - $width}, black #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(to right, transparent #{50% - $width * 0.5}, black #{50% - $width * 0.5}, black #{50% + $width * 0.5},transparent #{50% + $width * 0.5});
+  background-size: $size $size;
+}
+
+@mixin padded-bricks-diagonal() {
+  $padding-right: 25%;
+  $width: 12.5%;
+  background-image:
+    linear-gradient(45deg, white $padding-right, black $padding-right, black #{$padding-right + $width}, transparent #{$padding-right + $width}, transparent #{100% - $padding-right - $width}, black #{100% - $padding-right - $width}, black #{100% - $padding-right}, white #{100% - $padding-right}),
+    linear-gradient(135deg, transparent #{50% - $width * 0.5}, black #{50% - $width * 0.5}, black #{50% + $width * 0.5},transparent #{50% + $width * 0.5});
+  background-size: $size $size;
 }
 
 @mixin dots() {
@@ -382,7 +500,7 @@ $size: 16px;
     radial-gradient(at 50% 50%, black math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
     radial-gradient(at 50% 50%, white math.div(50%, $sqrt2), transparent math.div(50%, $sqrt2)),
     radial-gradient(at 50% 50%, black math.div(75%, $sqrt2), transparent math.div(75%, $sqrt2));
-  background-size: $size $size, $size $size;
+  background-size: $size $size;
 }
 
 @mixin strike-through-chains() {
@@ -565,6 +683,26 @@ $size: 16px;
   background-size: $size $size;
 }
 
+@mixin barbell() {
+  $bar-width: 12.5%;
+  $plate-width: 6.25%;
+  $small-plate-height: 50%;
+  $big-plate-height: 75%;
+  $padding-right: 6.25%;
+  $plate-offset-right: 6.25%;
+  background-image:
+    linear-gradient(to right, white $padding-right, transparent $padding-right, transparent #{100% - $padding-right}, white #{100% - $padding-right}),
+      // big plate
+    linear-gradient(to bottom, white #{50% - $big-plate-height * 0.5}, transparent #{50% - $big-plate-height * 0.5}, transparent #{50% + $big-plate-height * 0.5}, white #{50% + $big-plate-height * 0.5}),
+    linear-gradient(to right, transparent #{$padding-right + $plate-offset-right + $plate-width}, black #{$padding-right + $plate-offset-right + $plate-width}, black #{$padding-right + $plate-offset-right + $plate-width * 2}, transparent #{$padding-right + $plate-offset-right + $plate-width * 2}, transparent #{100% - $padding-right - $plate-offset-right - $plate-width * 2}, black #{100% - $padding-right - $plate-offset-right - $plate-width * 2}, black #{100% - $padding-right - $plate-offset-right - $plate-width}, transparent #{100% - $padding-right - $plate-offset-right - $plate-width}),
+      // small plate
+    linear-gradient(to bottom, white #{50% - $small-plate-height * 0.5}, transparent #{50% - $small-plate-height * 0.5}, transparent #{50% + $small-plate-height * 0.5}, white #{50% + $small-plate-height * 0.5}),
+    linear-gradient(to right, transparent #{$padding-right + $plate-offset-right}, black #{$padding-right + $plate-offset-right}, black #{$padding-right + $plate-offset-right + $plate-width}, transparent #{$padding-right + $plate-offset-right + $plate-width}, transparent #{100% - $padding-right - $plate-offset-right - $plate-width}, black #{100% - $padding-right - $plate-offset-right - $plate-width}, black #{100% - $padding-right - $plate-offset-right}, transparent #{100% - $padding-right - $plate-offset-right}),
+      // bar
+    linear-gradient(to bottom, transparent #{50% - $bar-width * 0.5}, black #{50% - $bar-width * 0.5}, black #{50% + $bar-width * 0.5}, transparent #{50% + $bar-width * 0.5});
+  background-size: 3 * $size $size;
+}
+
 .cell:nth-child(1) {
   @include checker();
 }
@@ -607,6 +745,10 @@ $size: 16px;
 
 .cell:nth-child(13) {
   @include beads-horizontal();
+}
+
+.cell:nth-child(14) {
+  @include padded-bricks-vertical();
 }
 
 .cell:nth-child(15) {
@@ -665,6 +807,10 @@ $size: 16px;
   @include dashed-double-stripes-vertical();
 }
 
+.cell:nth-child(30) {
+  @include letters-h();
+}
+
 .cell:nth-child(32) {
   @include dot-checkers();
 }
@@ -675,6 +821,10 @@ $size: 16px;
 
 .cell:nth-child(34) {
   @include diagonal-triangles-four();
+}
+
+.cell:nth-child(35) {
+  @include letters-a();
 }
 
 .cell:nth-child(38) {
@@ -703,6 +853,14 @@ $size: 16px;
 
 .cell:nth-child(45) {
   @include mickey();
+}
+
+.cell:nth-child(46) {
+  @include letters-k();
+}
+
+.cell:nth-child(49) {
+  @include letters-n();
 }
 
 .cell:nth-child(51) {
@@ -737,6 +895,10 @@ $size: 16px;
   @include triangle-wave();
 }
 
+.cell:nth-child(63) {
+  @include letters-t();
+}
+
 .cell:nth-child(67) {
   @include flowers();
 }
@@ -747,6 +909,10 @@ $size: 16px;
 
 .cell:nth-child(69) {
   @include dashed-circles();
+}
+
+.cell:nth-child(71) {
+  @include padded-bricks-horizontal();
 }
 
 .cell:nth-child(72) {
@@ -789,12 +955,24 @@ $size: 16px;
   @include round-corners();
 }
 
+.cell:nth-child(86) {
+  @include letters-i();
+}
+
 .cell:nth-child(87) {
   @include hypno-propeller();
 }
 
 .cell:nth-child(88) {
   @include letters-c();
+}
+
+.cell:nth-child(89) {
+  @include barbell();
+}
+
+.cell:nth-child(90) {
+  @include letters-g();
 }
 
 .cell:nth-child(91) {
@@ -815,6 +993,14 @@ $size: 16px;
 
 .cell:nth-child(95) {
   @include diamond-chain-big-horizontal();
+}
+
+.cell:nth-child(96) {
+  @include padded-bricks-diagonal();
+}
+
+.cell:nth-child(97) {
+  @include letters-z();
 }
 
 .cell:nth-child(99) {
