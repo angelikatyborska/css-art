@@ -571,7 +571,7 @@ $size: 16px;
   background-size: $size * 2 $size * 2;
 }
 
-@mixin xxx() {
+@mixin lattice-circles() {
   background-image:
     repeating-linear-gradient(to right, transparent, transparent $size * 0.0625, white $size * 0.0625, white $size * 0.125),
     repeating-linear-gradient(to bottom, transparent, transparent $size * 0.0625, white $size * 0.0625, white $size * 0.125),
@@ -623,6 +623,15 @@ $size: 16px;
     radial-gradient(at 50% 50%, black math.div(100%, $sqrt2), transparent math.div(100%, $sqrt2));
   background-blend-mode: difference, normal;
   background-size: $size $size, $size $size;
+}
+
+@mixin pac-man() {
+  background-color: black;
+  background-image:
+    radial-gradient(circle at 56.25% 25%, black math.div(10%, $sqrt2), transparent math.div(10%, $sqrt2)),
+    conic-gradient(from 60deg, black 0deg, black 60deg, transparent 60deg, transparent 360deg),
+    radial-gradient(at 50% 50%, white math.div(87.5%, $sqrt2), transparent math.div(87.5%, $sqrt2));
+  background-size: $size * 2 $size * 2;
 }
 
 @mixin checker() {
@@ -720,6 +729,14 @@ $size: 16px;
     radial-gradient(circle at 33.33% 33.33%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2)),
     radial-gradient(circle at 66.67% 33.33%, white math.div(25%, $sqrt2), transparent math.div(25%, $sqrt2));
   background-size: $size $size;
+}
+
+@mixin four-dots() {
+  background-image:
+    radial-gradient(circle at 66.67% 66.67%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 33.33% 66.67%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 33.33% 33.33%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2)),
+    radial-gradient(circle at 66.67% 33.33%, black math.div(12.5%, $sqrt2), transparent math.div(12.5%, $sqrt2));  background-size: $size $size;
 }
 
 @mixin radiation() {
@@ -861,7 +878,7 @@ $size: 16px;
 }
 
 .cell:nth-child(13) {
-  @include xxx();
+  @include lattice-circles();
 }
 
 .cell:nth-child(14) {
@@ -956,6 +973,10 @@ $size: 16px;
   @include stripes-and-dots-vertical();
 }
 
+.cell:nth-child(37) {
+  @include pac-man();
+}
+
 .cell:nth-child(38) {
   @include stripes-horizontal();
 }
@@ -994,6 +1015,10 @@ $size: 16px;
 
 .cell:nth-child(49) {
   @include letters-n();
+}
+
+.cell:nth-child(50) {
+  @include four-dots();
 }
 
 .cell:nth-child(51) {
