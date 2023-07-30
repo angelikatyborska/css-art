@@ -22,7 +22,7 @@ import DotQueue from './components/DotQueue.vue';
 import HundredGradients from './components/HundredGradients.vue';
 
 export default [
-  { path: '/', redirect: '/triangles' },
+  { path: '/', redirect: '/100-gradients' },
   { meta: { title: 'circles', createdAt: '2019-11-26' }, path: '/circles', component: Circles },
   { meta: { title: 'lines', createdAt: '2019-11-26' }, path: '/lines', component: Lines },
   { meta: { title: 'lines2', createdAt: '2019-11-26' }, path: '/lines2', component: Lines2 },
