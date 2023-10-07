@@ -30,5 +30,6 @@ module.exports = {
     'sierpinski-triangle',
     'cassette',
     '100-gradients',
+    '14-segment',
   ],
 };
