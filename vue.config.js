@@ -33,4 +33,5 @@ module.exports = {
   configureWebpack: {
     plugins,
   },
+  lintOnSave: process.env.NODE_ENV === 'production',
 };
