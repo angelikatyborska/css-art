@@ -1,16 +1,12 @@
 <template>
   <div class="grid">
-    <div :key="n" v-for="n in 100" class="cell" :title="n">
-    </div>
+    <div :key="n" v-for="n in 100" class="cell" :title="n" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'HundredGradients',
-  props: {
-    msg: String,
-  },
 };
 </script>
 

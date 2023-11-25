@@ -1,166 +1,169 @@
 <template>
   <div class="canvas">
     <div class="grid">
-      <div class="display-frame" :key="n" v-for="(segmentsOn, n) in [
-        ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
-        [],
-        [],
-        [],
-        [],
-        [],
-        ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
-        [],
-        ['f', 'e', 'b', 'c', 'g1', 'g2'],
-        ['a', 'f', 'e', 'd', 'g1'],
-        ['f', 'e', 'd'],
-        ['f', 'e', 'd'],
-        ['e', 'c', 'd', 'f', 'b', 'a'],
-        [],
-        [],
-        ['f', 'e', 'b', 'c', 'k', 'm'],
-        ['e', 'c', 'd', 'f', 'b', 'a'],
-        ['e', 'f', 'a', 'b', 'g1', 'g2', 'm'],
-        ['f', 'e', 'd'],
-        ['a', 'b', 'c', 'd', 'i', 'l'],
-        [],
-        ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
-        [],
-        [],
-        [],
-        [],
-        [],
-        ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
-      ]" >
+      <div
+        class="display-frame"
+        :key="n"
+        v-for="(segmentsOn, n) in [
+          ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
+          [],
+          [],
+          [],
+          [],
+          [],
+          ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
+          [],
+          ['f', 'e', 'b', 'c', 'g1', 'g2'],
+          ['a', 'f', 'e', 'd', 'g1'],
+          ['f', 'e', 'd'],
+          ['f', 'e', 'd'],
+          ['e', 'c', 'd', 'f', 'b', 'a'],
+          [],
+          [],
+          ['f', 'e', 'b', 'c', 'k', 'm'],
+          ['e', 'c', 'd', 'f', 'b', 'a'],
+          ['e', 'f', 'a', 'b', 'g1', 'g2', 'm'],
+          ['f', 'e', 'd'],
+          ['a', 'b', 'c', 'd', 'i', 'l'],
+          [],
+          ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
+          [],
+          [],
+          [],
+          [],
+          [],
+          ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
+        ]">
         <div class="display">
-          <div class="overlay-part cross-part cross-tl-br cross-center"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-center"></div>
+          <div class="overlay-part cross-part cross-tl-br cross-center" />
+          <div class="overlay-part cross-part cross-tr-bl cross-center" />
 
-          <div class="overlay-part cross-part cross-solid-left cross-left"></div>
-          <div class="overlay-part cross-part cross-tl-br cross-left"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-left"></div>
+          <div class="overlay-part cross-part cross-solid-left cross-left" />
+          <div class="overlay-part cross-part cross-tl-br cross-left" />
+          <div class="overlay-part cross-part cross-tr-bl cross-left" />
 
-          <div class="overlay-part cross-part cross-solid-right cross-right"></div>
-          <div class="overlay-part cross-part cross-tl-br cross-right"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-right"></div>
+          <div class="overlay-part cross-part cross-solid-right cross-right" />
+          <div class="overlay-part cross-part cross-tl-br cross-right" />
+          <div class="overlay-part cross-part cross-tr-bl cross-right" />
 
-          <div class="overlay-part cross-part cross-tl-br cross-top-left"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-top-left"></div>
-          <div class="overlay-part cross-part cross-solid-left cross-top-left"></div>
-          <div class="overlay-part cross-part cross-solid-top cross-top-left"></div>
+          <div class="overlay-part cross-part cross-tl-br cross-top-left" />
+          <div class="overlay-part cross-part cross-tr-bl cross-top-left" />
+          <div class="overlay-part cross-part cross-solid-left cross-top-left" />
+          <div class="overlay-part cross-part cross-solid-top cross-top-left" />
 
-          <div class="overlay-part cross-part cross-tl-br cross-top-right"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-top-right"></div>
-          <div class="overlay-part cross-part cross-solid-right cross-top-right"></div>
-          <div class="overlay-part cross-part cross-solid-top cross-top-right"></div>
+          <div class="overlay-part cross-part cross-tl-br cross-top-right" />
+          <div class="overlay-part cross-part cross-tr-bl cross-top-right" />
+          <div class="overlay-part cross-part cross-solid-right cross-top-right" />
+          <div class="overlay-part cross-part cross-solid-top cross-top-right" />
 
-          <div class="overlay-part cross-part cross-tl-br cross-bottom-right"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-bottom-right"></div>
-          <div class="overlay-part cross-part cross-solid-right cross-bottom-right"></div>
-          <div class="overlay-part cross-part cross-solid-bottom cross-bottom-right"></div>
+          <div class="overlay-part cross-part cross-tl-br cross-bottom-right" />
+          <div class="overlay-part cross-part cross-tr-bl cross-bottom-right" />
+          <div class="overlay-part cross-part cross-solid-right cross-bottom-right" />
+          <div class="overlay-part cross-part cross-solid-bottom cross-bottom-right" />
 
-          <div class="overlay-part cross-part cross-tl-br cross-bottom-left"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-bottom-left"></div>
-          <div class="overlay-part cross-part cross-solid-left cross-bottom-left"></div>
-          <div class="overlay-part cross-part cross-solid-bottom cross-bottom-left"></div>
+          <div class="overlay-part cross-part cross-tl-br cross-bottom-left" />
+          <div class="overlay-part cross-part cross-tr-bl cross-bottom-left" />
+          <div class="overlay-part cross-part cross-solid-left cross-bottom-left" />
+          <div class="overlay-part cross-part cross-solid-bottom cross-bottom-left" />
 
-          <div class="overlay-part cross-part cross-tl-br cross-top-center"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-top-center"></div>
-          <div class="overlay-part cross-part cross-solid-left cross-top-center"></div>
-          <div class="overlay-part cross-part cross-solid-right cross-top-center"></div>
+          <div class="overlay-part cross-part cross-tl-br cross-top-center" />
+          <div class="overlay-part cross-part cross-tr-bl cross-top-center" />
+          <div class="overlay-part cross-part cross-solid-left cross-top-center" />
+          <div class="overlay-part cross-part cross-solid-right cross-top-center" />
 
-          <div class="overlay-part cross-part cross-tl-br cross-bottom-center"></div>
-          <div class="overlay-part cross-part cross-tr-bl cross-bottom-center"></div>
-          <div class="overlay-part cross-part cross-solid-left cross-bottom-center"></div>
-          <div class="overlay-part cross-part cross-solid-right cross-bottom-center"></div>
+          <div class="overlay-part cross-part cross-tl-br cross-bottom-center" />
+          <div class="overlay-part cross-part cross-tr-bl cross-bottom-center" />
+          <div class="overlay-part cross-part cross-solid-left cross-bottom-center" />
+          <div class="overlay-part cross-part cross-solid-right cross-bottom-center" />
 
-          <div class="overlay-part frame frame-horizontal frame-top-left-top"></div>
-          <div class="overlay-part frame frame-vertical frame-top-left-right"></div>
-          <div class="overlay-part frame frame-horizontal frame-top-left-bottom"></div>
-          <div class="overlay-part frame frame-vertical frame-top-left-left"></div>
+          <div class="overlay-part frame frame-horizontal frame-top-left-top" />
+          <div class="overlay-part frame frame-vertical frame-top-left-right" />
+          <div class="overlay-part frame frame-horizontal frame-top-left-bottom" />
+          <div class="overlay-part frame frame-vertical frame-top-left-left" />
 
-          <div class="overlay-part frame frame-horizontal frame-bottom-left-top"></div>
-          <div class="overlay-part frame frame-vertical frame-bottom-left-right"></div>
-          <div class="overlay-part frame frame-horizontal frame-bottom-left-bottom"></div>
-          <div class="overlay-part frame frame-vertical frame-bottom-left-left"></div>
+          <div class="overlay-part frame frame-horizontal frame-bottom-left-top" />
+          <div class="overlay-part frame frame-vertical frame-bottom-left-right" />
+          <div class="overlay-part frame frame-horizontal frame-bottom-left-bottom" />
+          <div class="overlay-part frame frame-vertical frame-bottom-left-left" />
 
-          <div class="overlay-part frame frame-horizontal frame-bottom-right-top"></div>
-          <div class="overlay-part frame frame-vertical frame-bottom-right-right"></div>
-          <div class="overlay-part frame frame-horizontal frame-bottom-right-bottom"></div>
-          <div class="overlay-part frame frame-vertical frame-bottom-right-left"></div>
+          <div class="overlay-part frame frame-horizontal frame-bottom-right-top" />
+          <div class="overlay-part frame frame-vertical frame-bottom-right-right" />
+          <div class="overlay-part frame frame-horizontal frame-bottom-right-bottom" />
+          <div class="overlay-part frame frame-vertical frame-bottom-right-left" />
 
-          <div class="overlay-part frame frame-horizontal frame-top-right-top"></div>
-          <div class="overlay-part frame frame-vertical frame-top-right-right"></div>
-          <div class="overlay-part frame frame-horizontal frame-top-right-bottom"></div>
-          <div class="overlay-part frame frame-vertical frame-top-right-left"></div>
+          <div class="overlay-part frame frame-horizontal frame-top-right-top" />
+          <div class="overlay-part frame frame-vertical frame-top-right-right" />
+          <div class="overlay-part frame frame-horizontal frame-top-right-bottom" />
+          <div class="overlay-part frame frame-vertical frame-top-right-left" />
 
           <input :id="'segment-' + n + '-a'" name="segment-a" type="checkbox" :checked="segmentsOn.indexOf('a') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-a'" class="segment segment-a">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-b'" name="segment-b" type="checkbox" :checked="segmentsOn.indexOf('b') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-b'" class="segment segment-b">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-c'" name="segment-c" type="checkbox" :checked="segmentsOn.indexOf('c') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-c'" class="segment segment-c">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-d'" name="segment-d" type="checkbox" :checked="segmentsOn.indexOf('d') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-d'" class="segment segment-d">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-e'" name="segment-e" type="checkbox" :checked="segmentsOn.indexOf('e') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-e'" class="segment segment-e">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-f'" name="segment-f" type="checkbox" :checked="segmentsOn.indexOf('f') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-f'" class="segment segment-f">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-g1'" name="segment-g1" type="checkbox" :checked="segmentsOn.indexOf('g1') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-g1'" class="segment segment-g1">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-g2'" name="segment-g2" type="checkbox" :checked="segmentsOn.indexOf('g2') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-g2'" class="segment segment-g2">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-h'" name="segment-h" type="checkbox" :checked="segmentsOn.indexOf('h') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-h'" class="segment segment-h">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-i'" name="segment-i" type="checkbox" :checked="segmentsOn.indexOf('i') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-i'" class="segment segment-i">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-j'" name="segment-j" type="checkbox" :checked="segmentsOn.indexOf('j') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-j'" class="segment segment-j">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-k'" name="segment-k" type="checkbox" :checked="segmentsOn.indexOf('k') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-k'" class="segment segment-k">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-l'" name="segment-l" type="checkbox" :checked="segmentsOn.indexOf('l') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-l'" class="segment segment-l">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
           <input :id="'segment-' + n + '-m'" name="segment-m" type="checkbox" :checked="segmentsOn.indexOf('m') !== -1" class="segment-checkbox" />
           <label :for="'segment-' + n + '-m'" class="segment segment-m">
-            <span class="bulb"></span>
+            <span class="bulb" />
           </label>
 
         </div>
@@ -172,9 +175,6 @@
 <script>
 export default {
   name: 'FourteenSegment',
-  props: {
-    msg: String,
-  },
 };
 </script>
 
@@ -372,7 +372,6 @@ $bulb-offset: 10%;
   translate: -50%;
   z-index: 20;
 }
-
 
 // horizontal segments a, d, g1, g2
 
@@ -713,6 +712,5 @@ $bulb-offset: 10%;
   top: $segment-thickness * $ratio;
   right: 50% - ($segment-thickness) * 0.5 - $gap-thickness;
 }
-
 
 </style>

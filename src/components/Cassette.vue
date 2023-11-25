@@ -6,51 +6,51 @@
           <input class="sticker-own-text-marker side-b" value=":)" />
           <input class="sticker-own-text-marker side-a" value="my mix vol. 3" />
         </div>
-        <div class="sticker-side-letter"></div>
+        <div class="sticker-side-letter" />
         <div class="sticker-length-info">
-          <div class="sticker-length-info-sides"></div>
-          <div class="sticker-length-info-total"></div>
+          <div class="sticker-length-info-sides" />
+          <div class="sticker-length-info-total" />
         </div>
 
         <div class="sticker-hole-for-tape">
           <div class="gear left">
-            <div class="gear-ring"></div>
+            <div class="gear-ring" />
             <div class="gear-teeth">
-              <div class="gear-tooth"></div>
-              <div class="gear-tooth"></div>
-              <div class="gear-tooth"></div>
+              <div class="gear-tooth" />
+              <div class="gear-tooth" />
+              <div class="gear-tooth" />
             </div>
           </div>
           <div class="gear right">
-            <div class="gear-ring"></div>
+            <div class="gear-ring" />
             <div class="gear-teeth">
-              <div class="gear-tooth"></div>
-              <div class="gear-tooth"></div>
-              <div class="gear-tooth"></div>
+              <div class="gear-tooth" />
+              <div class="gear-tooth" />
+              <div class="gear-tooth" />
             </div>
           </div>
 
           <div class="tape-window">
-            <div class="tape left"></div>
-            <div class="tape right"></div>
+            <div class="tape left" />
+            <div class="tape right" />
           </div>
           <div class="measure">
-            <div :key="n" v-for="n in 11"></div>
+            <div :key="n" v-for="n in 11" />
           </div>
         </div>
       </div>
       <div class="bottom-bulge">
-        <div class="bottom-bulge-hole left round"></div>
-        <div class="bottom-bulge-hole right round"></div>
-        <div class="bottom-bulge-hole left square"></div>
-        <div class="bottom-bulge-hole right square"></div>
+        <div class="bottom-bulge-hole left round" />
+        <div class="bottom-bulge-hole right round" />
+        <div class="bottom-bulge-hole left square" />
+        <div class="bottom-bulge-hole right square" />
       </div>
       <div class="screws">
-        <div class="screw top left"></div>
-        <div class="screw top right"></div>
-        <div class="screw bottom left"></div>
-        <div class="screw bottom right"></div>
-        <div class="screw bottom middle"></div>
+        <div class="screw top left" />
+        <div class="screw top right" />
+        <div class="screw bottom left" />
+        <div class="screw bottom right" />
+        <div class="screw bottom middle" />
       </div>
     </div>
   </div>
@@ -59,9 +59,6 @@
 <script>
 export default {
   name: 'Cassette',
-  props: {
-    msg: String,
-  },
 };
 </script>
 

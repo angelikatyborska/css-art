@@ -1,7 +1,7 @@
 <template>
   <div class="grid">
     <div :key="n" v-for="n in 256" class="cell">
-      <div class="hex"></div>
+      <div class="hex" />
     </div>
   </div>
 </template>
@@ -9,9 +9,6 @@
 <script>
 export default {
   name: 'Hexes',
-  props: {
-    msg: String,
-  },
 };
 </script>
 

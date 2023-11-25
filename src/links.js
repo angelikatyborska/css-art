@@ -15,7 +15,7 @@ module.exports = {
     'circles-squares',
     'hexes',
     'plaid',
-    'pattern',
+    'pattern1',
     'pattern2',
     'pattern3',
     'pattern4_1',

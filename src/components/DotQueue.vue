@@ -1,15 +1,12 @@
 <template>
   <div class="grid">
-    <div :key="n" v-for="n in 11" class="cell"></div>
+    <div :key="n" v-for="n in 11" class="cell" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'Dot Queue',
-  props: {
-    msg: String,
-  },
 };
 </script>
 

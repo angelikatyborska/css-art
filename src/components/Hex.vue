@@ -1,20 +1,17 @@
 <template>
   <div class="wrapper">
-    <div class="hex"></div>
-    <div class="hex"></div>
-    <div class="hex"></div>
-    <div class="hex"></div>
-    <div class="hex"></div>
-    <div class="hex"></div>
+    <div class="hex" />
+    <div class="hex" />
+    <div class="hex" />
+    <div class="hex" />
+    <div class="hex" />
+    <div class="hex" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'Hex',
-  props: {
-    msg: String,
-  },
 };
 </script>
 

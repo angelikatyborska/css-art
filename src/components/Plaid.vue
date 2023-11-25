@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="grid">
-      <div :key="n" v-for="n in 576" class="cell"></div>
+      <div :key="n" v-for="n in 576" class="cell" />
     </div>
   </div>
 </template>
@@ -9,9 +9,6 @@
 <script>
 export default {
   name: 'Plaid',
-  props: {
-    msg: String,
-  },
 };
 </script>
 
@@ -34,7 +31,6 @@ $stripe-size: $base-unit * 0.707106781186548;
       transparent 2 * $stripe-size
   );
 }
-
 
 @mixin bottom-stripes($color: white) {
   background: repeating-linear-gradient(

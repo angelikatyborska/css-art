@@ -3,7 +3,7 @@ import Lines from './components/Lines.vue';
 import Lines2 from './components/Lines2.vue';
 import Squares from './components/Squares.vue';
 import CirclesSquares from './components/CirclesSquares.vue';
-import Pattern from './components/Pattern.vue';
+import Pattern1 from './components/Pattern1.vue';
 import Pattern2 from './components/Pattern2.vue';
 import Pattern3 from './components/Pattern3.vue';
 import Pattern4p1 from './components/Pattern4-1.vue';
@@ -29,7 +29,8 @@ export default [
   { meta: { title: 'lines2', createdAt: '2019-11-26' }, path: '/lines2', component: Lines2 },
   { meta: { title: 'squares', createdAt: '2019-11-26' }, path: '/squares', component: Squares },
   { meta: { title: 'circles-squares', createdAt: '2019-11-26' }, path: '/circles-squares', component: CirclesSquares },
-  { meta: { title: 'pattern', createdAt: '2019-11-26' }, path: '/pattern', component: Pattern },
+  { path: '/pattern', redirect: '/pattern1' },
+  { meta: { title: 'pattern1', createdAt: '2019-11-26' }, path: '/pattern1', component: Pattern1 },
   { meta: { title: 'pattern2', createdAt: '2019-11-26' }, path: '/pattern2', component: Pattern2 },
   { meta: { title: 'pattern3', createdAt: '2019-11-26' }, path: '/pattern3', component: Pattern3 },
   { meta: { title: 'pattern4.1', createdAt: '2021-02-07' }, path: '/pattern4_1', component: Pattern4p1 },

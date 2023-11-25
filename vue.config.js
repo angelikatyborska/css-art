@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs');
-const PrerenderSPAPlugin = require('prerender-spa-plugin');
-let links = require('./src/links.js');
+const PrerenderSPAPlugin = require('@dreysolano/prerender-spa-plugin');
+let links = require('./src/links');
 
-links = Object.values(links).reduce((acc, a) => [...acc, ...a.map(x => `\\${x}`)], []);
+links = Object.values(links).reduce((acc, a) => [...acc, ...a.map((x) => `\\${x}`)], []);
 
 let plugins = [];
 

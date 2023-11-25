@@ -1,7 +1,7 @@
 <template>
   <div id="canvas-wrapper">
     <div id="canvas" class="canvas">
-      <slot/>
+      <slot />
       <div class="title">
         <strong>{{this.title}}</strong> [{{this.date}}]
       </div>
@@ -13,8 +13,8 @@
 export default {
   name: 'square-canvas',
   props: {
-    title: String,
-    date: String,
+    title: { type: String, required: true },
+    date: { type: String, required: true },
   },
   created() {
     window.addEventListener('resize', this.onResize);

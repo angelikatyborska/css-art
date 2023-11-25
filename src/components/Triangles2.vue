@@ -1,15 +1,12 @@
 <template>
   <div class="grid">
-    <div :key="n" v-for="n in 100" class="cell"></div>
+    <div :key="n" v-for="n in 100" class="cell" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'Triangles2',
-  props: {
-    msg: String,
-  },
 };
 </script>
 

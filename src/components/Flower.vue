@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="flower" :key="m" v-for="m in 7">
-      <div :key="n" v-for="n in 12" class="petal"></div>
+      <div :key="n" v-for="n in 12" class="petal" />
     </div>
   </div>
 </template>
@@ -9,9 +9,6 @@
 <script>
 export default {
   name: 'Flower',
-  props: {
-    msg: String,
-  },
 };
 </script>
 

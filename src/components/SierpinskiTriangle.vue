@@ -9,8 +9,7 @@
                 <div :key="n" v-for="n in 3" class="triangle">
                   <div :key="n" v-for="n in 3" class="triangle">
                     <div :key="n" v-for="n in 3" class="triangle">
-                      <div :key="n" v-for="n in 3" class="triangle">
-                      </div>
+                      <div :key="n" v-for="n in 3" class="triangle" />
                     </div>
                   </div>
                 </div>
@@ -26,9 +25,6 @@
 <script>
 export default {
   name: 'SierpinskiTriangle',
-  props: {
-    msg: String,
-  },
 };
 </script>
 

@@ -18,15 +18,19 @@
       <footer>
         <p>use left/right arrows to navigate</p>
         <label for="accent-color">accent:</label>
-        <input id="accent-color" type="color" name="accent" value="#e20909"
-               v-on:change="onColorChange" />
+        <input
+          id="accent-color"
+          type="color"
+          name="accent"
+          value="#e20909"
+          v-on:change="onColorChange" />
       </footer>
     </nav>
     <main>
       <square-canvas
         :title=this.$router.currentRoute.meta.title
         :date=this.$router.currentRoute.meta.createdAt>
-        <router-view></router-view>
+        <router-view />
       </square-canvas>
     </main>
     <footer>
@@ -41,7 +45,7 @@ import SquareCanvas from './SquareCanvas.vue';
 import links from './links';
 import routes from './routes';
 
-const sortedRoutes = routes.filter(a => a.meta).sort((a, b) => b.meta.createdAt.localeCompare(a.meta.createdAt));
+const sortedRoutes = routes.filter((a) => a.meta).sort((a, b) => b.meta.createdAt.localeCompare(a.meta.createdAt));
 const newestRoute = sortedRoutes[0];
 
 export default {
@@ -57,8 +61,8 @@ export default {
     return {
       links:
         {
-          grids: links.grids.map(x => ({ to: `/${x}`, text: x.replace('_', '.') })),
-          misc: links.misc.map(x => ({ to: `/${x}`, text: x.replace('_', '.') })),
+          grids: links.grids.map((x) => ({ to: `/${x}`, text: x.replace('_', '.') })),
+          misc: links.misc.map((x) => ({ to: `/${x}`, text: x.replace('_', '.') })),
         },
       newestRoute,
     };
@@ -84,7 +88,7 @@ export default {
       }
     },
     nextLinkIndex(shift) {
-      const i = this.allLinks.findIndex(x => this.$router.currentRoute.path === x.to);
+      const i = this.allLinks.findIndex((x) => this.$router.currentRoute.path === x.to);
       return this.mod((i + shift), this.allLinks.length);
     },
     prev() {
