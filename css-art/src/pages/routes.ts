@@ -1,7 +1,9 @@
+import Circles from '../components/Circles.astro'
+
 export default [
   // TODO:
   // { path: '/', redirect: '/14-segment' },
-  { params: { slug: '/circles' }, props: { title: 'circles', createdAt: '2019-11-26', component: "Circles" }},
+  { params: { slug: '/circles' }, props: { title: 'circles', createdAt: '2019-11-26', component: Circles }},
   { params: { slug: '/lines' }, props: { title: 'lines', createdAt: '2019-11-26', component: "Lines" }},
   { params: { slug: '/lines2' }, props: { title: 'lines2', createdAt: '2019-11-26', component: "Lines2" }},
   { params: { slug: '/squares' }, props: { title: 'squares', createdAt: '2019-11-26', component: "Squares" }},

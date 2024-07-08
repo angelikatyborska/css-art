@@ -7,11 +7,14 @@ export function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const { title, createdAt } = Astro.props;
+const { title, createdAt, component } = Astro.props;
+
+const Component = component;
 ---
 
 <Layout title="Welcome to Astro.">
   Hello, page! {slug} {title} {createdAt}
+  <Component />
 </Layout>
 
 <style>
