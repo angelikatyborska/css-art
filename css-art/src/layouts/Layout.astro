@@ -1,4 +1,6 @@
 ---
+import SquareCanvas from './SquareCanvas.astro';
+
 interface Props {
   title: string;
 }
@@ -36,10 +38,47 @@ const { title } = Astro.props;
   <title>{title} | css art</title>
 </head>
 <body>
-  <slot />
+<div class="app">
+  <nav>
+    <header>css art</header>
+    <p>no svg, no canvas, just divs</p>
+    <section>
+      <p>TODO: bring back links, use view transitions</p>
+      <header>grids: </header>
+      <!--<router-link :key="link.to" v-for="link in links.grids" :to="link.to" :title="link.to === newestRoute.path ? 'Newest Item' : null">-->
+      <!--  {{ link.text }}<span class="new-route-marker" v-if="link.to === newestRoute.path">*</span>-->
+      <!--</router-link>-->
+    </section>
+    <section>
+      <header>misc: </header>
+      <!--<router-link :key="link.to" v-for="link in links.misc" :to="link.to" :title="link.to === newestRoute.path ? 'Newest Item' : null">-->
+      <!--  {{ link.text }}<span class="new-route-marker" v-if="link.to === newestRoute.path">*</span>-->
+      <!--</router-link>-->
+    </section>
+    <footer>
+      <p>use left/right arrows to navigate</p>
+      <p>TODO: fix color picker</p>
+      <label for="accent-color">accent:</label>
+      <input
+        id="accent-color"
+        type="color"
+        name="accent"
+        value="#e20909"/>
+        <!--v-on:change="onColorChange"-->
+    </footer>
+  </nav>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <strong>source: </strong><a href="https://github.com/angelikatyborska/css-art">github.com/angelikatyborska/css-art</a>
+  </footer>
+</div>
 </body>
 </html>
-<style is:global>
+<style is:global lang="scss">
+  @import "../variables";
+
   * {
     box-sizing: border-box;
   }
@@ -50,7 +89,7 @@ const { title } = Astro.props;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
   }
 
-  body {
+  .app {
     background-color: white;
     display: grid;
     grid-template-columns: 20vw auto 20vw;
@@ -60,6 +99,46 @@ const { title } = Astro.props;
     @media screen and (max-width: $mobile-max-width) {
       display: block;
     }
+  }
+
+  nav {
+    padding: 1rem;
+
+    > header {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    > section {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+
+      header {
+        margin-right: 1rem;
+        font-weight: bold;
+      }
+
+      a {
+        margin-right: 1rem;
+      }
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    > footer {
+      align-self: unset;
+      padding: unset;
+    }
+  }
+
+  footer {
+    align-self: end;
+    padding: 1rem;
   }
 
   a {

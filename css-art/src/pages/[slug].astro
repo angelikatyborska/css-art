@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import routes from "./routes"
+import SquareCanvas from "../layouts/SquareCanvas.astro";
 
 export function getStaticPaths() {
   return routes;
@@ -12,9 +13,10 @@ const { title, createdAt, component } = Astro.props;
 const Component = component;
 ---
 
-<Layout title="Welcome to Astro.">
-  Hello, page! {slug} {title} {createdAt}
-  <Component />
+<Layout title={title}>
+  <SquareCanvas title={title} date={createdAt}>
+    <Component />
+  </SquareCanvas>
 </Layout>
 
 <style>

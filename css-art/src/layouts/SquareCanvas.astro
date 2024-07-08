@@ -1,0 +1,68 @@
+---
+interface Props {
+	title: string;
+	date: string;
+}
+
+const { date, title } = Astro.props;
+---
+
+<div class="canvas-wrapper">
+  <div class="canvas">
+    <slot />
+    <div class="title">
+      <strong>{title}</strong> [{date}]
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "../variables.scss";
+
+  // TODO: check how the em-based borders and other properties look like (no rezising event)
+
+  .canvas-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  // TODO: maybe fix when I have more components and can check how they look like
+  .canvas {
+    position: absolute;
+    width: 90%;
+    max-width: 90dvh;
+    aspect-ratio: 1/1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+
+    @media screen and (max-width: $mobile-max-width) {
+      width: 90vw;
+      max-width: 90vw;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+      margin: 20px auto 80px auto;
+    }
+  }
+
+  .title {
+    position: absolute;
+    font-size: 1rem;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: white;
+
+    @media screen and (max-width: $mobile-max-width) {
+      position: relative;
+      right: 0;
+      top: 0;
+      text-align: right;
+      width: 90vw !important;
+      margin: 20px auto;
+    }
+  }
+</style>
