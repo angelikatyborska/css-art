@@ -29,9 +29,11 @@ const { date, title } = Astro.props;
 
   // TODO: maybe fix when I have more components and can check how they look like
   .canvas {
+    $width: calc(#{100dvw - 2 * $grid-side-column-width} - #{2 * $grid-column-gap});
+    $height: calc(100dvh - 2 * $grid-column-gap);
+    width: min($width, $height);
+    font-size: min($width, $height);
     position: absolute;
-    width: 90%;
-    max-width: 90dvh;
     aspect-ratio: 1/1;
     top: 50%;
     left: 50%;
@@ -39,8 +41,9 @@ const { date, title } = Astro.props;
     background: white;
 
     @media screen and (max-width: $mobile-max-width) {
-      width: 90vw;
-      max-width: 90vw;
+      $width: 90dvw;
+      width: $width;
+      font-size: $width;
       position: relative;
       top: 0;
       left: 0;

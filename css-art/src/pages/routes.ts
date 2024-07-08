@@ -1,4 +1,6 @@
 import Circles from '../components/Circles.astro'
+import Beads from '../components/Beads.astro'
+import Cassette from '../components/Cassette.astro'
 
 export default [
   // TODO:
@@ -22,9 +24,9 @@ export default [
   { params: { slug: '/sierpinski-triangle' }, props: { title: 'sierpinski-triangle', createdAt: '2019-12-10', component: "SierpinskiTriangle" }},
   { params: { slug: '/hex' }, props: { title: 'hex', createdAt: '2020-02-22', component: "Hex" }},
   { params: { slug: '/hexes' }, props: { title: 'hexes', createdAt: '2020-02-22', component: "Hexes" }},
-  { params: { slug: '/beads' }, props: { title: 'beads', createdAt: '2020-02-22', component: "Beads" }},
+  { params: { slug: '/beads' }, props: { title: 'beads', createdAt: '2020-02-22', component: Beads }},
   { params: { slug: '/plaid' }, props: { title: 'plaid', createdAt: '2020-04-19', component: "Plaid" }},
-  { params: { slug: '/cassette' }, props: { title: 'cassette', createdAt: '2020-05-01', component: "Cassette" }},
+  { params: { slug: '/cassette' }, props: { title: 'cassette', createdAt: '2020-05-01', component: Cassette }},
   { params: { slug: '/dot-queue' }, props: { title: 'dot-queue', createdAt: '2023-02-12', component: "DotQueue" }},
   { params: { slug: '/100-gradients' }, props: { title: '100-gradients', createdAt: '2023-05-01', component: "HundredGradients" }},
   { params: { slug: '/14-segment' }, props: { title: '14-segment', createdAt: '2023-11-24', component: "FourteenSegment" }},
