@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import routes from "./routes"
+
+export function getStaticPaths() {
+  return routes;
+}
+
+const { slug } = Astro.params;
+const { title, createdAt } = Astro.props;
+---
+
+<Layout title="Welcome to Astro.">
+  Hello, page! {slug} {title} {createdAt}
+</Layout>
+
+<style>
+
+</style>
