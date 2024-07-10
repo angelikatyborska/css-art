@@ -13,7 +13,7 @@ const { title, createdAt, component } = Astro.props;
 const Component = component;
 ---
 
-<Layout title={title}>
+<Layout title={title} slug={slug}>
   <SquareCanvas title={title} date={createdAt}>
     <Component />
   </SquareCanvas>

@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  slug: string;
 }
 
-const { title } = Astro.props;
+const { title, slug } = Astro.props;
 
 import links from './links';
 import routes from '../pages/routes';
@@ -49,7 +50,7 @@ const newestRoute = sortedRoutes[0];
     <section>
       <header>grids: </header>
       {links.grids.map(link =>
-        <a href={link} >
+        <a href={link} aria-current={link === `/${slug}` ? "page" : false}>
           { routes.find(r => r.params.slug === link)?.props.title }
           {link === newestRoute.params.slug ? <span class="new-route-marker">*</span> : ''}
         </a>
@@ -58,7 +59,7 @@ const newestRoute = sortedRoutes[0];
     <section>
       <header>misc: </header>
       {links.misc.map(link =>
-        <a href={link} >
+        <a href={link} aria-current={link === `/${slug}` ? "page" : false}>
           { routes.find(r => r.params.slug === link)?.props.title }
           {link === newestRoute.params.slug ? <span class="new-route-marker">*</span> : ''}
         </a>
@@ -159,6 +160,11 @@ const newestRoute = sortedRoutes[0];
   a {
     color: black;
     word-wrap: break-word;
+
+    &[aria-current="page"] {
+      text-decoration: none;
+      color: $accent;
+    }
   }
 
   .new-route-marker {
