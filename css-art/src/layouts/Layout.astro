@@ -4,6 +4,12 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+import links from './links';
+import routes from '../pages/routes';
+
+const sortedRoutes = routes.filter((a) => a.props).sort((a, b) => b.props.createdAt.localeCompare(a.props.createdAt));
+const newestRoute = sortedRoutes[0];
 ---
 
 <!doctype html>
@@ -41,17 +47,22 @@ const { title } = Astro.props;
     <header>css art</header>
     <p>no svg, no canvas, just divs</p>
     <section>
-      <p>TODO: bring back links, use view transitions</p>
       <header>grids: </header>
-      <!--<router-link :key="link.to" v-for="link in links.grids" :to="link.to" :title="link.to === newestRoute.path ? 'Newest Item' : null">-->
-      <!--  {{ link.text }}<span class="new-route-marker" v-if="link.to === newestRoute.path">*</span>-->
-      <!--</router-link>-->
+      {links.grids.map(link =>
+        <a href={link} >
+          { routes.find(r => r.params.slug === link)?.props.title }
+          {link === newestRoute.params.slug ? <span class="new-route-marker">*</span> : ''}
+        </a>
+      )}
     </section>
     <section>
       <header>misc: </header>
-      <!--<router-link :key="link.to" v-for="link in links.misc" :to="link.to" :title="link.to === newestRoute.path ? 'Newest Item' : null">-->
-      <!--  {{ link.text }}<span class="new-route-marker" v-if="link.to === newestRoute.path">*</span>-->
-      <!--</router-link>-->
+      {links.misc.map(link =>
+        <a href={link} >
+          { routes.find(r => r.params.slug === link)?.props.title }
+          {link === newestRoute.params.slug ? <span class="new-route-marker">*</span> : ''}
+        </a>
+      )}
     </section>
     <footer>
       <p>use left/right arrows to navigate</p>
@@ -62,7 +73,7 @@ const { title } = Astro.props;
         type="color"
         name="accent"
         value="#e20909"/>
-        <!--v-on:change="onColorChange"-->
+      <!--v-on:change="onColorChange"-->
     </footer>
   </nav>
   <main>
@@ -148,5 +159,10 @@ const { title } = Astro.props;
   a {
     color: black;
     word-wrap: break-word;
+  }
+
+  .new-route-marker {
+    font-weight: bold;
+    color: $accent;
   }
 </style>
