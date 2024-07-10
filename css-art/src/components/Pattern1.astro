@@ -1,0 +1,51 @@
+<div class="grid">
+  {(new Array(100)).fill(1).map((item) => (
+    <div class="cell" />
+  ))}
+</div>
+
+<style lang="scss">
+@import "../variables.scss";
+
+.grid {
+  @include square-canvas-child();
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.cell {
+  position: relative;
+  overflow: visible;
+
+  $radius: 0.1em;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: black;
+    width: 100%;
+    height: 100%;
+    border-radius: $radius 0 $radius 0;
+  }
+
+  &:nth-child(3n) {
+    &:before {
+      border-radius: $radius 0 0 0;
+    }
+  }
+
+  &:nth-child(6n) {
+    &:before {
+      border-radius: $radius $radius $radius 0;
+    }
+  }
+
+  &:nth-child(9n) {
+    &:before {
+      border-radius: 0 $radius $radius $radius;
+    }
+  }
+}
+</style>

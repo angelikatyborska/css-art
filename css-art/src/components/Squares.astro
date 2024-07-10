@@ -1,0 +1,43 @@
+<div class="grid">
+  {(new Array(441)).fill(1).map(() => (
+    <div class="cell" />
+  ))}
+</div>
+
+<style lang="scss">
+@import "../variables.scss";
+
+.grid {
+  @include square-canvas-child();
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.cell {
+  position: relative;
+  overflow: visible;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: black;
+  }
+
+  @for $i from 0 through 9 {
+    @for $j from 0 through 9 {
+      &:nth-child(#{$i * 10 + $j + 1}) {
+        &:before {
+          $size: #{(130 - ($i + $j) * 7) * 1%};
+          width: $size;
+          height: $size;
+          transform: translateX(-50%) translateY(-50%) rotate(#{45deg + 30deg * ($i + $j)});
+        }
+      }
+    }
+  }
+}
+</style>
