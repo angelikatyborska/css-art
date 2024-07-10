@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
   slug: string;
@@ -41,6 +43,8 @@ const newestRoute = sortedRoutes[0];
   <script defer data-domain="css-art.angelika.me" src="https://plausible.io/js/script.js"></script>
 
   <title>{title} | css art</title>
+
+  <ViewTransitions />
 </head>
 <body>
 <div class="app">
@@ -73,7 +77,9 @@ const newestRoute = sortedRoutes[0];
         id="accent-color"
         type="color"
         name="accent"
-        value="#e20909"/>
+        transition:persist=""
+        value="#e20909"
+      />
       <!--v-on:change="onColorChange"-->
     </footer>
   </nav>
