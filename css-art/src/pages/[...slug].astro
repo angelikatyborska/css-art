@@ -13,6 +13,15 @@ const { title, createdAt, component } = Astro.props;
 const Component = component;
 ---
 
+<script>
+  import { rootRoute } from './routes'
+  document.addEventListener('astro:page-load', () => {
+    if (window.location.pathname === '/') {
+      history.replaceState({}, '',  rootRoute.params.slug)
+    }
+  })
+</script>
+
 <Layout title={title} slug={slug}>
   <SquareCanvas title={title} date={createdAt}>
     <Component />

@@ -22,16 +22,14 @@ import Squares from '../components/Squares.astro'
 import Triangles from '../components/Triangles.astro'
 import Triangles2 from '../components/Triangles2.astro'
 
-export default [
-  // TODO:
-  // { path: '/', redirect: '/14-segment' },
+const rootRedirect = '/14-segment'
+
+let routes = [
   { params: { slug: '/circles' }, props: { title: 'circles', createdAt: '2019-11-26', component: Circles }},
   { params: { slug: '/lines' }, props: { title: 'lines', createdAt: '2019-11-26', component: Lines }},
   { params: { slug: '/lines2' }, props: { title: 'lines2', createdAt: '2019-11-26', component: Lines2 }},
   { params: { slug: '/squares' }, props: { title: 'squares', createdAt: '2019-11-26', component: Squares }},
   { params: { slug: '/circles-squares' }, props: { title: 'circles-squares', createdAt: '2019-11-26', component: CirclesSquares }},
-  // TODO:
-  // { path: '/pattern', redirect: '/pattern1' },
   { params: { slug: '/pattern1' }, props: { title: 'pattern1', createdAt: '2019-11-26', component: Pattern1 }},
   { params: { slug: '/pattern2' }, props: { title: 'pattern2', createdAt: '2019-11-26', component: Pattern2 }},
   { params: { slug: '/pattern3' }, props: { title: 'pattern3', createdAt: '2019-11-26', component: Pattern3 }},
@@ -51,3 +49,10 @@ export default [
   { params: { slug: '/100-gradients' }, props: { title: '100-gradients', createdAt: '2023-05-01', component: HundredGradients }},
   { params: { slug: '/14-segment' }, props: { title: '14-segment', createdAt: '2023-11-24', component: FourteenSegment }},
 ];
+
+const rootRoute = routes.find(r => r.params.slug === rootRedirect)
+
+routes = [...routes, { ...rootRoute, params: { slug: '/' } }]
+
+export default routes
+export { rootRoute }
