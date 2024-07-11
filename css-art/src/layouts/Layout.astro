@@ -10,6 +10,7 @@ const { title, slug } = Astro.props;
 
 import links from './links';
 import routes from '../pages/routes';
+import ColorPicker from "./ColorPicker.astro";
 
 const sortedRoutes = routes.filter((a) => a.props).sort((a, b) => b.props.createdAt.localeCompare(a.props.createdAt));
 const newestRoute = sortedRoutes[0];
@@ -70,17 +71,9 @@ const newestRoute = sortedRoutes[0];
       )}
     </section>
     <footer>
+      <p>TODO: fix arrow navigation</p>
       <p>use left/right arrows to navigate</p>
-      <p>TODO: fix color picker</p>
-      <label for="accent-color">accent:</label>
-      <input
-        id="accent-color"
-        type="color"
-        name="accent"
-        transition:persist=""
-        value="#e20909"
-      />
-      <!--v-on:change="onColorChange"-->
+      <ColorPicker />
     </footer>
   </nav>
   <main>
@@ -103,11 +96,6 @@ const newestRoute = sortedRoutes[0];
     padding: 0;
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
-  }
-
-  // TODO: extract into component
-  :root {
-    --accent-color: #e20909;
   }
 
   .app {

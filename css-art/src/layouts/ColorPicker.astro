@@ -1,0 +1,39 @@
+<script>
+  function setup() {
+    const input = document.querySelector("#accent-color")
+    const storageKey = 'accent-color';
+    const defaultColor = '#e20909';
+
+    const savedColor = window.sessionStorage.getItem(storageKey)
+    const colorToRestore = savedColor || defaultColor
+
+    input.value = colorToRestore;
+    setColor(colorToRestore);
+
+    function setColor(color: string) {
+      const root = document.querySelector<HTMLElement>(':root');
+      root.style.setProperty('--accent-color', color);
+      window.sessionStorage.setItem(storageKey, color)
+    }
+
+    input.addEventListener('change', () => {
+      setColor(event.target?.value)
+    })
+
+    setColor(input.value)
+  }
+
+  // on initial load, set the styles as fast as possible
+  // (astro:page-load is slower than DOMContentLoaded)
+  document.addEventListener('DOMContentLoaded', setup)
+  // then, set it again after each page swap
+  document.addEventListener('astro:after-swap', setup)
+</script>
+
+<label for="accent-color">accent:</label>
+<input
+  id="accent-color"
+  type="color"
+  name="accent"
+  autocomplete="false"
+/>
