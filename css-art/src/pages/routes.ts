@@ -61,7 +61,7 @@ let routes: Route[] = [
   { params: { slug: '/14-segment' }, props: { title: '14-segment', createdAt: '2023-11-24', component: FourteenSegment }},
 ];
 
-const rootRoute = routes.find(r => r.params.slug === rootRedirect)
+const rootRoute = routes.find(r => r.params.slug === rootRedirect)!
 
 routes = [...routes, { ...rootRoute, params: { slug: '/' } }]
 
