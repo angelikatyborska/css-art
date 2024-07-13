@@ -24,7 +24,18 @@ import Triangles2 from '../components/Triangles2.astro'
 
 const rootRedirect = '/14-segment'
 
-let routes = [
+export type Route = {
+  params: {
+    slug: string
+  },
+  props: {
+    title: string,
+    createdAt: string,
+    component: {}
+  }
+}
+
+let routes: Route[] = [
   { params: { slug: '/circles' }, props: { title: 'circles', createdAt: '2019-11-26', component: Circles }},
   { params: { slug: '/lines' }, props: { title: 'lines', createdAt: '2019-11-26', component: Lines }},
   { params: { slug: '/lines2' }, props: { title: 'lines2', createdAt: '2019-11-26', component: Lines2 }},
