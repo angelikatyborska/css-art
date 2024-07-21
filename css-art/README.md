@@ -2,9 +2,9 @@ TODO:
 
 - good readme
 - arrow navigation
-- flash of no aria-current link
 - fourteen segment labels break rule of "most specific info first"
 - why doesn't tsc fail on ts errors in astro components when npm run build does?
+- set up CI
 
 # Astro Starter Kit: Basics
 
