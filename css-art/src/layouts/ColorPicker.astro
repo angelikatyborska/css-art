@@ -2,7 +2,6 @@
   function setup() {
     const root = document.querySelector<HTMLElement>(':root') as HTMLElement;
     const input = document.querySelector<HTMLInputElement>("#accent-color") as HTMLInputElement;
-    // TODO: define env var?
     const storageKey = 'accent-color';
     const colorToRestore = window.sessionStorage.getItem(storageKey) || '';
 

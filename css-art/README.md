@@ -2,8 +2,6 @@ TODO:
 
 - good readme
 - arrow navigation
-- pull out the font file for cassette
-- why doesn't tsc fail on ts errors in astro components when npm run build does?
 - set up CI
 
 # Astro Starter Kit: Basics
