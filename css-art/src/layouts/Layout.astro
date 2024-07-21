@@ -41,11 +41,25 @@ const newestRoute = sortedRoutes[0];
   <meta name="twitter:image" content={`https://css-art.angelika.me${import.meta.env.BASE_URL}covers/${slug}.png`} />
 
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-  <script defer data-domain="css-art.angelika.me" src="https://plausible.io/js/script.js"></script>
+  <script defer is:inline data-domain="css-art.angelika.me" src="https://plausible.io/js/script.js"></script>
 
   <title>{title} | css art</title>
 
   <ViewTransitions />
+
+  <script is:inline>
+    // this script executes only once, and is render-blocking
+    // the goal is to set the desired accent color before rendering
+    // so that there is no flash of content without the accent color
+    const root = document.querySelector(':root');
+    const storageKey = 'accent-color';
+    const savedColor = window.sessionStorage.getItem(storageKey);
+
+    const defaultColor = '#e20909'
+    const colorToRestore = savedColor || defaultColor;
+    root.style.setProperty('--accent-color', savedColor || defaultColor);
+    window.sessionStorage.setItem(storageKey, colorToRestore)
+  </script>
 </head>
 <body>
 <div class="app">
