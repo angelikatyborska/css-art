@@ -8,12 +8,22 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "lint": "eslint -c eslint.config.js src/**/*.{astro,ts} *.{js,mjs}"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.0",
     "astro": "^4.11.5",
-    "sass": "^1.77.6",
-    "typescript": "^5.5.3"
+    "sass": "^1.77.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "@types/eslint__js": "^8.42.3",
+    "@typescript-eslint/parser": "^7.16.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.2.3",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.0"
   }
 }

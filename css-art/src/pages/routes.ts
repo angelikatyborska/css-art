@@ -31,7 +31,7 @@ export type Route = {
   props: {
     title: string,
     createdAt: string,
-    component: {}
+    component: object
   }
 }
 

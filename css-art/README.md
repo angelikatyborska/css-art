@@ -1,3 +1,8 @@
+TODO:
+
+- good readme
+- arrow navigation
+
 # Astro Starter Kit: Basics
 
 ```sh
