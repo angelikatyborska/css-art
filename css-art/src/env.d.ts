@@ -1,3 +1,2 @@
 /// <reference types="astro/client" />
-declare module '*.astro' {
-}
+declare module "*.astro" {}
