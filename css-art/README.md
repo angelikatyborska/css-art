@@ -2,7 +2,7 @@ TODO:
 
 - good readme
 - arrow navigation
-- fourteen segment labels break rule of "most specific info first"
+- pull out the font file for cassette
 - why doesn't tsc fail on ts errors in astro components when npm run build does?
 - set up CI
 

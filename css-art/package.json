@@ -9,7 +9,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "tsc": "tsc --noEmit",
-    "lint": "eslint -c eslint.config.js src/**/*.{astro,ts} *.{js,mjs}",
+    "check": "astro check",
+    "eslint": "eslint -c eslint.config.js src/**/*.{astro,ts} *.{js,mjs}",
+    "lint": "npm run check && npm run eslint",
     "format": "prettier --write ."
   },
   "dependencies": {
