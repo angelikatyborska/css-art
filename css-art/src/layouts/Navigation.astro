@@ -11,7 +11,7 @@ interface Props {
 const { newestRoute, slug } = Astro.props;
 ---
 <script>
-  const links = Array.from(document.querySelectorAll('#nav a'))
+  const links = Array.from(document.querySelectorAll<HTMLElement>('#nav a'))
 
   document.addEventListener('astro:page-load', () => {
     links.forEach(link => {
@@ -19,6 +19,39 @@ const { newestRoute, slug } = Astro.props;
       }
     )
   })
+
+  function mod(n: number, m: number) {
+    return ((n % m) + m) % m;
+  }
+
+  function nextLinkIndex(shift: number) {
+    const i = links.findIndex((link) => link.getAttribute('aria-current') === 'page');
+    return mod((i + shift), links.length);
+  }
+
+  function navigate(shift: number) {
+    const i = nextLinkIndex(shift);
+    const nextLink = links[i]
+    nextLink.click()
+  }
+
+  function onKeyUp(event: KeyboardEvent) {
+    const eventTarget = event.target as Element
+    if (!eventTarget.tagName || (eventTarget.tagName?.toLowerCase()) !== 'input') {
+      switch (event?.key) {
+        case 'ArrowLeft':
+          navigate(-1);
+          break;
+        case 'ArrowRight':
+          navigate(1);
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  document.addEventListener('keyup', onKeyUp)
 </script>
 
 <nav id="nav" transition:persist>
@@ -40,6 +73,8 @@ const { newestRoute, slug } = Astro.props;
       </a>
     )}
   </section>
+
+  <p>use left/right arrows to navigate</p>
 </nav>
 
 <style>

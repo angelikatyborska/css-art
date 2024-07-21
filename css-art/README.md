@@ -1,7 +1,6 @@
 TODO:
 
 - good readme
-- arrow navigation
 - set up CI
 
 # Astro Starter Kit: Basics
