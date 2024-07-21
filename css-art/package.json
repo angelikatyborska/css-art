@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "tsc": "tsc --noEmit",
-    "lint": "prettier --write . && eslint -c eslint.config.js src/**/*.{astro,ts} *.{js,mjs}"
+    "lint": "eslint -c eslint.config.js src/**/*.{astro,ts} *.{js,mjs}",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/check": "^0.8.0",
