@@ -15,7 +15,7 @@ const { newestRoute, slug } = Astro.props;
 
   document.addEventListener('astro:page-load', () => {
     links.forEach(link => {
-        link.setAttribute('aria-current', link.getAttribute('href') === document.location.pathname ? "page" : "false")
+        link.setAttribute('aria-current', link.getAttribute('href') === document.location.pathname.replace(/\/$/, "") ? "page" : "false")
       }
     )
   })
