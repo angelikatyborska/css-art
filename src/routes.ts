@@ -1,32 +1,32 @@
-import Circles from "../components/Circles.astro";
-import Beads from "../components/Beads.astro";
-import Cassette from "../components/Cassette.astro";
-import CirclesSquares from "../components/CirclesSquares.astro";
-import DotQueue from "../components/DotQueue.astro";
-import Eyes from "../components/Eyes.astro";
-import Flower from "../components/Flower.astro";
-import FourteenSegment from "../components/FourteenSegment.astro";
-import Hex from "../components/Hex.astro";
-import Hexes from "../components/Hexes.astro";
-import HundredGradients from "../components/HundredGradients.astro";
-import Lines from "../components/Lines.astro";
-import Lines2 from "../components/Lines2.astro";
-import Pattern1 from "../components/Pattern1.astro";
-import Pattern2 from "../components/Pattern2.astro";
-import Pattern3 from "../components/Pattern3.astro";
-import Pattern4p1 from "../components/Pattern4-1.astro";
-import Pattern4p2 from "../components/Pattern4-2.astro";
-import Plaid from "../components/Plaid.astro";
-import SierpinskiTriangle from "../components/SierpinskiTriangle.astro";
-import Squares from "../components/Squares.astro";
-import Triangles from "../components/Triangles.astro";
-import Triangles2 from "../components/Triangles2.astro";
+import Circles from "./components/Circles.astro";
+import Beads from "./components/Beads.astro";
+import Cassette from "./components/Cassette.astro";
+import CirclesSquares from "./components/CirclesSquares.astro";
+import DotQueue from "./components/DotQueue.astro";
+import Eyes from "./components/Eyes.astro";
+import Flower from "./components/Flower.astro";
+import FourteenSegment from "./components/FourteenSegment.astro";
+import Hex from "./components/Hex.astro";
+import Hexes from "./components/Hexes.astro";
+import HundredGradients from "./components/HundredGradients.astro";
+import Lines from "./components/Lines.astro";
+import Lines2 from "./components/Lines2.astro";
+import Pattern1 from "./components/Pattern1.astro";
+import Pattern2 from "./components/Pattern2.astro";
+import Pattern3 from "./components/Pattern3.astro";
+import Pattern4p1 from "./components/Pattern4-1.astro";
+import Pattern4p2 from "./components/Pattern4-2.astro";
+import Plaid from "./components/Plaid.astro";
+import SierpinskiTriangle from "./components/SierpinskiTriangle.astro";
+import Squares from "./components/Squares.astro";
+import Triangles from "./components/Triangles.astro";
+import Triangles2 from "./components/Triangles2.astro";
 
 const rootRedirect = "14-segment";
 
 export type Route = {
   params: {
-    slug: string;
+    slug: string | undefined;
   };
   props: {
     title: string;
@@ -126,7 +126,7 @@ let routes: Route[] = [
 
 const rootRoute = routes.find((r) => r.params.slug === rootRedirect)!;
 
-routes = [...routes, { ...rootRoute, params: { slug: '' } }];
+routes = [...routes, { ...rootRoute, params: { slug: undefined } }];
 
 export default routes;
 export { rootRoute };
