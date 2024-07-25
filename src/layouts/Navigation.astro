@@ -1,0 +1,94 @@
+---
+import type {Route} from "../pages/routes";
+import links from "./links";
+import routes from "../pages/routes";
+
+interface Props {
+  newestRoute: Route;
+  slug: string;
+}
+
+const { newestRoute, slug } = Astro.props;
+---
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLElement>('#nav a'))
+
+  document.addEventListener('astro:page-load', () => {
+    links.forEach(link => {
+        link.setAttribute('aria-current', link.getAttribute('href') === document.location.pathname.replace(/\/$/, "") ? "page" : "false")
+      }
+    )
+  })
+
+  function mod(n: number, m: number) {
+    return ((n % m) + m) % m;
+  }
+
+  function nextLinkIndex(shift: number) {
+    const i = links.findIndex((link) => link.getAttribute('aria-current') === 'page');
+    return mod((i + shift), links.length);
+  }
+
+  function navigate(shift: number) {
+    const i = nextLinkIndex(shift);
+    const nextLink = links[i]
+    nextLink.click()
+  }
+
+  function onKeyUp(event: KeyboardEvent) {
+    const eventTarget = event.target as Element
+    if (!eventTarget.tagName || (eventTarget.tagName?.toLowerCase()) !== 'input') {
+      switch (event?.key) {
+        case 'ArrowLeft':
+          navigate(-1);
+          break;
+        case 'ArrowRight':
+          navigate(1);
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  document.addEventListener('keyup', onKeyUp)
+</script>
+
+<nav id="nav" transition:persist>
+  <section>
+    <h2>grids: </h2>
+    {links.grids.map(link =>
+      <a href={link} aria-current={link === `/${slug}` ? "page" : "false"}>
+        { routes.find(r => `/${r.params.slug}` === link)?.props.title }
+        {link === `/${newestRoute.params.slug}` ? <span class="new-route-marker">*</span> : ''}
+      </a>
+    )}
+  </section>
+  <section>
+    <h2>misc: </h2>
+    {links.misc.map(link =>
+      <a href={link} aria-current={link === `/${slug}` ? "page" : "false"}>
+        { routes.find(r => `/${r.params.slug}` === link)?.props.title }
+        {link === `/${newestRoute.params.slug}` ? <span class="new-route-marker">*</span> : ''}
+      </a>
+    )}
+  </section>
+
+  <p>use left/right arrows to navigate</p>
+</nav>
+
+<style>
+  nav {
+    > section {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1rem;
+      margin-bottom: 1rem;
+
+      h2 {
+        font-size: inherit;
+        margin: 0;
+      }
+    }
+  }
+</style>

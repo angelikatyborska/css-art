@@ -2,6 +2,8 @@ $accent: var(--accent-color);
 $light-gray: #ddd;
 
 $mobile-max-width: 767px;
+$grid-side-column-width: 20dvw;
+$grid-column-gap: 40px;
 
 @mixin square-canvas-child() {
   width: 100%;

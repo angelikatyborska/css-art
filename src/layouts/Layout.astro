@@ -1,0 +1,149 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  slug: string;
+}
+
+const { title, slug } = Astro.props;
+
+import routes from '../pages/routes';
+import ColorPicker from "./ColorPicker.astro";
+import Navigation from "./Navigation.astro";
+
+const sortedRoutes = routes.filter((a) => a.props).sort((a, b) => b.props.createdAt.localeCompare(a.props.createdAt));
+const newestRoute = sortedRoutes[0];
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.png`}>
+  <meta name="author" content="Angelika Tyborska" />
+  <meta name="description" content="Angelika's CSS experiments." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta property="og:title" content={`${title} | css-art.angelika.me`} />
+  <meta property="og:description" content="Angelika's CSS experiments." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content={`https://css-art.angelika.me${import.meta.env.BASE_URL}covers/${slug}.png`} />
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="300" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@atyborska93" />
+  <meta name="twitter:title" content={`${title} | css-art.angelika.me`} />
+  <meta name="twitter:description" content="Angelika's CSS experiments." />
+  <meta name="twitter:image" content={`https://css-art.angelika.me${import.meta.env.BASE_URL}covers/${slug}.png`} />
+
+  <script defer is:inline data-domain="css-art.angelika.me" src="https://plausible.io/js/script.js"></script>
+
+  <title>{title} | css art</title>
+
+  <ViewTransitions />
+
+  <script is:inline>
+    // this script executes only once, and is render-blocking
+    // the goal is to set the desired accent color before rendering
+    // so that there is no flash of content without the accent color
+    const root = document.querySelector(':root');
+    const storageKey = 'accent-color';
+    const savedColor = window.sessionStorage.getItem(storageKey);
+
+    const defaultColor = '#e20909'
+    const colorToRestore = savedColor || defaultColor;
+    root.style.setProperty('--accent-color', savedColor || defaultColor);
+    window.sessionStorage.setItem(storageKey, colorToRestore)
+  </script>
+</head>
+<body>
+<div class="app">
+  <div class="sidebar">
+    <header>
+      <h1>css art</h1>
+      <p>no svg, no canvas, just divs</p>
+    </header>
+
+    <Navigation newestRoute={newestRoute} slug={slug} />
+
+    <ColorPicker />
+  </div>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <strong>source: </strong><a href="https://github.com/angelikatyborska/css-art">github.com/angelikatyborska/css-art</a>
+  </footer>
+</div>
+</body>
+</html>
+<style is:global lang="scss">
+  @import "../variables";
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+  }
+
+  .app {
+    background-color: white;
+    display: grid;
+    grid-template-columns: $grid-side-column-width auto $grid-side-column-width;
+    grid-column-gap: $grid-column-gap;
+    width: 100%;
+    height: 100vh;
+
+    @media screen and (max-width: $mobile-max-width) {
+      display: block;
+    }
+  }
+
+  .sidebar {
+    padding: 1rem;
+
+    > header {
+      margin-bottom: 2rem;
+      display: grid;
+      row-gap: 0.5rem;
+
+      h1, p {
+        margin: 0;
+      }
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  footer {
+    align-self: end;
+    padding: 1rem;
+  }
+
+  a {
+    color: black;
+    word-wrap: break-word;
+
+    &[aria-current="page"] {
+      text-decoration: none;
+      color: $accent;
+    }
+  }
+
+  .new-route-marker {
+    font-weight: bold;
+    color: $accent;
+  }
+</style>

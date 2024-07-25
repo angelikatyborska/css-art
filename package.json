@@ -1,28 +1,34 @@
 {
   "name": "css-art",
-  "version": "0.1.0",
-  "private": true,
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "PRERENDER=true vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "tsc": "tsc --noEmit",
+    "check": "astro check",
+    "eslint": "eslint -c eslint.config.js src/**/*.{astro,ts} *.{js,mjs}",
+    "lint": "npm run check && npm run eslint",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "@dreysolano/prerender-spa-plugin": "^1.0.3",
-    "core-js": "^3.3.2",
-    "vue": "^2.7.10",
-    "vue-router": "^3.6.5"
+    "@astrojs/check": "^0.8.0",
+    "astro": "^4.11.5",
+    "sass": "^1.77.6"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.23.3",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
-    "@vue/eslint-config-airbnb": "^7.0.0",
-    "eslint": "^8.2.0",
-    "eslint-plugin-vue": "^9.18.1",
-    "sass": "^1.40",
-    "sass-loader": "^10.3.1",
-    "vue-template-compiler": "^2.7.10"
+    "@eslint/js": "^9.7.0",
+    "@types/eslint__js": "^8.42.3",
+    "@typescript-eslint/parser": "^7.16.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^1.2.3",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "prettier": "3.3.3",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.0"
   }
 }

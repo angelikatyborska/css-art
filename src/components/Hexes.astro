@@ -1,0 +1,87 @@
+<div class="grid">
+  {(new Array(256)).fill(1).map(() => (
+    <div class="cell" >
+      <div class="hex" />
+    </div>
+  ))}
+</div>
+
+<style lang="scss">
+@use "sass:math";
+@import "../variables.scss";
+
+$root-three: 1.732050808;
+$width: 0.045em;
+$gap: 0.0125em;
+
+.grid {
+  @include square-canvas-child();
+  display: grid;
+  grid-template-columns: repeat(16, $width);
+  grid-template-rows: repeat(16, math.div($width, $root-three));
+  grid-row-gap: math.div($gap, $root-three) + math.div($width, (2 * $root-three));
+  grid-column-gap: $gap;
+  justify-content: center;
+  align-content: center;
+}
+
+@mixin hex($width, $color) {
+  width: $width;
+  height: math.div($width, $root-three);
+  background-color: $color;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: $width * 0.5 solid transparent;
+    border-right: $width * 0.5 solid transparent;
+  }
+
+  &:before {
+    bottom: 100%;
+    border-bottom: math.div($width, (2 * $root-three)) solid $color;
+  }
+
+  &:after {
+    top: 100%;
+    width: 0;
+    border-top: math.div($width, (2 * $root-three)) solid $color;
+  }
+}
+
+$max: 16;
+
+.cell {
+  position: relative;
+  overflow: visible;
+
+  @for $i from $max + 1 through 2 * $max {
+    &:nth-child(#{2 * $max}n + #{$i}) {
+      transform: translateX(calc(50% + #{0.5 * $gap}));
+    }
+  }
+
+  &:nth-child(100) {
+    .hex {
+      @include hex($width, var(--accent-color));
+    }
+  }
+
+  &:nth-child(200) {
+    .hex {
+      @include hex($width, black);
+    }
+  }
+}
+
+.hex {
+  @include hex($width, $light-gray);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%) translateY(-50%);
+}
+</style>

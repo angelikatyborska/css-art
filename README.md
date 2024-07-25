@@ -1,24 +1,15 @@
 # css-art
 
-## Project setup
-```
-npm install
-```
+## 🧞 Commands
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+All commands are run from the root of the project, from a terminal:
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+| Command                   | Action                                           |
+|:--------------------------|:-------------------------------------------------|
+| `npm install`             | Installs dependencies                            |
+| `npm run lint`            | Format and lint the project                      |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |

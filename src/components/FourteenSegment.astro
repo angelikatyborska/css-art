@@ -1,0 +1,707 @@
+<div class="canvas">
+  <div class="grid">
+    {[
+      ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
+      [],
+      [],
+      [],
+      [],
+      [],
+      ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
+      [],
+      ['f', 'e', 'b', 'c', 'g1', 'g2'],
+      ['a', 'f', 'e', 'd', 'g1'],
+      ['f', 'e', 'd'],
+      ['f', 'e', 'd'],
+      ['e', 'c', 'd', 'f', 'b', 'a'],
+      [],
+      [],
+      ['f', 'e', 'b', 'c', 'k', 'm'],
+      ['e', 'c', 'd', 'f', 'b', 'a'],
+      ['e', 'f', 'a', 'b', 'g1', 'g2', 'm'],
+      ['f', 'e', 'd'],
+      ['a', 'b', 'c', 'd', 'i', 'l'],
+      [],
+      ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
+      [],
+      [],
+      [],
+      [],
+      [],
+      ['g1', 'g2', 'h', 'i', 'j', 'k', 'l', 'm'],
+    ].map((segmentsOn, n) =>
+      <div class="display-frame">
+        <div class="display">
+          <div class="overlay-part cross-part cross-tl-br cross-center" />
+          <div class="overlay-part cross-part cross-tr-bl cross-center" />
+
+          <div class="overlay-part cross-part cross-solid-left cross-left" />
+          <div class="overlay-part cross-part cross-tl-br cross-left" />
+          <div class="overlay-part cross-part cross-tr-bl cross-left" />
+
+          <div class="overlay-part cross-part cross-solid-right cross-right" />
+          <div class="overlay-part cross-part cross-tl-br cross-right" />
+          <div class="overlay-part cross-part cross-tr-bl cross-right" />
+
+          <div class="overlay-part cross-part cross-tl-br cross-top-left" />
+          <div class="overlay-part cross-part cross-tr-bl cross-top-left" />
+          <div class="overlay-part cross-part cross-solid-left cross-top-left" />
+          <div class="overlay-part cross-part cross-solid-top cross-top-left" />
+
+          <div class="overlay-part cross-part cross-tl-br cross-top-right" />
+          <div class="overlay-part cross-part cross-tr-bl cross-top-right" />
+          <div class="overlay-part cross-part cross-solid-right cross-top-right" />
+          <div class="overlay-part cross-part cross-solid-top cross-top-right" />
+
+          <div class="overlay-part cross-part cross-tl-br cross-bottom-right" />
+          <div class="overlay-part cross-part cross-tr-bl cross-bottom-right" />
+          <div class="overlay-part cross-part cross-solid-right cross-bottom-right" />
+          <div class="overlay-part cross-part cross-solid-bottom cross-bottom-right" />
+
+          <div class="overlay-part cross-part cross-tl-br cross-bottom-left" />
+          <div class="overlay-part cross-part cross-tr-bl cross-bottom-left" />
+          <div class="overlay-part cross-part cross-solid-left cross-bottom-left" />
+          <div class="overlay-part cross-part cross-solid-bottom cross-bottom-left" />
+
+          <div class="overlay-part cross-part cross-tl-br cross-top-center" />
+          <div class="overlay-part cross-part cross-tr-bl cross-top-center" />
+          <div class="overlay-part cross-part cross-solid-left cross-top-center" />
+          <div class="overlay-part cross-part cross-solid-right cross-top-center" />
+
+          <div class="overlay-part cross-part cross-tl-br cross-bottom-center" />
+          <div class="overlay-part cross-part cross-tr-bl cross-bottom-center" />
+          <div class="overlay-part cross-part cross-solid-left cross-bottom-center" />
+          <div class="overlay-part cross-part cross-solid-right cross-bottom-center" />
+
+          <div class="overlay-part frame frame-horizontal frame-top-left-top" />
+          <div class="overlay-part frame frame-vertical frame-top-left-right" />
+          <div class="overlay-part frame frame-horizontal frame-top-left-bottom" />
+          <div class="overlay-part frame frame-vertical frame-top-left-left" />
+
+          <div class="overlay-part frame frame-horizontal frame-bottom-left-top" />
+          <div class="overlay-part frame frame-vertical frame-bottom-left-right" />
+          <div class="overlay-part frame frame-horizontal frame-bottom-left-bottom" />
+          <div class="overlay-part frame frame-vertical frame-bottom-left-left" />
+
+          <div class="overlay-part frame frame-horizontal frame-bottom-right-top" />
+          <div class="overlay-part frame frame-vertical frame-bottom-right-right" />
+          <div class="overlay-part frame frame-horizontal frame-bottom-right-bottom" />
+          <div class="overlay-part frame frame-vertical frame-bottom-right-left" />
+
+          <div class="overlay-part frame frame-horizontal frame-top-right-top" />
+          <div class="overlay-part frame frame-vertical frame-top-right-right" />
+          <div class="overlay-part frame frame-horizontal frame-top-right-bottom" />
+          <div class="overlay-part frame frame-vertical frame-top-right-left" />
+
+          <input id={'segment-' + n + '-a'} name="segment-a" type="checkbox" checked={segmentsOn.indexOf('a') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-a'} class="segment segment-a" aria-label={`segment A display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-b'} name="segment-b" type="checkbox" checked={segmentsOn.indexOf('b') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-b'} class="segment segment-b" aria-label={`segment B display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-c'} name="segment-c" type="checkbox" checked={segmentsOn.indexOf('c') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-c'} class="segment segment-c" aria-label={`segment C display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-d'} name="segment-d" type="checkbox" checked={segmentsOn.indexOf('d') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-d'} class="segment segment-d" aria-label={`segment D display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-e'} name="segment-e" type="checkbox" checked={segmentsOn.indexOf('e') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-e'} class="segment segment-e" aria-label={`segment E display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-f'} name="segment-f" type="checkbox" checked={segmentsOn.indexOf('f') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-f'} class="segment segment-f" aria-label={`segment F display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-g1'} name="segment-g1" type="checkbox" checked={segmentsOn.indexOf('g1') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-g1'} class="segment segment-g1" aria-label={`segment G1 display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-g2'} name="segment-g2" type="checkbox" checked={segmentsOn.indexOf('g2') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-g2'} class="segment segment-g2" aria-label={`segment G2 display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-h'} name="segment-h" type="checkbox" checked={segmentsOn.indexOf('h') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-h'} class="segment segment-h" aria-label={`segment H display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-i'} name="segment-i" type="checkbox" checked={segmentsOn.indexOf('i') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-i'} class="segment segment-i" aria-label={`segment I display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-j'} name="segment-j" type="checkbox" checked={segmentsOn.indexOf('j') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-j'} class="segment segment-j" aria-label={`segment J display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-k'} name="segment-k" type="checkbox" checked={segmentsOn.indexOf('k') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-k'} class="segment segment-k" aria-label={`segment K display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-l'} name="segment-l" type="checkbox" checked={segmentsOn.indexOf('l') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-l'} class="segment segment-l" aria-label={`segment L display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+          <input id={'segment-' + n + '-m'} name="segment-m" type="checkbox" checked={segmentsOn.indexOf('m') !== -1} class="segment-checkbox" />
+          <label for={'segment-' + n + '-m'} class="segment segment-m" aria-label={`segment M display ${n}`}>
+            <span class="bulb" />
+          </label>
+
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+<style lang="scss">
+  @use 'sass:math';
+  @import "../variables.scss";
+
+  .canvas {
+    @include square-canvas-child();
+    position: relative;
+    background: black;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 2%;
+    grid-row-gap: 2%;
+    width: 100%;
+  }
+
+  $ratio: 0.67;
+  $transition-duration: 200ms;
+
+  .display-frame {
+    position: relative;
+    background: black;
+    overflow: hidden;
+    aspect-ratio: $ratio;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .display {
+    background: black;
+    position: relative;
+    aspect-ratio: $ratio;
+    height: 90%;
+    filter: blur(2px);
+    transform: skew(-5deg);
+  }
+
+  $segment-thickness: 12%;
+  $gap-thickness: 6%;
+  $sin-45deg: 0.707106781186548;
+
+  .segment-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+    text-transform: unset;
+  }
+
+  $default-segment-black-overlay-opacity: 0.8;
+
+  .segment {
+    background: $accent;
+    cursor: pointer;
+    position: absolute;
+
+    &::before {
+      transition: $transition-duration all ease;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: $default-segment-black-overlay-opacity;
+      background-color: black;
+
+      animation-name: appear;
+      animation-duration: $transition-duration * 2;
+      animation-fill-mode: backwards;
+    }
+
+    .bulb {
+      transition: $transition-duration all ease;
+      position: absolute;
+      background-color: white;
+      filter: blur(2px);
+      mix-blend-mode: overlay;
+      opacity: 0;
+    }
+  }
+
+  @for $i from 1 through 28 {
+    .display-frame:nth-child(#{$i}) {
+      @for $j from 1 through 14 {
+        .segment:nth-of-type(#{$j}) {
+          &::before {
+            animation-delay: #{0.5s + ($i - 1) * 0.05s + $j * 0.025s};
+          }
+        }
+      }
+    }
+  }
+
+  $bulb-offset: 10%;
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .segment-checkbox:checked + .segment {
+    &::before {
+      opacity: 0;
+    }
+
+    .bulb {
+      opacity: 0.8;
+    }
+  }
+
+  .segment-checkbox:focus-visible + .segment {
+    &::after {
+      content: '';
+      position: absolute;
+      $size: 6px;
+      top: calc(50% - #{$size * 0.5});
+      right: calc(50% - #{$size * 0.5});
+      width: $size;
+      height: $size;
+      border-radius: $size;
+      background-color: white;
+    }
+  }
+
+  // vertical segments b, c, e, f, i, l
+
+  .segment-b, .segment-c, .segment-e, .segment-f, .segment-i, .segment-l {
+    padding-right: $segment-thickness * 0.5;
+    padding-left: $segment-thickness * 0.5;
+    width: 0;
+    height: 50%;
+    z-index: 20;
+
+    .bulb {
+      top: $bulb-offset;
+      right: 2 * $bulb-offset;
+      bottom: $bulb-offset;
+      left: 2 * $bulb-offset;
+    }
+  }
+
+  .segment-b {
+    top: 0;
+    right: 0;
+  }
+
+  .segment-c {
+    bottom: 0;
+    right: 0;
+  }
+
+  .segment-e {
+    bottom: 0;
+    left: 0;
+  }
+
+  .segment-f {
+    top: 0;
+    left: 0;
+  }
+
+  .segment-i {
+    top: 0;
+    left: 50%;
+    translate: -50%;
+    z-index: 20;
+  }
+
+  .segment-l {
+    bottom: 0;
+    left: 50%;
+    translate: -50%;
+    z-index: 20;
+  }
+
+  // horizontal segments a, d, g1, g2
+
+  .segment-a, .segment-d, .segment-g1, .segment-g2 {
+    padding-top: $segment-thickness;
+    height: 0;
+    z-index: 30;
+
+    .bulb {
+      top: 2 * $bulb-offset;
+      right: $bulb-offset;
+      bottom: 2 * $bulb-offset;
+      left: $bulb-offset;
+    }
+  }
+
+  .segment-a, .segment-d {
+    width: 100% - $segment-thickness - math.div($gap-thickness, $sin-45deg);
+    left: $segment-thickness * 0.5 + 0.5 * math.div($gap-thickness, $sin-45deg);
+  }
+
+  .segment-a {
+    top: 0;
+  }
+
+  .segment-d {
+    bottom: 0;
+  }
+
+  .segment-g1, .segment-g2 {
+    width: 50% - 0.5 * $segment-thickness - math.div($gap-thickness, $sin-45deg);
+    top: 50%;
+    translate: 0 -50%;
+  }
+
+  .segment-g1 {
+    left: 0.5 * $segment-thickness + 0.5 * math.div($gap-thickness, $sin-45deg);
+  }
+
+  .segment-g2 {
+    right: 0.5 * $segment-thickness + 0.5 * math.div($gap-thickness, $sin-45deg);
+  }
+
+  // diagonal segments h, j, k, m
+
+  .segment-h, .segment-j, .segment-k, .segment-m {
+    padding-right: $segment-thickness * 0.5;
+    padding-left: $segment-thickness * 0.5;
+    width: 0;
+    height: 50%;
+    z-index: 10;
+
+    .bulb {
+      top: $bulb-offset;
+      right: 2 * $bulb-offset;
+      bottom: $bulb-offset;
+      left: 2 * $bulb-offset;
+    }
+  }
+
+  .segment-h, .segment-m {
+    rotate: (-1 * math.atan($ratio));
+  }
+
+  .segment-h {
+    top: 0;
+    left: 25%;
+    translate: -50%;
+  }
+
+  .segment-m {
+    bottom: 0;
+    right: 25%;
+    translate: 50%;
+  }
+
+  .segment-j, .segment-k {
+    rotate: (math.atan($ratio));
+  }
+
+  .segment-j {
+    top: 0;
+    right: 25%;
+    translate: 50%;
+  }
+
+  .segment-k {
+    bottom: 0;
+    left: 25%;
+    translate: -50%;
+  }
+
+  .overlay-part {
+    position: absolute;
+    background-color: black;
+    display: block;
+    z-index: 100;
+  }
+
+  .cross-part {
+    width: $gap-thickness;
+    height: (math.div(($segment-thickness * $ratio), $sin-45deg)) + ($gap-thickness * $ratio);
+  }
+
+  .cross-tl-br {
+    rotate: -45deg;
+  }
+
+  .cross-tr-bl {
+    rotate: 45deg;
+  }
+
+  .cross-center {
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  }
+
+  .cross-left {
+    top: 50%;
+    left: 0.5 * $segment-thickness;
+    translate: -50% -50%;
+  }
+
+  .cross-right {
+    top: 50%;
+    right: 0.5 * $segment-thickness;
+    translate: 50% -50%;
+  }
+
+  .cross-solid-left, .cross-solid-right, .cross-solid-top, .cross-solid-bottom {
+    $width: math.div($segment-thickness, $sin-45deg);
+    width: $width;
+    height: $ratio * $width;
+    rotate: 45deg;
+  }
+
+  .cross-left.cross-solid-left {
+    top: 50%;
+    left: 0.5 * math.div($gap-thickness, $sin-45deg);
+    translate: -100% -50%;
+  }
+
+  .cross-right.cross-solid-right {
+    top: 50%;
+    right: 0.5 * math.div($gap-thickness, $sin-45deg);
+    translate: 100% -50%;
+  }
+
+  .cross-top-left {
+    top: 0.5 * $segment-thickness * $ratio;
+    left: 0.5 * $segment-thickness;
+    translate: -50% -50%;
+  }
+
+  .cross-top-left.cross-solid-left {
+    top: 0.5 * $segment-thickness * $ratio;
+    left: 0.5 * math.div($gap-thickness, $sin-45deg);
+    translate: -100% -50%;
+  }
+
+  .cross-top-left.cross-solid-top {
+    top: 0.5 * math.div($gap-thickness, $sin-45deg);
+    left: 0.5 * $segment-thickness;
+    translate: -50% -100%;
+  }
+
+  .cross-top-right {
+    top: 0.5 * $segment-thickness * $ratio;
+    right: 0.5 * $segment-thickness;
+    translate: 50% -50%;
+  }
+
+  .cross-top-right.cross-solid-right {
+    top: 0.5 * $segment-thickness * $ratio;
+    right: 0.5 * math.div($gap-thickness, $sin-45deg);
+    translate: 100% -50%;
+  }
+
+  .cross-top-right.cross-solid-top {
+    top: 0.5 * math.div($gap-thickness, $sin-45deg);
+    right: 0.5 * $segment-thickness;
+    translate: 50% -100%;
+  }
+
+  .cross-bottom-right {
+    bottom: 0.5 * $segment-thickness * $ratio;
+    right: 0.5 * $segment-thickness;
+    translate: 50% 50%;
+  }
+
+  .cross-bottom-right.cross-solid-right {
+    bottom: 0.5 * $segment-thickness * $ratio;
+    right: 0.5 * math.div($gap-thickness, $sin-45deg);
+    translate: 100% 50%;
+  }
+
+  .cross-bottom-right.cross-solid-bottom {
+    bottom: 0.5 * math.div($gap-thickness, $sin-45deg);
+    right: 0.5 * $segment-thickness;
+    translate: 50% 100%;
+  }
+
+  .cross-bottom-left {
+    bottom: 0.5 * $segment-thickness * $ratio;
+    left: 0.5 * $segment-thickness;
+    translate: -50% 50%;
+  }
+
+  .cross-bottom-left.cross-solid-left {
+    bottom: 0.5 * $segment-thickness * $ratio;
+    left: 0.5 * math.div($gap-thickness, $sin-45deg);
+    translate: -100% 50%;
+  }
+
+  .cross-bottom-left.cross-solid-bottom {
+    bottom: 0.5 * math.div($gap-thickness, $sin-45deg);
+    left: 0.5 * $segment-thickness;
+    translate: -50% 100%;
+  }
+
+  .cross-top-center {
+    top: $segment-thickness * $ratio - $gap-thickness * 0.5 * math.div($ratio, $sin-45deg) + $gap-thickness * $ratio * 0.5;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 25;
+  }
+
+  .cross-top-center.cross-solid-left {
+    left: 50% - $segment-thickness + 0.5 * math.div($gap-thickness, $sin-45deg);
+  }
+
+  .cross-top-center.cross-solid-right {
+    left: 50% + $segment-thickness - 0.5 * math.div($gap-thickness, $sin-45deg);
+  }
+
+  .cross-bottom-center {
+    bottom: $segment-thickness * $ratio - $gap-thickness * 0.5 * math.div($ratio, $sin-45deg) + $gap-thickness * $ratio * 0.5;
+    left: 50%;
+    translate: -50% 50%;
+    z-index: 25;
+  }
+
+  .cross-bottom-center.cross-solid-left {
+    left: 50% - $segment-thickness + 0.5 * math.div($gap-thickness, $sin-45deg);
+  }
+
+  .cross-bottom-center.cross-solid-right {
+    left: 50% + $segment-thickness - 0.5 * math.div($gap-thickness, $sin-45deg);
+  }
+
+  .frame-horizontal {
+    width: 50% - ($segment-thickness) * 1.5;
+    height: $gap-thickness * $ratio;
+
+  }
+  .frame-vertical {
+    width: $gap-thickness;
+    height: 50% - ($segment-thickness * $ratio) * 1.5;
+  }
+
+  .frame-top-left-top {
+    top: $segment-thickness * $ratio;
+    left: $segment-thickness;
+  }
+
+  .frame-top-left-right {
+    top: $segment-thickness * $ratio;
+    left: 50% - ($segment-thickness) * 0.5 - $gap-thickness;
+  }
+
+  .frame-top-left-bottom {
+    top: 50% - $segment-thickness * 0.5 * $ratio - $gap-thickness * $ratio;
+    left: $segment-thickness;
+  }
+
+  .frame-top-left-left {
+    top: $segment-thickness * $ratio;
+    left: $segment-thickness;
+  }
+
+  .frame-bottom-left-top {
+    top: 50% + $segment-thickness * 0.5 * $ratio;
+    left: $segment-thickness;
+  }
+
+  .frame-bottom-left-right {
+    top: 50% + $segment-thickness * 0.5 * $ratio;
+    left: 50% - ($segment-thickness) * 0.5 - $gap-thickness;
+  }
+
+  .frame-bottom-left-bottom {
+    top: 100% - $segment-thickness * $ratio - $gap-thickness * $ratio;
+    left: $segment-thickness;
+  }
+
+  .frame-bottom-left-left {
+    top: 50% + $segment-thickness * 0.5 * $ratio;
+    left: $segment-thickness;
+  }
+
+  .frame-bottom-right-top {
+    top: 50% + $segment-thickness * 0.5 * $ratio;
+    right: $segment-thickness;
+  }
+
+  .frame-bottom-right-right {
+    top: 50% + $segment-thickness * 0.5 * $ratio;
+    right: $segment-thickness;
+  }
+
+  .frame-bottom-right-bottom {
+    top: 100% - $segment-thickness * $ratio - $gap-thickness * $ratio;
+    right: $segment-thickness;
+  }
+
+  .frame-bottom-right-left {
+    top: 50% + $segment-thickness * 0.5 * $ratio;
+    right: 50% - ($segment-thickness) * 0.5 - $gap-thickness;
+  }
+
+  .frame-top-right-top {
+    top: $segment-thickness * $ratio;
+    right: $segment-thickness;
+  }
+
+  .frame-top-right-right {
+    top: $segment-thickness * $ratio;
+    right: $segment-thickness;
+  }
+
+  .frame-top-right-bottom {
+    top: 50% - $segment-thickness * 0.5 * $ratio - $gap-thickness * $ratio;
+    right: $segment-thickness;
+  }
+
+  .frame-top-right-left {
+    top: $segment-thickness * $ratio;
+    right: 50% - ($segment-thickness) * 0.5 - $gap-thickness;
+  }
+
+</style>
