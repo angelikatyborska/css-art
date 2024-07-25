@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import routes from "./routes"
+import routes, { rootRoute } from "./routes"
 import SquareCanvas from "../layouts/SquareCanvas.astro";
 
 export function getStaticPaths() {
@@ -22,7 +22,7 @@ const Component = component;
   })
 </script>
 
-<Layout title={title} slug={slug}>
+<Layout title={title} slug={slug || rootRoute.params.slug}>
   <SquareCanvas title={title} date={createdAt}>
     <Component />
   </SquareCanvas>

@@ -59,8 +59,8 @@ const { newestRoute, slug } = Astro.props;
     <h2>grids: </h2>
     {links.grids.map(link =>
       <a href={link} aria-current={link === `/${slug}` ? "page" : "false"}>
-        { routes.find(r => r.params.slug === link)?.props.title }
-        {link === newestRoute.params.slug ? <span class="new-route-marker">*</span> : ''}
+        { routes.find(r => `/${r.params.slug}` === link)?.props.title }
+        {link === `/${newestRoute.params.slug}` ? <span class="new-route-marker">*</span> : ''}
       </a>
     )}
   </section>
@@ -68,8 +68,8 @@ const { newestRoute, slug } = Astro.props;
     <h2>misc: </h2>
     {links.misc.map(link =>
       <a href={link} aria-current={link === `/${slug}` ? "page" : "false"}>
-        { routes.find(r => r.params.slug === link)?.props.title }
-        {link === newestRoute.params.slug ? <span class="new-route-marker">*</span> : ''}
+        { routes.find(r => `/${r.params.slug}` === link)?.props.title }
+        {link === `/${newestRoute.params.slug}` ? <span class="new-route-marker">*</span> : ''}
       </a>
     )}
   </section>
