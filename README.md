@@ -5,7 +5,7 @@
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
-|:--------------------------|:-------------------------------------------------|
+| :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
 | `npm run lint`            | Format and lint the project                      |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
