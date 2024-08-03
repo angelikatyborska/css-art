@@ -17,5 +17,6 @@ jobs:
           node-version: 20.16.0
           cache: 'npm'
       - run: npm install
+      - run: npm run check-covers
       - run: npm run build
       - run: npm run lint
