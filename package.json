@@ -11,8 +11,10 @@
     "tsc": "tsc --noEmit",
     "check": "astro check",
     "eslint": "eslint -c eslint.config.js src/**/*.{astro,ts} *.{js,mjs}",
-    "lint": "npm run check && npm run eslint",
-    "format": "prettier --write ."
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run check && npm run eslint && npm run lint:prettier",
+    "format": "prettier --write .",
+    "check-covers": "node bin/check-covers.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.0",
