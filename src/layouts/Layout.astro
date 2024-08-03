@@ -12,7 +12,7 @@ import routes from '../routes';
 import ColorPicker from "./ColorPicker.astro";
 import Navigation from "./Navigation.astro";
 
-const sortedRoutes = routes.filter((a) => a.props).sort((a, b) => b.props.createdAt.localeCompare(a.props.createdAt));
+const sortedRoutes = routes.filter((a) => a.props).sort((a, b) => b.props.createdOn.localeCompare(a.props.createdOn));
 const newestRoute = sortedRoutes[0];
 ---
 

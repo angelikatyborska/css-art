@@ -8,7 +8,7 @@ export function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const { title, createdAt, component } = Astro.props;
+const { title, createdOn, component } = Astro.props;
 
 const Component = component;
 ---
@@ -23,7 +23,7 @@ const Component = component;
 </script>
 
 <Layout title={title} slug={slug || rootRoute.params.slug}>
-  <SquareCanvas title={title} date={createdAt}>
+  <SquareCanvas title={title} date={createdOn}>
     <Component />
   </SquareCanvas>
 </Layout>

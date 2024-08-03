@@ -11,6 +11,7 @@ interface Props {
 const { newestRoute, slug } = Astro.props;
 ---
 <script>
+  import { navigate } from 'astro:transitions/client';
   const links = Array.from(document.querySelectorAll<HTMLElement>('#nav a'))
 
   document.addEventListener('astro:page-load', () => {
@@ -29,10 +30,10 @@ const { newestRoute, slug } = Astro.props;
     return mod((i + shift), links.length);
   }
 
-  function navigate(shift: number) {
+  function visitLink(shift: number) {
     const i = nextLinkIndex(shift);
     const nextLink = links[i]
-    nextLink.click()
+    navigate(nextLink.getAttribute('href')!)
   }
 
   function onKeyUp(event: KeyboardEvent) {
@@ -40,10 +41,10 @@ const { newestRoute, slug } = Astro.props;
     if (!eventTarget.tagName || (eventTarget.tagName?.toLowerCase()) !== 'input') {
       switch (event?.key) {
         case 'ArrowLeft':
-          navigate(-1);
+          visitLink(-1);
           break;
         case 'ArrowRight':
-          navigate(1);
+          visitLink(1);
           break;
         default:
           break;
