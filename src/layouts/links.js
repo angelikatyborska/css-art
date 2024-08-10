@@ -24,5 +24,13 @@ export default {
     "/eyes",
     "/dot-queue",
   ],
-  misc: ["/flower", "/hex", "/sierpinski-triangle", "/cassette", "/100-gradients", "/14-segment"],
+  misc: [
+    "/flower",
+    "/hex",
+    "/sierpinski-triangle",
+    "/cassette",
+    "/100-gradients",
+    "/14-segment",
+    "/emergency-exit",
+  ],
 };

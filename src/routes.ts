@@ -21,8 +21,9 @@ import SierpinskiTriangle from "./components/SierpinskiTriangle.astro";
 import Squares from "./components/Squares.astro";
 import Triangles from "./components/Triangles.astro";
 import Triangles2 from "./components/Triangles2.astro";
+import EmergencyExit from "./components/EmergencyExit.astro";
 
-const rootRedirect = "14-segment";
+const rootRedirect = "emergency-exit";
 
 export type Route = {
   params: {
@@ -121,6 +122,10 @@ let routes: Route[] = [
   {
     params: { slug: "14-segment" },
     props: { title: "14-segment", createdOn: "2023-11-24", component: FourteenSegment },
+  },
+  {
+    params: { slug: "emergency-exit" },
+    props: { title: "emergency-exit", createdOn: "2024-08-10", component: EmergencyExit },
   },
 ];
 
