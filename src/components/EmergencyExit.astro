@@ -64,30 +64,8 @@
       background-image: radial-gradient(circle at 50% 66.67%, transparent 8.8388347797%, black 8.8388347797%, black 17.6776695593%, transparent 17.6776695593%), radial-gradient(at 50% 50%, transparent 53.033008678%, black 53.033008678%, black 61.8718434576%, transparent 61.8718434576%), radial-gradient(circle at 62.5% 37.5%, black 7.0710678237%, transparent 7.0710678237%), radial-gradient(circle at 37.5% 37.5%, black 7.0710678237%, transparent 7.0710678237%);
       background-size: 32px 32px;
       background-position: center;
-      mix-blend-mode: color-burn;
-      opacity: 0.3;
+      mix-blend-mode: overlay;
       transform: rotate(32deg);
-      animation-name: shake;
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-
-      @media (prefers-reduced-motion) {
-        animation-name: unset;
-      }
-
-      @keyframes shake {
-        0% {
-          transform: rotate(28deg) scale(1);
-        }
-
-        50% {
-          transform: rotate(32deg) scale(1.5);
-        }
-
-        100% {
-          transform: rotate(28deg) scale(1);
-        }
-      }
     }
   }
 
@@ -267,13 +245,13 @@
 
   .arrow-tip-top {
     top: 0;
-    bottom: 50%;
+    bottom: 49%;
     transform-origin: bottom right;
     transform: skew(45deg);
   }
 
   .arrow-tip-bottom {
-    top: 50%;
+    top: 51%;
     bottom: 0;
     transform-origin: top right;
     transform: skew(-45deg);
