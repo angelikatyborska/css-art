@@ -51,14 +51,14 @@
   &:nth-child(4n + 4) {
     &:before {
       border-radius: $radius 0 $radius 0;
-      animation-name: morph;
+      animation-name: pattern4-morph;
       animation-fill-mode: both;
       animation-duration: 8s;
       animation-iteration-count: infinite;
     }
   }
 
-  @keyframes morph {
+  @keyframes pattern4-morph {
     $half-hold-time: 8%;
 
     #{0% + $half-hold-time} {
