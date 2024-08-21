@@ -178,13 +178,13 @@ $tape-color: #59493a;
       border: 0;
       background: transparent;
       opacity: 0.85;
-      animation-name: change-side-marker;
+      animation-name: cassette-change-side-marker;
       animation-timing-function: steps(1, end);
       animation-fill-mode: both;
       animation-iteration-count: infinite;
       animation-duration: 2 * $rotation-duration * $rotations-in-full-tape;
 
-      @keyframes change-side-marker {
+      @keyframes cassette-change-side-marker {
         0% { opacity: 1; pointer-events: all; }
         50% { opacity: 0; pointer-events: none; }
       }
@@ -215,13 +215,13 @@ $tape-color: #59493a;
       padding: 0 0.1em;
       border: 0.04em solid $text-color;
       border-radius: 0.04em;
-      animation-name: change-side;
+      animation-name: cassette-change-side;
       animation-timing-function: steps(1, end);
       animation-fill-mode: both;
       animation-iteration-count: infinite;
       animation-duration: 2 * $rotation-duration * $rotations-in-full-tape;;
 
-      @keyframes change-side {
+      @keyframes cassette-change-side {
         0% { content: 'A'; }
         50% { content: 'B'; }
       }
@@ -306,11 +306,21 @@ $tape-color: #59493a;
       bottom: 0;
       left: 0;
       transform-origin: center;
-      animation-name: rotate;
+      animation-name: cassette-rotate;
       animation-fill-mode: both;
       animation-duration: $rotation-duration;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
+
+      @keyframes cassette-rotate {
+        0% {
+          transform: rotate(360deg);
+        }
+
+        100% {
+          transform: rotate(0deg);
+        }
+      }
     }
 
     .gear-tooth {
@@ -369,7 +379,7 @@ $tape-color: #59493a;
         border-radius: 50%;
         height: 0;
         top: 0.5 * $tape-window-right - $tape-window-top;
-        animation-name: rotate-tape;
+        animation-name: cassette-rotate-tape;
         animation-fill-mode: both;
         animation-duration: $rotation-duration * $rotations-in-full-tape;
         animation-timing-function: steps(100);
@@ -386,7 +396,7 @@ $tape-color: #59493a;
           animation-direction: reverse;
         }
 
-        @keyframes rotate-tape {
+        @keyframes cassette-rotate-tape {
           0% {
             width: 95%;
             padding: 95%;
@@ -556,14 +566,5 @@ $tape-color: #59493a;
  }
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(360deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
 
 </style>

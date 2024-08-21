@@ -42,7 +42,7 @@ $rows: 11;
       $end-pos: math.div(50%, $rows - 1);
     }
 
-    @keyframes anim-#{$i} {
+    @keyframes dot-queue-anim-#{$i} {
       0% {
         background-position-x: $start-pos;
       }
@@ -70,7 +70,7 @@ $rows: 11;
 
     &:nth-child(#{$i}) {
       background-position: $start-pos 0;
-      animation-name: anim-#{$i};
+      animation-name: dot-queue-anim-#{$i};
       animation-duration: $rows * 2s;
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;

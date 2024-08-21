@@ -68,7 +68,7 @@
 
   &:nth-child(3) {
     @include hex($max-size - 2 * $size-step, var(--accent-color));
-    animation-name: rotate;
+    animation-name: hex-rotate;
     animation-duration: 2 * $min-animation-duration;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -92,7 +92,7 @@
   }
 }
 
-@keyframes rotate {
+@keyframes hex-rotate {
   0% {
     transform: translateX(-50%) translateY(-50%) rotate(0deg);
   }
