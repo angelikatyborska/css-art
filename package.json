@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.8.0",
-    "astro": "^4.11.5",
+    "astro": "^4.16.6",
     "sass": "^1.77.6"
   },
   "devDependencies": {
