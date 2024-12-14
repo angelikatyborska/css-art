@@ -1,105 +1,104 @@
 <div class="wrapper">
-  <div class="hex" />
-  <div class="hex" />
-  <div class="hex" />
-  <div class="hex" />
-  <div class="hex" />
-  <div class="hex" />
+  <div class="hex"></div>
+  <div class="hex"></div>
+  <div class="hex"></div>
+  <div class="hex"></div>
+  <div class="hex"></div>
+  <div class="hex"></div>
 </div>
 
 <style lang="scss">
-@use "sass:math";
-@import "../variables.scss";
+  @use "sass:math";
+  @import "../variables.scss";
 
-.wrapper {
-  @include square-canvas-child();
-  position: relative;
-  box-sizing: border-box;
-}
+  .wrapper {
+    @include square-canvas-child();
+    position: relative;
+    box-sizing: border-box;
+  }
 
-@mixin hex($width, $color) {
-  $root-three: 1.732050808;
-  width: $width;
-  height: math.div($width, $root-three);
-  background-color: $color;
+  @mixin hex($width, $color) {
+    $root-three: 1.732050808;
+    width: $width;
+    height: math.div($width, $root-three);
+    background-color: $color;
 
-  &:before,
-  &:after {
-    content: "";
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      border-left: 0.5 * $width solid transparent;
+      border-right: 0.5 * $width solid transparent;
+    }
+
+    &:before {
+      bottom: 100%;
+      border-bottom: math.div($width, (2 * $root-three)) solid $color;
+    }
+
+    &:after {
+      top: 100%;
+      width: 0;
+      border-top: math.div($width, (2 * $root-three)) solid $color;
+    }
+  }
+
+  .hex {
     position: absolute;
-    width: 0;
-    border-left: 0.5 * $width solid transparent;
-    border-right: 0.5 * $width solid transparent;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transform-origin: 50%;
+    $max-size: 30vw;
+    $size-step: 5vw;
+    $min-animation-duration: 10s;
+
+    &:nth-child(1) {
+      @include hex($max-size, black);
+      animation-name: rotate;
+      animation-duration: $min-animation-duration;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    &:nth-child(2) {
+      @include hex($max-size - 1 * $size-step, white);
+    }
+
+    &:nth-child(3) {
+      @include hex($max-size - 2 * $size-step, var(--accent-color));
+      animation-name: hex-rotate;
+      animation-duration: 2 * $min-animation-duration;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-direction: reverse;
+    }
+
+    &:nth-child(4) {
+      @include hex($max-size - 3 * $size-step, white);
+    }
+
+    &:nth-child(5) {
+      @include hex($max-size - 4 * $size-step, black);
+      animation-name: rotate;
+      animation-duration: 4 * $min-animation-duration;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    &:nth-child(6) {
+      @include hex($max-size - 5 * $size-step, white);
+    }
   }
 
-  &:before {
-    bottom: 100%;
-    border-bottom: math.div($width, (2 * $root-three)) solid $color;
+  @keyframes hex-rotate {
+    0% {
+      transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+      transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
   }
-
-  &:after {
-    top: 100%;
-    width: 0;
-    border-top: math.div($width, (2 * $root-three)) solid $color;
-  }
-}
-
-.hex {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  transform-origin: 50%;
-  $max-size: 30vw;
-  $size-step: 5vw;
-  $min-animation-duration: 10s;
-
-  &:nth-child(1) {
-    @include hex($max-size, black);
-    animation-name: rotate;
-    animation-duration: $min-animation-duration;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-
-  &:nth-child(2) {
-    @include hex($max-size - 1 * $size-step, white);
-  }
-
-  &:nth-child(3) {
-    @include hex($max-size - 2 * $size-step, var(--accent-color));
-    animation-name: hex-rotate;
-    animation-duration: 2 * $min-animation-duration;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-direction: reverse;
-  }
-
-  &:nth-child(4) {
-    @include hex($max-size - 3 * $size-step, white);
-  }
-
-  &:nth-child(5) {
-    @include hex($max-size - 4 * $size-step, black);
-    animation-name: rotate;
-    animation-duration: 4 * $min-animation-duration;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-
-  &:nth-child(6) {
-    @include hex($max-size - 5 * $size-step, white);
-  }
-}
-
-@keyframes hex-rotate {
-  0% {
-    transform: translateX(-50%) translateY(-50%) rotate(0deg);
-  }
-
-  100% {
-    transform: translateX(-50%) translateY(-50%) rotate(360deg);
-  }
-}
-
 </style>

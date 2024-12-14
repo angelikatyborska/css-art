@@ -1,5 +1,5 @@
 ---
-import type {Route} from "../routes";
+import type { Route } from "../routes";
 import links from "./links";
 import routes from "../routes";
 
@@ -10,40 +10,45 @@ interface Props {
 
 const { newestRoute, slug } = Astro.props;
 ---
-<script>
-  import { navigate } from 'astro:transitions/client';
-  const links = Array.from(document.querySelectorAll<HTMLElement>('#nav a'))
 
-  document.addEventListener('astro:page-load', () => {
-    links.forEach(link => {
-        link.setAttribute('aria-current', link.getAttribute('href') === document.location.pathname.replace(/\/$/, "") ? "page" : "false")
-      }
-    )
-  })
+<script>
+  import { navigate } from "astro:transitions/client";
+  const links = Array.from(document.querySelectorAll<HTMLElement>("#nav a"));
+
+  document.addEventListener("astro:page-load", () => {
+    links.forEach((link) => {
+      link.setAttribute(
+        "aria-current",
+        link.getAttribute("href") === document.location.pathname.replace(/\/$/, "")
+          ? "page"
+          : "false",
+      );
+    });
+  });
 
   function mod(n: number, m: number) {
     return ((n % m) + m) % m;
   }
 
   function nextLinkIndex(shift: number) {
-    const i = links.findIndex((link) => link.getAttribute('aria-current') === 'page');
-    return mod((i + shift), links.length);
+    const i = links.findIndex((link) => link.getAttribute("aria-current") === "page");
+    return mod(i + shift, links.length);
   }
 
   function visitLink(shift: number) {
     const i = nextLinkIndex(shift);
-    const nextLink = links[i]
-    navigate(nextLink.getAttribute('href')!)
+    const nextLink = links[i];
+    navigate(nextLink.getAttribute("href")!);
   }
 
   function onKeyUp(event: KeyboardEvent) {
-    const eventTarget = event.target as Element
-    if (!eventTarget.tagName || (eventTarget.tagName?.toLowerCase()) !== 'input') {
+    const eventTarget = event.target as Element;
+    if (!eventTarget.tagName || eventTarget.tagName?.toLowerCase() !== "input") {
       switch (event?.key) {
-        case 'ArrowLeft':
+        case "ArrowLeft":
           visitLink(-1);
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           visitLink(1);
           break;
         default:
@@ -52,27 +57,31 @@ const { newestRoute, slug } = Astro.props;
     }
   }
 
-  document.addEventListener('keyup', onKeyUp)
+  document.addEventListener("keyup", onKeyUp);
 </script>
 
 <nav id="nav" transition:persist>
   <section>
-    <h2>grids: </h2>
-    {links.grids.map(link =>
-      <a href={link} aria-current={link === `/${slug}` ? "page" : "false"}>
-        { routes.find(r => `/${r.params.slug}` === link)?.props.title }
-        {link === `/${newestRoute.params.slug}` ? <span class="new-route-marker">*</span> : ''}
-      </a>
-    )}
+    <h2>grids:</h2>
+    {
+      links.grids.map((link) => (
+        <a href={link} aria-current={link === `/${slug}` ? "page" : "false"}>
+          {routes.find((r) => `/${r.params.slug}` === link)?.props.title}
+          {link === `/${newestRoute.params.slug}` ? <span class="new-route-marker">*</span> : ""}
+        </a>
+      ))
+    }
   </section>
   <section>
-    <h2>misc: </h2>
-    {links.misc.map(link =>
-      <a href={link} aria-current={link === `/${slug}` ? "page" : "false"}>
-        { routes.find(r => `/${r.params.slug}` === link)?.props.title }
-        {link === `/${newestRoute.params.slug}` ? <span class="new-route-marker">*</span> : ''}
-      </a>
-    )}
+    <h2>misc:</h2>
+    {
+      links.misc.map((link) => (
+        <a href={link} aria-current={link === `/${slug}` ? "page" : "false"}>
+          {routes.find((r) => `/${r.params.slug}` === link)?.props.title}
+          {link === `/${newestRoute.params.slug}` ? <span class="new-route-marker">*</span> : ""}
+        </a>
+      ))
+    }
   </section>
 
   <p>use left/right arrows to navigate</p>

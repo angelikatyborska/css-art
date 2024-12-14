@@ -1,11 +1,13 @@
 <div class="wrapper">
-  {(new Array(7)).fill(1).map(() => (
-    <div class="flower">
-      {(new Array(12)).fill(1).map(() => (
-        <div class="petal" />
-      ))}
-    </div>
-  ))}
+  {
+    new Array(7).fill(1).map(() => (
+      <div class="flower">
+        {new Array(12).fill(1).map(() => (
+          <div class="petal" />
+        ))}
+      </div>
+    ))
+  }
 </div>
 
 <style lang="scss">
@@ -86,5 +88,4 @@
       }
     }
   }
-
 </style>

@@ -13,7 +13,7 @@
     "eslint": "eslint -c eslint.config.js src/**/*.{astro,ts} *.{js,mjs}",
     "lint:prettier": "prettier --check .",
     "lint": "npm run check && npm run eslint && npm run lint:prettier",
-    "format": "prettier --write .",
+    "format": "npm run eslint -- --fix && prettier --write .",
     "check-covers": "node bin/check-covers.js"
   },
   "dependencies": {
@@ -29,7 +29,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^6.9.0",
-    "prettier": "3.3.3",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.0"
   }
