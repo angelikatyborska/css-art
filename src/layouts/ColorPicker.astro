@@ -1,37 +1,32 @@
 <script>
   function setup() {
-    const root = document.querySelector<HTMLElement>(':root') as HTMLElement;
+    const root = document.querySelector<HTMLElement>(":root") as HTMLElement;
     const input = document.querySelector<HTMLInputElement>("#accent-color") as HTMLInputElement;
-    const storageKey = 'accent-color';
-    const colorToRestore = window.sessionStorage.getItem(storageKey) || '';
+    const storageKey = "accent-color";
+    const colorToRestore = window.sessionStorage.getItem(storageKey) || "";
 
     input.value = colorToRestore;
     setColor(colorToRestore);
 
     function setColor(color: string) {
-      root.style.setProperty('--accent-color', color);
-      window.sessionStorage.setItem(storageKey, color)
+      root.style.setProperty("--accent-color", color);
+      window.sessionStorage.setItem(storageKey, color);
     }
 
-    input.addEventListener('change', (event) => {
+    input.addEventListener("change", (event) => {
       const eventTarget = event.target as HTMLInputElement;
-      setColor(eventTarget.value)
-    })
+      setColor(eventTarget.value);
+    });
 
-    setColor(input.value)
+    setColor(input.value);
   }
 
   // on initial load, set the styles as fast as possible
   // (astro:page-load is slower than DOMContentLoaded)
-  document.addEventListener('DOMContentLoaded', setup)
+  document.addEventListener("DOMContentLoaded", setup);
   // then, set it again after each page swap
-  document.addEventListener('astro:after-swap', setup)
+  document.addEventListener("astro:after-swap", setup);
 </script>
 
 <label for="accent-color">accent:</label>
-<input
-  id="accent-color"
-  type="color"
-  name="accent"
-  autocomplete="false"
-/>
+<input id="accent-color" type="color" name="accent" autocomplete="false" />

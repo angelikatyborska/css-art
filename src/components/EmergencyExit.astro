@@ -29,21 +29,22 @@
 </div>
 
 <style lang="scss">
-  @use 'sass:math';
+  @use "sass:math";
   @import "../variables.scss";
 
   .grid {
     @include square-canvas-child();
   }
 
-  img, .sign {
+  img,
+  .sign {
     position: absolute;
     top: 50%;
     right: 0;
     width: 100%;
     transform: translateY(-50%);
     overflow: hidden;
-    filter: hue-rotate(-200deg)
+    filter: hue-rotate(-200deg);
   }
 
   $height: 240;
@@ -61,7 +62,22 @@
       bottom: -100%;
       left: -100%;
       background-color: white;
-      background-image: radial-gradient(circle at 50% 66.67%, transparent 8.8388347797%, black 8.8388347797%, black 17.6776695593%, transparent 17.6776695593%), radial-gradient(at 50% 50%, transparent 53.033008678%, black 53.033008678%, black 61.8718434576%, transparent 61.8718434576%), radial-gradient(circle at 62.5% 37.5%, black 7.0710678237%, transparent 7.0710678237%), radial-gradient(circle at 37.5% 37.5%, black 7.0710678237%, transparent 7.0710678237%);
+      background-image: radial-gradient(
+          circle at 50% 66.67%,
+          transparent 8.8388347797%,
+          black 8.8388347797%,
+          black 17.6776695593%,
+          transparent 17.6776695593%
+        ),
+        radial-gradient(
+          at 50% 50%,
+          transparent 53.033008678%,
+          black 53.033008678%,
+          black 61.8718434576%,
+          transparent 61.8718434576%
+        ),
+        radial-gradient(circle at 62.5% 37.5%, black 7.0710678237%, transparent 7.0710678237%),
+        radial-gradient(circle at 37.5% 37.5%, black 7.0710678237%, transparent 7.0710678237%);
       background-size: 32px 32px;
       background-position: center;
       mix-blend-mode: overlay;
@@ -237,7 +253,8 @@
     background: white;
   }
 
-  .arrow-tip-top, .arrow-tip-bottom {
+  .arrow-tip-top,
+  .arrow-tip-bottom {
     position: absolute;
     right: 0;
     left: 77%;
@@ -257,5 +274,4 @@
     transform-origin: top right;
     transform: skew(-45deg) translateX(1px);
   }
-
 </style>

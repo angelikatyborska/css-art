@@ -1,51 +1,49 @@
 <div class="grid">
-  {(new Array(441)).fill(1).map(() => (
-    <div class="cell"  />
-  ))}
+  {new Array(441).fill(1).map(() => <div class="cell" />)}
 </div>
 
 <style lang="scss">
-@import "../variables.scss";
+  @import "../variables.scss";
 
-.grid {
-  @include square-canvas-child();
-  display: grid;
-  grid-template-columns: repeat(21, 1fr);
-  grid-template-rows: repeat(21, 1fr);
-}
-
-.cell {
-  position: relative;
-  overflow: visible;
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background: black;
-    width: 0.01em;
-    height: 100%;
+  .grid {
+    @include square-canvas-child();
+    display: grid;
+    grid-template-columns: repeat(21, 1fr);
+    grid-template-rows: repeat(21, 1fr);
   }
 
-  &:nth-child(8n) {
+  .cell {
+    position: relative;
+    overflow: visible;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      background: black;
+      width: 0.01em;
+      height: 100%;
+    }
+
+    &:nth-child(8n) {
       &:before {
-      margin-left: 15%;
+        margin-left: 15%;
+      }
     }
-  }
 
-  &:nth-child(13n + 2) {
-    &:before {
-      margin-left: -15%;
+    &:nth-child(13n + 2) {
+      &:before {
+        margin-left: -15%;
+      }
     }
-  }
 
-  &:nth-child(17n + 3) {
-    &:before {
-      background: $accent;
+    &:nth-child(17n + 3) {
+      &:before {
+        background: $accent;
+      }
     }
   }
-}
 </style>

@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import routes, { rootRoute } from "../routes"
+import Layout from "../layouts/Layout.astro";
+import routes, { rootRoute } from "../routes";
 import SquareCanvas from "../layouts/SquareCanvas.astro";
 
 export function getStaticPaths() {
@@ -14,12 +14,12 @@ const Component = component;
 ---
 
 <script>
-  import { rootRoute } from '../routes'
-  document.addEventListener('astro:page-load', () => {
-    if (window.location.pathname === '/') {
-      history.replaceState({}, '',  rootRoute.params.slug)
+  import { rootRoute } from "../routes";
+  document.addEventListener("astro:page-load", () => {
+    if (window.location.pathname === "/") {
+      history.replaceState({}, "", rootRoute.params.slug);
     }
-  })
+  });
 </script>
 
 <Layout title={title} slug={slug || rootRoute.params.slug}>

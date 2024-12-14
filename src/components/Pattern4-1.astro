@@ -1,137 +1,135 @@
 <div class="grid">
-  {(new Array(100)).fill(1).map(() => (
-    <div class="cell" />
-  ))}
+  {new Array(100).fill(1).map(() => <div class="cell" />)}
 </div>
 
 <style lang="scss">
-@import "../variables.scss";
+  @import "../variables.scss";
 
-.grid {
-  @include square-canvas-child();
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-}
-
-.cell {
-  position: relative;
-  overflow: visible;
-
-  $radius: 0.1em;
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 0 0 0 0;
-    background: black;
+  .grid {
+    @include square-canvas-child();
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
   }
 
-  &:nth-child(4n + 1) {
+  .cell {
+    position: relative;
+    overflow: visible;
+
+    $radius: 0.1em;
+
     &:before {
-      border-radius: $radius 0 $radius 0;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 0 0 0 0;
+      background: black;
+    }
+
+    &:nth-child(4n + 1) {
+      &:before {
+        border-radius: $radius 0 $radius 0;
+      }
+    }
+
+    &:nth-child(4n + 2) {
+      &:before {
+        border-radius: 0 $radius 0 $radius;
+      }
+    }
+
+    &:nth-child(4n + 3) {
+      &:before {
+        border-radius: 0 $radius 0 $radius;
+        animation-name: morph2;
+        animation-fill-mode: both;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+      }
+    }
+
+    &:nth-child(4n + 4) {
+      &:before {
+        border-radius: $radius 0 $radius 0;
+        animation-name: morph1;
+        animation-fill-mode: both;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+      }
+    }
+
+    @keyframes morph1 {
+      $half-hold-time: 8%;
+
+      #{0% + $half-hold-time} {
+        border-radius: $radius 0 $radius 0;
+      }
+
+      #{25% - $half-hold-time} {
+        border-radius: $radius $radius $radius $radius;
+      }
+
+      #{25% + $half-hold-time} {
+        border-radius: $radius $radius $radius $radius;
+      }
+
+      #{50% - $half-hold-time} {
+        border-radius: 0 $radius 0 $radius;
+      }
+
+      #{50% + $half-hold-time} {
+        border-radius: 0 $radius 0 $radius;
+      }
+
+      #{75% - $half-hold-time} {
+        border-radius: $radius $radius $radius $radius;
+      }
+
+      #{75% + $half-hold-time} {
+        border-radius: $radius $radius $radius $radius;
+      }
+
+      #{100% - $half-hold-time} {
+        border-radius: $radius 0 $radius 0;
+      }
+    }
+
+    @keyframes morph2 {
+      $half-hold-time: 8%;
+
+      #{0% + $half-hold-time} {
+        border-radius: 0 $radius 0 $radius;
+      }
+
+      #{25% - $half-hold-time} {
+        border-radius: $radius $radius $radius $radius;
+      }
+
+      #{25% + $half-hold-time} {
+        border-radius: $radius $radius $radius $radius;
+      }
+
+      #{50% - $half-hold-time} {
+        border-radius: $radius 0 $radius 0;
+      }
+
+      #{50% + $half-hold-time} {
+        border-radius: $radius 0 $radius 0;
+      }
+
+      #{75% - $half-hold-time} {
+        border-radius: $radius $radius $radius $radius;
+      }
+
+      #{75% + $half-hold-time} {
+        border-radius: $radius $radius $radius $radius;
+      }
+
+      #{100% - $half-hold-time} {
+        border-radius: 0 $radius 0 $radius;
+      }
     }
   }
-
-  &:nth-child(4n + 2) {
-    &:before {
-      border-radius: 0 $radius 0 $radius;
-    }
-  }
-
-  &:nth-child(4n + 3) {
-    &:before {
-      border-radius: 0 $radius 0 $radius;
-      animation-name: morph2;
-      animation-fill-mode: both;
-      animation-duration: 8s;
-      animation-iteration-count: infinite;
-    }
-  }
-
-  &:nth-child(4n + 4) {
-    &:before {
-      border-radius: $radius 0 $radius 0;
-      animation-name: morph1;
-      animation-fill-mode: both;
-      animation-duration: 8s;
-      animation-iteration-count: infinite;
-    }
-  }
-
-  @keyframes morph1 {
-    $half-hold-time: 8%;
-
-    #{0% + $half-hold-time} {
-      border-radius: $radius 0 $radius 0;
-    }
-
-    #{25% - $half-hold-time} {
-      border-radius: $radius $radius $radius $radius;
-    }
-
-    #{25% + $half-hold-time} {
-      border-radius: $radius $radius $radius $radius;
-    }
-
-    #{50% - $half-hold-time} {
-      border-radius: 0 $radius 0 $radius;
-    }
-
-    #{50% + $half-hold-time} {
-      border-radius: 0 $radius 0 $radius;
-    }
-
-    #{75% - $half-hold-time} {
-      border-radius: $radius $radius $radius $radius;
-    }
-
-    #{75% + $half-hold-time} {
-      border-radius: $radius $radius $radius $radius;
-    }
-
-    #{100% - $half-hold-time} {
-      border-radius: $radius 0 $radius 0;
-    }
-  }
-
-  @keyframes morph2 {
-    $half-hold-time: 8%;
-
-    #{0% + $half-hold-time} {
-      border-radius: 0 $radius 0 $radius ;
-    }
-
-    #{25% - $half-hold-time} {
-      border-radius: $radius $radius $radius $radius;
-    }
-
-    #{25% + $half-hold-time} {
-      border-radius: $radius $radius $radius $radius;
-    }
-
-    #{50% - $half-hold-time} {
-      border-radius: $radius 0 $radius 0;
-    }
-
-    #{50% + $half-hold-time} {
-      border-radius: $radius 0 $radius 0;
-    }
-
-    #{75% - $half-hold-time} {
-      border-radius: $radius $radius $radius $radius;
-    }
-
-    #{75% + $half-hold-time} {
-      border-radius: $radius $radius $radius $radius;
-    }
-
-    #{100% - $half-hold-time} {
-      border-radius: 0 $radius 0 $radius ;
-    }
-  }
-}
 </style>
